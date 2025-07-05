@@ -1,90 +1,18 @@
 
-<!-- attendance.html -->
-<!DOCTYPE html>
-<html lang="so">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foomka Xaadirinta - Machadka Tartiiil Online</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    async function submitAttendance(event) {
-      event.preventDefault();
-      const form = event.target;
-      const data = new FormData(form);
-      const response = await fetch("https://script.google.com/macros/s/AKfycbxyz12345/exec", {
-        method: "POST",
-        body: data
-      });
-      if (response.ok) {
-        alert("Xaadirinta waa la diray!");
-        form.reset();
-      } else {
-        alert("Wax qalad ah ayaa dhacay. Fadlan isku day mar kale.");
-      }
-    }
-  </script>
-</head>
-<body>
-  <nav>
-    <div class="logo-container">
-      <img src="logo.jpg" alt="Machadka Tartiiil Logo">
-      <div class="logo">Machadka Tartiiil Online</div>
-    </div>
-    <ul>
-      <li><a href="index.html">Bogga Hore</a></li>
-      <li><a href="about.html">Ku Saabsan</a></li>
-      <li><a href="courses.html">Koorsooyinka</a></li>
-      <li><a href="registration.html">Isdiiwaan-gelin</a></li>
-      <li><a href="payment.html">Lacag Bixinta</a></li>
-      <li><a href="jadwalka.html">Jadwalka</a></li>
-      <li><a href="attendance.html" class="active">Xaadirin</a></li>
-      <li><a href="contact.html">Nala Soo Xiriir</a></li>
-      <li><a href="social.html">Baraha Bulshada</a></li>
-    </ul>
-  </nav>
-
-  <div class="container">
-    <h1>Foomka Xaadirinta</h1>
-    <p>Fadlan buuxi foomkan si aad u caddeyso in aad xaadirto casharka maanta.</p>
-
-    <form onsubmit="submitAttendance(event)">
-      <label for="name">Magaca:</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="course">Koorso:</label>
-      <select id="course" name="course" required>
-        <option value="Farbarka Carabiga">Farbarka Carabiga</option>
-        <option value="Tasxiix">Tasxiix</option>
-        <option value="Xifdi">Xifdi</option>
-        <option value="Muraajaco + Tasxiix">Muraajaco + Tasxiix</option>
-        <option value="Culuumta Shareecada">Culuumta Shareecada</option>
-      </select>
-
-      <label for="time">Waqtiga Casharka:</label>
-      <select id="time" name="time" required>
-        <option value="4:00 Galabnimo">5:00 Galabnimoo</option>
-        <option value="5:00 habeenimo">6:00 Galabnimo</option>
-        <option value="7:00 Habeennimo">8:00 Habeennimo</option>
-        <option value="8:00 Habeennimo">9:00 Habeennimo</option>
-        <option value="9:00 Habeennimo">10:00 Habeennimo</option>
-           <option value="10:00 Habeennimo">11:00 Habeennimo</option>
-      </select>
-
-      <label for="date">Taariikhda:</label>
-      <input type="date" id="date" name="date" required>
-
-      <label>
-        <input type="checkbox" name="present" value="Haa" required>
-        Waxaan joogaa casharka maanta
-      </label>
-
-      <button type="submit">Xaadir</button>
-    </form>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online. Xuquuqda way dhowran tahay.</p>
-  </footer>
-</body>
-</html>
+<form action="#" method="POST">
+  <h2>Foomka Xaadirinta</h2>
+  <label for="name">Magaca:</label>
+  <input type="text" name="name" required>
+  <label for="course">Koorso:</label>
+  <select name="course">
+    <option value="Farbarka Carabiga">Farbarka Carabiga</option>
+    <option value="Tasxiix">Tasxiix</option>
+    <option value="Xifdi">Xifdi</option>
+    <option value="Muraajaco + Tasxiix">Muraajaco + Tasxiix</option>
+    <option value="Culuumta Shareecada">Culuumta Shareecada</option>
+  </select>
+  <label for="date">Taariikhda:</label>
+  <input type="date" name="date" required>
+  <label><input type="checkbox" name="present" required> Waxaan joogaa casharka</label>
+  <button type="submit">Xaadirnow</button>
+</form>
