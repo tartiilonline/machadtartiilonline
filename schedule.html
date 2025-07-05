@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jadwalka - Machadka Tartiiil Online</title>
+  <title>Jadwalka Duruusta - Machadka Tartiiil Online</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,15 +23,33 @@
 
   <main>
     
-    <section>
-      <h2>Jadwalka Duruusta</h2>
-      <p>Duruustu waxay socdaan 7 maalmood usbuucii, subax iyo habeenba.</p>
-      <ul>
-        <li>Subax: 8:00 AM – 11:00 AM</li>
-        <li>Habeen: 7:30 PM – 10:00 PM</li>
-      </ul>
-    </section>
-    
+<section>
+  <h2>Jadwalka Duruusta ee Machadka Tartiiil</h2>
+  <p>Duruustu waxay bilaabanayaan maalin kasta laga bilaabo <strong>3:00 galabnimo</strong> ilaa <strong>12:00 habeenimo</strong>.</p>
+  <p>Arday kasta wuxuu si madax-bannaan u dooran karaa maalmaha iyo saacadaha uu doonayo inuu wax ka barto.</p>
+
+  <form action="https://formspree.io/f/mdkzvkvk" method="POST">
+    <label>Magaca Ardayga:
+      <input type="text" name="magac" required>
+    </label><br><br>
+
+    <label>Maalmaha Aad Dooratay:</label><br>
+    <input type="checkbox" name="days" value="Axad"> Axad<br>
+    <input type="checkbox" name="days" value="Isniin"> Isniin<br>
+    <input type="checkbox" name="days" value="Talaado"> Talaado<br>
+    <input type="checkbox" name="days" value="Arbaco"> Arbaco<br>
+    <input type="checkbox" name="days" value="Khamiis"> Khamiis<br>
+    <input type="checkbox" name="days" value="Jimce"> Jimce<br>
+    <input type="checkbox" name="days" value="Sabti"> Sabti<br><br>
+
+    <label>Waqtiga Aad Rabto (3:00 PM – 12:00 AM):</label><br>
+    <input type="time" name="start_time" min="15:00" max="23:59" required> ilaa
+    <input type="time" name="end_time" min="15:00" max="23:59" required><br><br>
+
+    <button type="submit" class="btn">Diiwaangeli Jadwalka</button>
+  </form>
+</section>
+
   </main>
 
   <footer>
