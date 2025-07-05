@@ -1,86 +1,28 @@
 
-<!DOCTYPE html>
-<html lang="so">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Foomka Isdiiwaan-gelinta - Machadka Tartiiil Online</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    async function submitRegistration(event) {
-      event.preventDefault();
-      const form = event.target;
-      const data = new FormData(form);
-      const response = await fetch("https://script.google.com/macros/s/AKfycbxyz12345/exec", {
-        method: "POST",
-        body: data
-      });
-      if (response.ok) {
-        alert("Isdiiwaan-gelinta waa la diray!");
-        form.reset();
-      } else {
-        alert("Wax qalad ah ayaa dhacay. Fadlan isku day mar kale.");
-      }
-    }
-  </script>
-</head>
-<body>
-  <nav>
-    <div class="logo-container">
-      <div class="logo">Machadka Tartiiil Online</div>
-    </div>
-    <ul>
-      <li><a href="index.html">Bogga Hore</a></li>
-      <li><a href="about.html">Ku Saabsan</a></li>
-      <li><a href="courses.html">Koorsooyinka</a></li>
-      <li><a href="registration.html" class="active">Isdiiwaan-gelin</a></li>
-      <li><a href="payment.html">Lacag Bixinta</a></li>
-      <li><a href="jadwalka.html">Jadwalka</a></li>
-      <li><a href="attendance.html">Xaadirin</a></li>
-      <li><a href="contact.html">Nala Soo Xiriir</a></li>
-      <li><a href="social.html">Baraha Bulshada</a></li>
-    </ul>
-  </nav>
+<!-- registration.html -->
+<form action="https://formspree.io/f/xyzjovwj" method="POST">
+  <label for="name">Magaca:</label>
+  <input type="text" id="name" name="name" required>
 
-  <div class="container">
-    <h1>Foomka Isdiiwaan-gelinta</h1>
-    <p>Fadlan buuxi foomkan si aad isu diiwaan geliso.</p>
+  <label for="country">Wadanka:</label>
+  <input type="text" id="country" name="country" required>
 
-    <form onsubmit="submitRegistration(event)">
-      <label for="name">Magaca:</label>
-      <input type="text" id="name" name="name" required>
+  <label for="phone">Lambarka Telefoonka:</label>
+  <input type="tel" id="phone" name="phone" required>
 
-      <label for="country">Wadanka:</label>
-      <input type="text" id="country" name="country" required>
+  <label for="dob">Taariikhda Dhalashada:</label>
+  <input type="date" id="dob" name="dob" required>
 
-      <label for="phone">Lambarka:</label>
-      <input type="tel" id="phone" name="phone" required>
+  <label for="memorization">Heerka Xifdiga:</label>
+  <select id="memorization" name="memorization" required>
+    <option value="1-5 juz">1–5 Juz</option>
+    <option value="6-15 juz">6–15 Juz</option>
+    <option value="16-29 juz">16–29 Juz</option>
+    <option value="Quraan dhan">Quraan dhan</option>
+  </select>
 
-      <label for="birthdate">Taariikhda Dhalashada:</label>
-      <input type="date" id="birthdate" name="birthdate" required>
+  <label for="register_date">Taariikhda Diiwaan Gelinta:</label>
+  <input type="date" id="register_date" name="register_date" required>
 
-      <label for="level">Heerka Xifdiga:</label>
-      <input type="text" id="level" name="level" required>
-
-      <label for="registration_date">Taariikhda Isdiiwaan-gelinta:</label>
-      <input type="date" id="registration_date" name="registration_date" required>
-
-      <label for="course">Koorso:</label>
-      <select id="course" name="course" required>
-        <option value="Farbarka Carabiga">Farbarka Carabiga</option>
-        <option value="Tasxiix">Tasxiix</option>
-        <option value="Xifdi">Xifdi</option>
-        <option value="Muraajaco + Tasxiix">Muraajaco + Tasxiix</option>
-        <option value="Culuumta Shareecada">Culuumta Shareecada</option>
-      </select>
-
-      <button type="submit">Diiwaangeli</button>
-    </form>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online. Xuquuqda way dhowran tahay.</p>
-  </footer>
-</body>
-</html>
+  <button type="submit">Is Diiwaan Geli</button>
+</form>
