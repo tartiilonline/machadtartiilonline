@@ -1,78 +1,109 @@
 
+/* ======= Base Styles ======= */
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #fdfdfd;
-}
-header {
-  text-align: center;
-  padding: 1.5rem;
-  background: #fff4f0;
-}
-header h1 {
-  margin: 0;
-  color: #800020;
-}
-nav {
-  background: #800020;
-}
-nav .menu-toggle {
-  display: none;
-  padding: 1rem;
-  text-align: right;
-  cursor: pointer;
-  color: white;
-  font-size: 1.5rem;
-  margin-right: 1rem;
-}
-nav ul {
-  list-style: none;
   margin: 0;
   padding: 0;
+  background-color: #fff;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #800020;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav {
+  background-color: #f2f2f2;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0.5rem;
   gap: 1rem;
-  transition: all 0.3s ease-in-out;
 }
-nav li {
-  margin: 0;
-}
+
 nav a {
-  display: inline-block;
-  padding: 0.75rem 1rem;
-  color: white;
+  color: #800020;
   text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s, color 0.3s;
+  font-weight: 600;
 }
+
 nav a:hover {
-  background: #b3003c;
-  color: #FFD700;
+  text-decoration: underline;
 }
+
 nav a.active {
-  color: #FFD700;
-  font-weight: bold;
-  background-color: #4d0013;
+  color: #d35400;
+  text-decoration: underline;
 }
-footer {
-  text-align: center;
-  background: #800020;
-  color: white;
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
   padding: 1rem;
 }
 
-/* Responsive menu for small screens */
-@media (max-width: 768px) {
-  nav ul {
+footer {
+  background-color: #eee;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ======= Dark Mode Styles ======= */
+body.dark-mode {
+  background-color: #121212;
+  color: #f4f4f4;
+}
+
+body.dark-mode nav {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode nav a {
+  color: #ffa500;
+}
+
+body.dark-mode nav a.active {
+  color: #ff7f50;
+}
+
+body.dark-mode footer {
+  background-color: #1f1f1f;
+  color: #ccc;
+}
+
+/* ======= Dark Mode Toggle Button ======= */
+#darkModeToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  background-color: #800020;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#darkModeToggle:hover {
+  background-color: #d35400;
+}
+
+/* ======= Responsive ======= */
+@media (max-width: 600px) {
+  nav {
     flex-direction: column;
-    display: none;
-    padding-bottom: 1rem;
+    align-items: center;
   }
-  nav ul.show {
-    display: flex;
-  }
-  nav .menu-toggle {
-    display: block;
+
+  #darkModeToggle {
+    top: 15px;
+    right: 15px;
   }
 }
