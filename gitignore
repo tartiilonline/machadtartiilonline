@@ -1,0 +1,32 @@
+
+# Node, build tools, and IDE files
+node_modules/
+dist/
+build/
+.vscode/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Backup or temp files
+*.bak
+*.tmp
+*~ 
+*.swp
+
+# Hidden folders
+.sass-cache/
+.cache/
+__pycache__/
+
+# Avoid uploading zip or large binaries
+*.zip
+*.rar
+*.tar.gz
+
+# Ignore unnecessary HTML duplicates
+* (1).html
+* copy.html
+* -old.html
