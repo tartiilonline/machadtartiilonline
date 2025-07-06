@@ -1,86 +1,48 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Koorsooyinka - Machadka Tartiiil Online</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .loader {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .loader::after {
-      content: "FADLAN SUG...";
-      font-size: 1.5rem;
-      color: #800020;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      50% { opacity: 0.5; }
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      background: #800020;
-      margin: 0;
-    }
-    nav ul li a {
-      display: block;
-      padding: 1rem;
-      color: white;
-      text-decoration: none;
-    }
-    nav ul li a:hover, nav ul li a.active {
-      background: #FF8C00;
-    }
-    footer {
-      background: #800020;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Courses</title>
 </head>
 <body>
-  <div class="loader"></div>
-  <header><h1>Machadka Tartiiil Online</h1></header>
-  <nav><ul><li><a href="index.html">🏠 Bogga Hore</a></li>
-<li><a href="register.html">📝 Diiwaangelin</a></li>
-<li><a href="courses.html" class="active">📚 Koorsooyinka</a></li>
-<li><a href="schedule.html">📅 Jadwalka</a></li>
-<li><a href="gallery.html">🖼️ Muuqaalada</a></li>
-<li><a href="videos.html">🎥 Duruus Video</a></li>
-<li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
-<li><a href="contact.html">☎️ La Xiriir</a></li>
-</ul></nav>
-  <main style="text-align: center; padding: 3rem 1rem;">
-    <h2>Koorsooyinka</h2>
-    <p>Qeybta: Koorsooyinka - boggaan waxa uu ka tirsan yahay Machadka Tartiiil Online.</p>
-  
-<section style="text-align:center; padding: 2rem;">
-  <h2>Soo Degso Koorsooyinka</h2>
-  <ul style="list-style: none; padding: 0;">
-    <li><a href="farbarka_carabiga.pdf" download>📘 Farbarka Carabiga</a></li>
-    <li><a href="sixidda_dhawaqa.pdf" download>🔊 Sixidda Dhawaqa</a></li>
-    <li><a href="xifdiga_quraanka.pdf" download>📖 Xifdiga Qur’aanka</a></li>
-    <li><a href="muraajacada_sixidda_carabka.pdf" download>📚 Muraajacada & Sixidda Carabka</a></li>
-    <li><a href="culuumta_quraanka.pdf" download>🕌 Culuumta Qur’aanka – Tajwiid, Tafsiir & Qiraa’aat</a></li>
-  </ul>
-</section>
+  <header>
+    <h1>Courses</h1>
+  </header>
 
-</main>
+  <main>
+    <p>Kani waa bogga Courses ee Machadka Tartiiil Online.</p>
+  </main>
+
   <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online. Xuquuqda way dhowrsan tahay.</p>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
   </footer>
-  <script src="script.js"></script>
+
+
+<!-- 🌙 Dark Mode Toggle Button -->
+<button id="darkModeToggle" style="position:fixed; top:10px; right:10px; z-index:9999;">🌓</button>
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const userPref = localStorage.getItem('dark-mode');
+  if (userPref === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('dark-mode', isDark ? 'enabled' : 'disabled');
+  });
+</script>
+
+<style>
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  body.dark-mode a {
+    color: #ffa500;
+  }
+</style>
+
 </body>
 </html>

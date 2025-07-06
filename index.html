@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bogga Hore - Machadka Tartiiil Online</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>Index</title>
 </head>
 <body>
   <header>
-    <h1>Machadka Tartiiil Online</h1>
+    <h1>Index</h1>
   </header>
 
-  <nav>
-    <div class="menu-toggle">&#9776;</div>
-    <ul>
-      <li><a href="index.html" class="active">🏠 Bogga Hore</a></li>
-<li><a href="register.html">📝 Diiwaangelin</a></li>
-<li><a href="courses.html">📚 Koorsooyinka</a></li>
-<li><a href="schedule.html">📅 Jadwalka</a></li>
-<li><a href="gallery.html">🖼️ Muuqaalada</a></li>
-<li><a href="videos.html">🎥 Duruus Video</a></li>
-<li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
-<li><a href="contact.html">☎️ La Xiriir</a></li>
-    </ul>
-  </nav>
-
-  <main style="text-align: center; padding: 3rem 1rem;">
-    <h2 style="color: #800020;">Bogga Hore</h2>
-    <p>Qeybta: Bogga Hore - boggaan waxa uu ka tirsan yahay Machadka Tartiiil Online.</p>
+  <main>
+    <p>Kani waa bogga Index ee Machadka Tartiiil Online.</p>
   </main>
 
-  
   <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 Machadka Tartiiil Online. Xuquuqda way dhowrsan tahay.</p>
-      <div class="social-icons">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://wa.me/252612345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:tartiilonline@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
   </footer>
 
 
-  <script src="script.js"></script>
+<!-- 🌙 Dark Mode Toggle Button -->
+<button id="darkModeToggle" style="position:fixed; top:10px; right:10px; z-index:9999;">🌓</button>
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const userPref = localStorage.getItem('dark-mode');
+  if (userPref === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('dark-mode', isDark ? 'enabled' : 'disabled');
+  });
+</script>
+
+<style>
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  body.dark-mode a {
+    color: #ffa500;
+  }
+</style>
+
 </body>
 </html>

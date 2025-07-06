@@ -2,43 +2,47 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lacag Dirid - Machadka Tartiiil Online</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Payment</title>
 </head>
 <body>
   <header>
-    <h1>Machadka Tartiiil Online</h1>
+    <h1>Payment</h1>
   </header>
 
-  <nav>
-  <a href="index.html" >Bogga Hore</a>
-  <a href="courses.html" >Koorsooyinka</a>
-  <a href="register.html" >Diiwaangelin</a>
-  <a href="schedule.html" >Jadwalka</a>
-  <a href="contact.html" >Nala Soo Xiriir</a>
-  <a href="about.html" >Ku Saabsan</a>
-  <a href="instructors.html" >Macallimiinta</a>
-</nav>
-
   <main>
-    
-<section>
-  <h2>Hababka Lacag Dirista</h2>
-  <p>Waxaad lacagta ku diri kartaa adigoo isticmaalaya mid ka mid ah adeegyada hoos ku qoran:</p>
-  <ul>
-    <li><strong>EVC Plus:</strong> 25261XXXXXXX</li>
-    <li><strong>Edahab:</strong> 25261XXXXXXX</li>
-    <li><strong>WAAFI:</strong> 25261XXXXXXX</li>
-  </ul>
-  <p>Fadlan hubi inaad sheegto magacaaga iyo koorsada aad ku jirto marka aad dirayso lacagta.</p>
-  <p>Lacagta waa in la diraa usbuuc walba ama bil walba iyadoo ku xiran jadwalkaaga.</p>
-</section>
-
+    <p>Kani waa bogga Payment ee Machadka Tartiiil Online.</p>
   </main>
 
   <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online. Dhammaan xuquuqaha way xafidan yihiin.</p>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
   </footer>
+
+
+<!-- 🌙 Dark Mode Toggle Button -->
+<button id="darkModeToggle" style="position:fixed; top:10px; right:10px; z-index:9999;">🌓</button>
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const userPref = localStorage.getItem('dark-mode');
+  if (userPref === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('dark-mode', isDark ? 'enabled' : 'disabled');
+  });
+</script>
+
+<style>
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  body.dark-mode a {
+    color: #ffa500;
+  }
+</style>
+
 </body>
 </html>
