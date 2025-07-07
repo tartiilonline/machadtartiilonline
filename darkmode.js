@@ -6,6 +6,5 @@ document.addEventListener('DOMContentLoaded', function () {
   toggle?.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'enabled' : 'disabled');
-    <script src="script.js"></script>
   });
 });
