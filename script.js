@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'enabled' : 'disabled');
   });
 
-  const API_URL = "https://script.google.com/macros/s/AKfycbyXYuK9iJxCrKcWuXNo_m5ON1hRYNhk3Z0kK3r43frjc-UKhexo24FxkWiHImL8gkM/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbxKh-_tqVu4-N7Tqdni6Vg1OcvyjG2kQgYjN8_-HBQLgGC-_FoUDdRAi0WbYi48wexhpA/exec";
 
   const blogContainer = document.getElementById('blogContainer');
   const jadwalContainer = document.getElementById('jadwalContainer');
