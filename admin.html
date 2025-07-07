@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Machadka Tartiiil</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { max-width: 800px; margin: auto; padding: 1rem; }
+    .hidden { display: none; }
+    input, textarea, select, button { display: block; width: 100%; margin: 0.5rem 0; padding: 0.5rem; }
+    section { border: 1px solid #ccc; padding: 1rem; margin-top: 1rem; border-radius: 8px; background: #fff; }
+    h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <h1>Admin Panel - Machadka Tartiiil Online</h1>
+
+  <div id="loginSection">
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="loginError" style="color:red;"></p>
+  </div>
+
+  <div id="adminPanel" class="hidden">
+    <button onclick="logout()">Logout</button>
+
+    <section>
+      <h2>✍️ Ku dar Blog Post</h2>
+      <input type="text" id="blogTitle" placeholder="Ciwaanka" />
+      <textarea id="blogContent" placeholder="Qoraalka..."></textarea>
+      <button onclick="submitBlog()">Geli Blog</button>
+    </section>
+
+    <section>
+      <h2>📅 Ku dar Jadwal</h2>
+      <input type="text" id="jadwalMaadada" placeholder="Maadada" />
+      <input type="text" id="jadwalMacalinka" placeholder="Macalinka" />
+      <input type="text" id="jadwalWaqtiga" placeholder="Waqtiga" />
+      <button onclick="submitJadwal()">Geli Jadwal</button>
+    </section>
+
+    <section>
+      <h2>🏆 Ku dar Arday Guuleystay</h2>
+      <input type="text" id="studentTitle" placeholder="Magaca Ardayga" />
+      <select id="studentType">
+        <option value="image">Sawir</option>
+        <option value="video">Muuqaal</option>
+      </select>
+      <input type="text" id="studentURL" placeholder="Link sawirka/muuqaalka" />
+      <button onclick="submitStudent()">Geli Arday</button>
+    </section>
+
+    <p id="status" style="color: green;"></p>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
