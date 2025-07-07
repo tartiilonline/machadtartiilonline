@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'enabled' : 'disabled');
   });
 
-  // BLOG, JADWAL & ARDAYDA API FETCH
   const API_URL = "https://script.google.com/macros/s/AKfycbyXYuK9iJxCrKcWuXNo_m5ON1hRYNhk3Z0kK3r43frjc-UKhexo24FxkWiHImL8gkM/exec";
 
   const blogContainer = document.getElementById('blogContainer');
