@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Machadka Tartiiil</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="admin.js"></script>
+  <style>
+    .login-form, .dashboard { max-width: 400px; margin: 50px auto; padding: 20px; border-radius: 10px; background: #f8f8f8; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .hidden { display: none; }
+    input, button { width: 100%; padding: 10px; margin-top: 10px; }
+    h2 { color: #800020; text-align: center; }
+    .section { margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="login-form" id="loginForm">
+    <h2>Geli Dashboard-ka</h2>
+    <input type="text" id="username" placeholder="Magaca Isticmaalaha">
+    <input type="password" id="password" placeholder="Furaha Sirta">
+    <button onclick="login()">Geli</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+
+  <div class="dashboard hidden" id="dashboard">
+    <h2>Dashboard-ka Machadka Tartiiil</h2>
+
+    <div class="section">
+      <h3>🏆 Ku dar Arday Guuleystay</h3>
+      <input type="text" placeholder="Magaca Ardayga">
+      <input type="file">
+      <button>Upload</button>
+    </div>
+
+    <div class="section">
+      <h3>📄 Ku dar PDF Koorso</h3>
+      <input type="file">
+      <button>Upload PDF</button>
+    </div>
+
+    <div class="section">
+      <h3>📅 Ku dar Jadwal Cusub</h3>
+      <input type="text" placeholder="Maalin (ex. Axad)">
+      <input type="text" placeholder="Macalinka">
+      <input type="text" placeholder="Waqtiga (ex. 4:00 galabnimo)">
+      <button>Save</button>
+    </div>
+
+    <button onclick="logout()">Ka Bax</button>
+  </div>
+</body>
+</html>
