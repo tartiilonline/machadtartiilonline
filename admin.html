@@ -1,54 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Machadka Tartiiil</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="admin.js"></script>
-  <style>
-    .login-form, .dashboard { max-width: 400px; margin: 50px auto; padding: 20px; border-radius: 10px; background: #f8f8f8; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .hidden { display: none; }
-    input, button { width: 100%; padding: 10px; margin-top: 10px; }
-    h2 { color: #800020; text-align: center; }
-    .section { margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background: #fff; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-  <div class="login-form" id="loginForm">
-    <h2>Geli Dashboard-ka</h2>
-    <input type="text" id="username" placeholder="Magaca Isticmaalaha">
-    <input type="password" id="password" placeholder="Furaha Sirta">
-    <button onclick="login()">Geli</button>
-    <p id="error" style="color:red;"></p>
+  <h1>Admin Panel</h1>
+
+  <div id="login-section">
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="login-status"></p>
   </div>
 
-  <div class="dashboard hidden" id="dashboard">
-    <h2>Dashboard-ka Machadka Tartiiil</h2>
+  <div id="admin-section" style="display:none;">
+    <h2>Ku soo dhawoow Admin</h2>
 
-    <div class="section">
-      <h3>🏆 Ku dar Arday Guuleystay</h3>
-      <input type="text" placeholder="Magaca Ardayga">
-      <input type="file">
-      <button>Upload</button>
-    </div>
+    <form id="schedule-form">
+      <input type="text" name="Subject" placeholder="Maadada" required />
+      <input type="text" name="Teacher" placeholder="Macalinka" required />
+      <input type="text" name="Time" placeholder="Waqtiga" required />
+      <button type="submit">Gudbi Jadwal</button>
+    </form>
+    <p id="schedule-status"></p>
 
-    <div class="section">
-      <h3>📄 Ku dar PDF Koorso</h3>
-      <input type="file">
-      <button>Upload PDF</button>
-    </div>
-
-    <div class="section">
-      <h3>📅 Ku dar Jadwal Cusub</h3>
-      <input type="text" placeholder="Maalin (ex. Axad)">
-      <input type="text" placeholder="Macalinka">
-      <input type="text" placeholder="Waqtiga (ex. 4:00 galabnimo)">
-      <button>Save</button>
-    </div>
-
-    <button onclick="logout()">Ka Bax</button>
+    <form id="student-form">
+      <input type="text" name="Student" placeholder="Magaca Ardayga" required />
+      <input type="url" name="Image" placeholder="Image URL" />
+      <input type="url" name="Video" placeholder="Video URL" />
+      <button type="submit">Gudbi Arday</button>
+    </form>
+    <p id="student-status"></p>
   </div>
+
+  <script src="darkmode.js"></script>
+  <script>
+    function login() {
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
+      if (u === "tartiilonline" && p === "tartiil2025") {
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("admin-section").style.display = "block";
+      } else {
+        document.getElementById("login-status").textContent = "Khalad Username ama Password!";
+      }
+    }
+
+    async function handleForm(id, url, statusId) {
+      const form = document.getElementById(id);
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const status = document.getElementById(statusId);
+        const formData = new FormData(form);
+        const res = await fetch(url, { method: "POST", body: formData });
+        const result = await res.json();
+        status.textContent = result.success ? "Waa la keydiyay" : "Error";
+        if (result.success) form.reset();
+      });
+    }
+
+    handleForm("schedule-form", "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec", "schedule-status");
+    handleForm("student-form", "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec", "student-status");
+  </script>
 </body>
 </html>
