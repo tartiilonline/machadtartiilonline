@@ -112,3 +112,11 @@ body.dark-mode h2,
 body.dark-mode h3 {
   color: orange;
 }
+body {
+  animation: fadeIn 0.7s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
