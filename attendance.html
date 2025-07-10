@@ -1,1 +1,46 @@
-<!-- Attendance -->
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Imaanshaha</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <h1>Foomka Imaanshaha</h1>
+  <form id="attendance-form">
+    <input type="text" name="Name" placeholder="Magaca Ardayga" required />
+    <input type="date" name="Date" required />
+    <select name="Status" required>
+      <option value="">-- Xulo --</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Maqan">Maqan</option>
+    </select>
+    <button type="submit">Gudbi</button>
+  </form>
+  <p id="attendance-status"></p>
+  <script src="darkmode.js"></script>
+  <script>
+    const form = document.getElementById("attendance-form");
+    const status = document.getElementById("attendance-status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.textContent = "Fadlan sug...";
+      const formData = new FormData(form);
+      try {
+        const res = await fetch("https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec", {
+          method: "POST",
+          body: formData,
+        });
+        const result = await res.json();
+        status.textContent = result.success ? "Imaanshaha waa la diiwaangeliyay!" : "Error";
+        if (result.success) form.reset();
+      } catch {
+        status.textContent = "Qalad ayaa dhacay.";
+      }
+    });
+  </script>
+</body>
+</html>
