@@ -1,2 +1,70 @@
-<script src="darkmode.js"></script>
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <title>Jadwalka Duruusta - Machadka Tartiiil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="darkmode.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Jadwalka Duruusta</h1>
+    <p>Duruustu waxay socdaan 7-da maalin: 3:00PM ilaa 12:00AM</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Bogga Hore</a>
+    <a href="courses.html">Koorsooyinka</a>
+    <a href="register.html">Diiwaangelin</a>
+    <a href="schedule.html" style="text-decoration: underline;">Jadwalka</a>
+    <a href="gallery.html">Guuleystayaal</a>
+    <a href="contact.html">Nala Soo Xiriir</a>
+    <a href="admin.html">Dashboard</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Fadlan dooro maalmaha iyo waqtiyada aad rabto</h2>
+      <form action="https://formspree.io/f/mdkzvkvk" method="POST">
+        <label>Magacaaga:</label>
+        <input type="text" name="magac" required>
+
+        <label>Maalmaha:</label>
+        <select name="maalmo[]" multiple required>
+          <option value="Axad">Axad</option>
+          <option value="Isniin">Isniin</option>
+          <option value="Talaado">Talaado</option>
+          <option value="Arbaco">Arbaco</option>
+          <option value="Khamiis">Khamiis</option>
+          <option value="Jimce">Jimce</option>
+          <option value="Sabti">Sabti</option>
+        </select>
+
+        <label>Waqtiyada:</label>
+        <select name="waqtiyo[]" multiple required>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+          <option value="8:00 PM">8:00 PM</option>
+          <option value="9:00 PM">9:00 PM</option>
+          <option value="10:00 PM">10:00 PM</option>
+          <option value="11:00 PM">11:00 PM</option>
+          <option value="12:00 AM">12:00 AM</option>
+        </select>
+
+        <button type="submit">Gudbi Jadwalka</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
+  </footer>
+  <script src="darkmode.js"></script>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</body>
+</html>
+
