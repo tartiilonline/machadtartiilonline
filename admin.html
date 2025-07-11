@@ -1,15 +1,71 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Admin Dashboard - Machadka Tartiiil Online</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
   <script src="darkmode.js" defer></script>
   <style>
-    .admin-login, .admin-panel { max-width: 600px; margin: 2rem auto; padding: 2rem; background: #fff3; border-radius: 12px; }
-    .admin-panel { display: none; }
-    .admin-panel section { margin-bottom: 2rem; }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .admin-login, .admin-panel {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .admin-panel {
+      display: none;
+    }
+
+    .admin-panel section {
+      margin-bottom: 2rem;
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .admin-login label {
+      font-weight: 600;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    .admin-login input {
+      padding: 0.6rem;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 0.3rem;
+    }
+
+    .admin-login button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    #togglePass {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      background: none;
+      border: none;
+      color: #800020;
+      cursor: pointer;
+    }
+
+    #loginMsg {
+      color: red;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -19,17 +75,20 @@
   </header>
 
   <main>
+    <!-- Login Form -->
     <section class="admin-login">
       <label>Username:</label>
-      <input type="text" id="adminUser" placeholder="tartiilonline" required>
+      <input type="text" id="adminUser" placeholder="tartiilonline" required />
 
       <label>Password:</label>
-      <input type="password" id="adminPass" placeholder="tartiil2025" required>
+      <input type="password" id="adminPass" placeholder="tartiil2025" required />
+      <button id="togglePass" onclick="togglePassword()">👁️ Muuji Password</button>
 
       <button onclick="checkLogin()">Geli</button>
       <p id="loginMsg"></p>
     </section>
 
+    <!-- Admin Panel (hidden until login) -->
     <section class="admin-panel" id="adminPanel">
       <h2>Ku Soo Dhawoow, Maamulaha!</h2>
 
@@ -40,12 +99,12 @@
 
       <section>
         <h3>📥 Upload PDF cusub (Koorso)</h3>
-        <input type="file" accept="application/pdf">
+        <input type="file" accept="application/pdf" />
       </section>
 
       <section>
         <h3>🏆 Ku dar Arday Guuleystay</h3>
-        <input type="file" accept="image/*,video/*">
+        <input type="file" accept="image/*,video/*" />
       </section>
 
       <section>
@@ -64,12 +123,14 @@
     <p>&copy; 2025 Machadka Tartiiil Online</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
     function checkLogin() {
-      const user = document.getElementById('adminUser').value;
-      const pass = document.getElementById('adminPass').value;
+      const user = document.getElementById('adminUser').value.trim();
+      const pass = document.getElementById('adminPass').value.trim();
       const panel = document.getElementById('adminPanel');
       const msg = document.getElementById('loginMsg');
+
       if (user === 'tartiilonline' && pass === 'tartiil2025') {
         panel.style.display = 'block';
         msg.textContent = '';
@@ -78,6 +139,18 @@
         msg.textContent = '❌ Username ama Password waa khalad!';
       }
     }
+
+    function togglePassword() {
+      const passField = document.getElementById('adminPass');
+      const toggleBtn = document.getElementById('togglePass');
+      if (passField.type === 'password') {
+        passField.type = 'text';
+        toggleBtn.textContent = '👁️‍🗨️ Qari Password';
+      } else {
+        passField.type = 'password';
+        toggleBtn.textContent = '👁️ Muuji Password';
+      }
+    }
   </script>
 </body>
-</
+</html
