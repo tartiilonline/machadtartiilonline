@@ -1,72 +1,83 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Panel</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" />
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Machadka Tartiiil Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="darkmode.js" defer></script>
+  <style>
+    .admin-login, .admin-panel { max-width: 600px; margin: 2rem auto; padding: 2rem; background: #fff3; border-radius: 12px; }
+    .admin-panel { display: none; }
+    .admin-panel section { margin-bottom: 2rem; }
+  </style>
 </head>
 <body>
-  <h1>Admin Panel</h1>
+  <header>
+    <h1>Dashboard Maamul</h1>
+    <p>Fadlan geli sirta si aad u maamusho bogagga muhiimka ah</p>
+  </header>
 
-  <div id="login-section">
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="login()">Login</button>
-    <p id="login-status"></p>
-  </div>
+  <main>
+    <section class="admin-login">
+      <label>Username:</label>
+      <input type="text" id="adminUser" placeholder="tartiilonline" required>
 
-  <div id="admin-section" style="display:none;">
-    <h2>Ku soo dhawoow Admin</h2>
+      <label>Password:</label>
+      <input type="password" id="adminPass" placeholder="tartiil2025" required>
 
-    <form id="schedule-form">
-      <input type="text" name="Subject" placeholder="Maadada" required />
-      <input type="text" name="Teacher" placeholder="Macalinka" required />
-      <input type="text" name="Time" placeholder="Waqtiga" required />
-      <button type="submit">Gudbi Jadwal</button>
-    </form>
-    <p id="schedule-status"></p>
+      <button onclick="checkLogin()">Geli</button>
+      <p id="loginMsg"></p>
+    </section>
 
-    <form id="student-form">
-      <input type="text" name="Student" placeholder="Magaca Ardayga" required />
-      <input type="url" name="Image" placeholder="Image URL" />
-      <input type="url" name="Video" placeholder="Video URL" />
-      <button type="submit">Gudbi Arday</button>
-    </form>
-    <p id="student-status"></p>
-  </div>
+    <section class="admin-panel" id="adminPanel">
+      <h2>Ku Soo Dhawoow, Maamulaha!</h2>
 
-  <script src="darkmode.js"></script>
+      <section>
+        <h3>✅ Diiwaangelin Cusub</h3>
+        <p><a href="https://docs.google.com/spreadsheets/d/1oHs9RkvrXPYg8nB4fG1PQGas9voRmzJLN5XZae0-mKs/edit#gid=0" target="_blank">Fur Google Sheet →</a></p>
+      </section>
+
+      <section>
+        <h3>📥 Upload PDF cusub (Koorso)</h3>
+        <input type="file" accept="application/pdf">
+      </section>
+
+      <section>
+        <h3>🏆 Ku dar Arday Guuleystay</h3>
+        <input type="file" accept="image/*,video/*">
+      </section>
+
+      <section>
+        <h3>🗓️ Jadwal Maalinle ah</h3>
+        <p><a href="https://docs.google.com/spreadsheets/d/1oHs9RkvrXPYg8nB4fG1PQGas9voRmzJLN5XZae0-mKs/edit#gid=123456" target="_blank">Maamul Jadwalka →</a></p>
+      </section>
+
+      <section>
+        <h3>📊 Xaadirinta Ardayda</h3>
+        <p><a href="https://docs.google.com/spreadsheets/d/1oHs9RkvrXPYg8nB4fG1PQGas9voRmzJLN5XZae0-mKs/edit#gid=456789" target="_blank">Eeg Xaadirinta →</a></p>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
+  </footer>
+
   <script>
-    function login() {
-      const u = document.getElementById("username").value;
-      const p = document.getElementById("password").value;
-      if (u === "tartiilonline" && p === "tartiil2025") {
-        document.getElementById("login-section").style.display = "none";
-        document.getElementById("admin-section").style.display = "block";
+    function checkLogin() {
+      const user = document.getElementById('adminUser').value;
+      const pass = document.getElementById('adminPass').value;
+      const panel = document.getElementById('adminPanel');
+      const msg = document.getElementById('loginMsg');
+      if (user === 'tartiilonline' && pass === 'tartiil2025') {
+        panel.style.display = 'block';
+        msg.textContent = '';
+        document.querySelector('.admin-login').style.display = 'none';
       } else {
-        document.getElementById("login-status").textContent = "Khalad Username ama Password!";
+        msg.textContent = '❌ Username ama Password waa khalad!';
       }
     }
-
-    async function handleForm(id, url, statusId) {
-      const form = document.getElementById(id);
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const status = document.getElementById(statusId);
-        const formData = new FormData(form);
-        const res = await fetch(url, { method: "POST", body: formData });
-        const result = await res.json();
-        status.textContent = result.success ? "Waa la keydiyay" : "Error";
-        if (result.success) form.reset();
-      });
-    }
-
-    handleForm("schedule-form", "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec", "schedule-status");
-    handleForm("student-form", "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec", "student-status");
   </script>
-  <script src="darkmode.js"></script>
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
 </body>
-</html>
+</
