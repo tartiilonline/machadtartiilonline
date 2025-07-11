@@ -1,48 +1,80 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Imaanshaha</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" />
+  <meta charset="UTF-8">
+  <title>Xaadirinta - Machadka Tartiiil Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="darkmode.js" defer></script>
 </head>
 <body>
-  <h1>Foomka Imaanshaha</h1>
-  <form id="attendance-form">
-    <input type="text" name="Name" placeholder="Magaca Ardayga" required />
-    <input type="date" name="Date" required />
-    <select name="Status" required>
-      <option value="">-- Xulo --</option>
-      <option value="Hadir">Hadir</option>
-      <option value="Maqan">Maqan</option>
-    </select>
-    <button type="submit">Gudbi</button>
-  </form>
-  <p id="attendance-status"></p>
-  <script src="darkmode.js"></script>
-  <script>
-    const form = document.getElementById("attendance-form");
-    const status = document.getElementById("attendance-status");
+  <header>
+    <h1>Foomka Xaadirinta Ardayda</h1>
+    <p>Fadlan buuxi foomka hoose si aad u xaadirto duruusta maanta.</p>
+  </header>
 
-    form.addEventListener("submit", async (e) => {
+  <nav>
+    <a href="index.html">Bogga Hore</a>
+    <a href="courses.html">Koorsooyinka</a>
+    <a href="register.html">Diiwaangelin</a>
+    <a href="schedule.html">Jadwalka</a>
+    <a href="gallery.html">Guuleystayaal</a>
+    <a href="payment.html">Lacag Dirid</a>
+    <a href="contact.html">Nala Soo Xiriir</a>
+    <a href="attendance.html" style="text-decoration: underline;">Xaadirin</a>
+    <a href="admin.html">Dashboard</a>
+  </nav>
+
+  <main>
+    <section>
+      <form id="attendance-form">
+        <label>Magaca Ardayga:</label>
+        <input type="text" name="name" required>
+
+        <label>Maalinta:</label>
+        <input type="text" name="day" placeholder="Tusaale: Isniin" required>
+
+        <label>Saacadda:</label>
+        <input type="time" name="time" required>
+
+        <label>Qaybta uu dhigto:</label>
+        <select name="subject" required>
+          <option value="Farbarashada Carabiga">Farbarashada Carabiga</option>
+          <option value="Xifdi & Tasxiix">Xifdi & Tasxiix</option>
+          <option value="Muraajaco">Muraajaco</option>
+          <option value="Culuumta Qur'aanka">Culuumta Qur'aanka</option>
+        </select>
+
+        <button type="submit">Gudbi Xaadirinta</button>
+      </form>
+      <p id="response-msg"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
+  </footer>
+
+  <script>
+    document.getElementById('attendance-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-      status.textContent = "Fadlan sug...";
+      const form = e.target;
       const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => data[key] = value);
+
       try {
-        const res = await fetch("https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec", {
-          method: "POST",
-          body: formData,
+        const res = await fetch('https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec', {
+          method: 'POST',
+          body: JSON.stringify(data),
         });
-        const result = await res.json();
-        status.textContent = result.success ? "Imaanshaha waa la diiwaangeliyay!" : "Error";
-        if (result.success) form.reset();
-      } catch {
-        status.textContent = "Qalad ayaa dhacay.";
+        const msg = await res.text();
+        document.getElementById('response-msg').innerText = "✅ Waa lagu guuleystay! Xaadirintaada waa la diiwaan geliyay.";
+        form.reset();
+      } catch (err) {
+        document.getElementById('response-msg').innerText = "❌ Wax qalad ah ayaa dhacay. Fadlan isku day mar kale.";
       }
     });
   </script>
-  <script src="darkmode.js"></script>
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
 </body>
 </html>
