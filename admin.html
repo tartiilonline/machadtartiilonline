@@ -66,6 +66,27 @@
       margin-top: 1rem;
       font-weight: 600;
     }
+
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: #800020;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #a0002e;
+    }
   </style>
 </head>
 <body>
@@ -92,6 +113,7 @@
     <section class="admin-panel" id="adminPanel">
       <h2>Ku Soo Dhawoow, Maamulaha!</h2>
 
+      <!-- Hore u jiray Sections -->
       <section>
         <h3>✅ Diiwaangelin Cusub</h3>
         <p><a href="https://docs.google.com/spreadsheets/d/1oHs9RkvrXPYg8nB4fG1PQGas9voRmzJLN5XZae0-mKs/edit#gid=0" target="_blank">Fur Google Sheet →</a></p>
@@ -115,6 +137,39 @@
       <section>
         <h3>📊 Xaadirinta Ardayda</h3>
         <p><a href="https://docs.google.com/spreadsheets/d/1oHs9RkvrXPYg8nB4fG1PQGas9voRmzJLN5XZae0-mKs/edit#gid=456789" target="_blank">Eeg Xaadirinta →</a></p>
+      </section>
+
+      <!-- Cusub: Upload Cashar -->
+      <section>
+        <h3>➕ Ku Dar Cashar Cusub</h3>
+        <form id="addLessonForm">
+          <input type="text" name="title" placeholder="Ciwaanka Casharka" required />
+          <input type="url" name="link" placeholder="Link-ga Video ama PDF" required />
+          <textarea name="description" placeholder="Sharaxaad kooban" required></textarea>
+          <button type="submit">Geli Casharka</button>
+        </form>
+      </section>
+
+      <!-- Cusub: Upload Jadwal -->
+      <section>
+        <h3>📅 Ku Dar Jadwal Cusub</h3>
+        <form id="addScheduleForm">
+          <input type="text" name="subject" placeholder="Maaddada" required />
+          <input type="text" name="teacher" placeholder="Macallinka" required />
+          <input type="text" name="time" placeholder="Waqtiga" required />
+          <input type="url" name="link" placeholder="Link-ka fasalka (Zoom/Meet)" required />
+          <button type="submit">Geli Jadwalka</button>
+        </form>
+      </section>
+
+      <!-- Cusub: U dir Waajibaad -->
+      <section>
+        <h3>📝 U Dir Waajibaad Ardayda</h3>
+        <form id="addAssignmentForm">
+          <input type="text" name="studentName" placeholder="Magaca Ardayga (ama guud)" required />
+          <textarea name="answer" placeholder="Waajibaadka qoraal ahaan" required></textarea>
+          <button type="submit">Dir Waajibaadka</button>
+        </form>
       </section>
     </section>
   </main>
@@ -151,12 +206,64 @@
         toggleBtn.textContent = '👁️ Muuji Password';
       }
     }
-      <label>Username:</label>
-<input type="text" id="adminUser" autocomplete="off" required />
 
-<label>Password:</label>
-<input type="password" id="adminPass" autocomplete="off" required />
-<button id="togglePass" onclick="togglePassword()">👁️ Muuji Password</button>
+    const apiUrl = "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec";
+
+    // Add Lesson
+    document.getElementById("addLessonForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      fetch(apiUrl, {
+        method: "POST",
+        body: new URLSearchParams({
+          sheet: "Casharro",
+          Title: form.get("title"),
+          Link: form.get("link"),
+          Description: form.get("description"),
+          Date: new Date().toLocaleDateString()
+        })
+      }).then(() => {
+        alert("Casharka waa la keydiyay");
+        this.reset();
+      });
+    });
+
+    // Add Schedule
+    document.getElementById("addScheduleForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      fetch(apiUrl, {
+        method: "POST",
+        body: new URLSearchParams({
+          sheet: "Jadwal",
+          Subject: form.get("subject"),
+          Teacher: form.get("teacher"),
+          Time: form.get("time"),
+          Link: form.get("link")
+        })
+      }).then(() => {
+        alert("Jadwalka waa la keydiyay");
+        this.reset();
+      });
+    });
+
+    // Add Assignment
+    document.getElementById("addAssignmentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      fetch(apiUrl, {
+        method: "POST",
+        body: new URLSearchParams({
+          sheet: "Waajibaad",
+          StudentName: form.get("studentName"),
+          Answer: form.get("answer"),
+          Date: new Date().toLocaleDateString()
+        })
+      }).then(() => {
+        alert("Waajibaadka waa la diray");
+        this.reset();
+      });
+    });
   </script>
 </body>
-</html
+</htm
