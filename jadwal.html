@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jadwalka Duruusta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="darkmode.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>🗓️ Jadwalka Duruusta</h1>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Maaddada</th>
+          <th>Macallinka</th>
+          <th>Waqtiga</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody id="scheduleTable">
+        <tr><td colspan="4">Loading...</td></tr>
+      </tbody>
+    </table>
+  </main>
+  <footer>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
+  </footer>
+  <script>
+    const apiUrl = "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec";
+    fetch(apiUrl + "?sheet=Jadwal")
+      .then(res => res.json())
+      .then(data => {
+        const table = document.getElementById("scheduleTable");
+        table.innerHTML = "";
+        data.forEach(j => {
+          table.innerHTML += `
+            <tr>
+              <td>${j.Subject}</td>
+              <td>${j.Teacher}</td>
+              <td>${j.Time}</td>
+              <td><a href="${j.Link}" target="_blank">Fur</a></td>
+            </tr>
+          `;
+        });
+      });
+  </script>
+</body>
+</html>

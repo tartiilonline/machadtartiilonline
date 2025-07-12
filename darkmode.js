@@ -1,25 +1,18 @@
-// darkmode.js
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-  localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.createElement('button');
+  toggle.textContent = 'Toggle Dark Mode';
+  toggle.style.position = 'fixed';
+  toggle.style.bottom = '10px';
+  toggle.style.right = '10px';
+  toggle.style.padding = '10px';
+  toggle.style.zIndex = '999';
+  toggle.onclick = () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+  };
+  document.body.appendChild(toggle);
 
-window.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
   }
-
-  const toggleBtn = document.createElement("button");
-  toggleBtn.textContent = "Toggle Dark Mode";
-  toggleBtn.style.position = "fixed";
-  toggleBtn.style.top = "20px";
-  toggleBtn.style.right = "20px";
-  toggleBtn.style.padding = "10px";
-  toggleBtn.style.background = "#800020";
-  toggleBtn.style.color = "white";
-  toggleBtn.style.border = "none";
-  toggleBtn.style.borderRadius = "8px";
-  toggleBtn.style.zIndex = "9999";
-  toggleBtn.onclick = toggleDarkMode;
-  document.body.appendChild(toggleBtn);
 });

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <title>Waajibaadka Ardayda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="darkmode.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>📝 Waajibaadka Ardayda</h1>
+  </header>
+  <main>
+    <section id="assignments">Loading waajibaad...</section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
+  </footer>
+  <script>
+    const apiUrl = "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec";
+    fetch(apiUrl + "?sheet=Waajibaad")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("assignments");
+        container.innerHTML = "";
+        data.forEach(w => {
+          container.innerHTML += `
+            <div class="card">
+              <h3>➡️ ${w.StudentName}</h3>
+              <p>${w.Answer}</p>
+              <small>${w.Date}</small>
+            </div>
+          `;
+        });
+      });
+  </script>
+</body>
+</html>
