@@ -2,63 +2,54 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8">
-  <title>Machadka Tartiiil Online</title>
+  <title>Machadka Tartiiil Online - Bogga Hore</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="darkmode.js" defer></script>
+  <style>
+    body { display: flex; margin: 0; font-family: 'Segoe UI'; background: #f4f4f4; }
+    aside { width: 220px; background: #800020; color: white; min-height: 100vh; padding: 1rem; position: fixed; }
+    aside h2 { text-align: center; font-size: 1.5rem; }
+    aside ul { list-style: none; padding: 0; }
+    aside ul li { margin: 1rem 0; }
+    aside ul li a { color: white; text-decoration: none; font-weight: bold; }
+    aside ul li a:hover { text-decoration: underline; }
+    main { margin-left: 220px; padding: 2rem; flex: 1; font-size: 1.1rem; }
+    .hero { background-color: #ffa50022; border-left: 5px solid orange; padding: 2rem; border-radius: 12px; }
+    .hero h1 { color: #800020; font-size: 2rem; }
+    .btn { background: #ffa500; color: black; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: bold; }
+    .btn:hover { background: #e69500; }
+    .dark-mode main { background: #121212; color: #e0e0e0; }
+    .dark-mode .hero { background-color: #333; border-color: #ffa500; }
+    .dark-mode aside { background-color: #1e1e1e; }
+    .dark-mode a { color: #ffa500; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>📘 Machadka Tartiiil Online</h1>
-    <p>Barashada Qur’aanka Kariimka & Culuumtiisa – Online</p>
-  </header>
-
-  <nav>
-    <a href="index.html" style="text-decoration: underline;">Bogga Hore</a>
-    <a href="courses.html">Koorsooyinka</a>
-    <a href="register.html">Diiwaangelin</a>
-    <a href="schedule.html">Jadwalka</a>
-    <a href="gallery.html">Guuleystayaal</a>
-    <a href="contact.html">Nala Soo Xiriir</a>
-    <a href="admin.html">Dashboard</a>
-  </nav>
-
+  <aside>
+    <h2>📘 Tartiiil</h2>
+    <ul>
+      <li><a href="index.html">🏠 Home Page</a></li>
+      <li><a href="registration.html">📝 Register</a></li>
+      <li><a href="courses.html">📚 Courses</a></li>
+      <li><a href="casharro.html">🏫 Classroom</a></li>
+      <li><a href="admin.html">🛠️ Admin Panel</a></li>
+      <li><a href="guuleystay.html">🏆 Gallery</a></li>
+      <li><a href="contact.html">📞 Contact</a></li>
+    </ul>
+  </aside>
   <main>
-    <section>
-      <h2>Kusoo Dhawoow!</h2>
-      <p>Waxaad joogtaa bogga rasmiga ah ee <strong>Machadka Tartiiil Online</strong> oo bixiya barashada Qur'aanka Kariimka, tajwiidka, tafsiirka, iyo qiraa'aatka – si casri ah oo online ah.</p>
-    </section>
-
-    <section>
-      <h2>Koorsooyinka La Heli Karo</h2>
+    <div class="hero">
+      <h1>Ku Soo Dhawoow Machadka Tartiiil Online</h1>
+      <p>Machadka Tartiiil Online wuxuu kuu suurtagelinayaa in aad barato Qur’aanka Kariimka iyo culuumtiisa — si casri ah oo online ah.</p>
       <ul>
-        <li><a href="courses.html">Farbarashada Carabiga</a></li>
-        <li><a href="courses.html">Xifdi & Tasxiix</a></li>
-        <li><a href="courses.html">Muraajaco & Tasxiix</a></li>
-        <li><a href="courses.html">Culuumta Qur’aanka</a></li>
+        <li>📖 Casharro muuqaal iyo PDF ah</li>
+        <li>📅 Jadwal la raaco</li>
+        <li>📝 Waajibaad ardayda laga dalbado</li>
+        <li>🎤 Ardayda guuleystay</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>Ardayda Guuleystay</h2>
-      <p>Daawo sawirrada iyo muuqaallada ardayda guuleystay <a href="gallery.html">halkan ka daawo</a>.</p>
-    </section>
-
-    <section>
-      <h2>Jadwalka Duruusta</h2>
-      <p>Duruustu waxay socdaan 7-da maalin: <strong>3:00PM ilaa 12:00AM</strong>.</p>
-      <a href="schedule.html">Eeg Jadwalka</a>
-    </section>
-
-    <section>
-      <h2>Isdiiwaangeli</h2>
-      <p>Hadda iska diiwaangeli si aad uga mid noqoto ardayda Machadka Tartiiil.</p>
-      <a href="register.html"><button>Diiwaangeli Hadda</button></a>
-    </section>
+      <a href="registration.html" class="btn">Is Diiwaangeli Hadda</a>
+    </div>
   </main>
-
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online | WhatsApp: <a href="https://wa.me/252619202525" target="_blank">+252619202525</a></p>
-  </footer>
 </body>
-</html>
+<
