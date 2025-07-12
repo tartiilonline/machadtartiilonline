@@ -99,10 +99,10 @@
     <!-- Login Form -->
     <section class="admin-login">
       <label>Username:</label>
-      <input type="text" id="adminUser" placeholder="tartiilonline" required />
+      <input type="text" id="adminUser" placeholder="tartiilonline" required autocomplete="off" />
 
       <label>Password:</label>
-      <input type="password" id="adminPass" placeholder="tartiil2025" required />
+      <input type="password" id="adminPass" placeholder="tartiil2025" required autocomplete="off" />
       <button id="togglePass" onclick="togglePassword()">👁️ Muuji Password</button>
 
       <button onclick="checkLogin()">Geli</button>
@@ -113,7 +113,6 @@
     <section class="admin-panel" id="adminPanel">
       <h2>Ku Soo Dhawoow, Maamulaha!</h2>
 
-      <!-- Hore u jiray Sections -->
       <section>
         <h3>✅ Diiwaangelin Cusub</h3>
         <p><a href="https://docs.google.com/spreadsheets/d/1oHs9RkvrXPYg8nB4fG1PQGas9voRmzJLN5XZae0-mKs/edit#gid=0" target="_blank">Fur Google Sheet →</a></p>
@@ -139,7 +138,6 @@
         <p><a href="https://docs.google.com/spreadsheets/d/1oHs9RkvrXPYg8nB4fG1PQGas9voRmzJLN5XZae0-mKs/edit#gid=456789" target="_blank">Eeg Xaadirinta →</a></p>
       </section>
 
-      <!-- Cusub: Upload Cashar -->
       <section>
         <h3>➕ Ku Dar Cashar Cusub</h3>
         <form id="addLessonForm">
@@ -150,7 +148,6 @@
         </form>
       </section>
 
-      <!-- Cusub: Upload Jadwal -->
       <section>
         <h3>📅 Ku Dar Jadwal Cusub</h3>
         <form id="addScheduleForm">
@@ -162,7 +159,6 @@
         </form>
       </section>
 
-      <!-- Cusub: U dir Waajibaad -->
       <section>
         <h3>📝 U Dir Waajibaad Ardayda</h3>
         <form id="addAssignmentForm">
@@ -178,34 +174,34 @@
     <p>&copy; 2025 Machadka Tartiiil Online</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
-  function checkLogin() {
-  const user = document.getElementById('adminUser').value.trim();
-  const pass = document.getElementById('adminPass').value.trim();
-  const panel = document.getElementById('adminPanel');
-  const msg = document.getElementById('loginMsg');
+    function checkLogin() {
+      const user = document.getElementById('adminUser').value.trim();
+      const pass = document.getElementById('adminPass').value.trim();
+      const panel = document.getElementById('adminPanel');
+      const msg = document.getElementById('loginMsg');
 
-  if (user === 'tartiilonline' && pass === 'tartiil2025') {
-    panel.style.display = 'block';  // Dashboard-ka waa la soo bandhigayaa
-    msg.textContent = '';           // Fariin khalad waa la tirtiray
-    document.querySelector('.admin-login').style.display = 'none';  // Login form waa la qariyay
-  } else {
-    msg.textContent = '❌ Username ama Password waa khalad!';  // Fariin khalad ayaa soo baxaysa
-  }
-}
+      if (user === 'tartiilonline' && pass === 'tartiil2025') {
+        panel.style.display = 'block';
+        msg.textContent = '';
+        document.querySelector('.admin-login').style.display = 'none';
+      } else {
+        msg.textContent = '❌ Username ama Password waa khalad!';
+      }
+    }
 
-function togglePassword() {
-  const passField = document.getElementById('adminPass');
-  const toggleBtn = document.getElementById('togglePass');
-  if (passField.type === 'password') {
-    passField.type = 'text';
-    toggleBtn.textContent = '👁️‍🗨️ Qari Password';
-  } else {
-    passField.type = 'password';
-    toggleBtn.textContent = '👁️ Muuji Password';
-  }
-}
+    function togglePassword() {
+      const passField = document.getElementById('adminPass');
+      const toggleBtn = document.getElementById('togglePass');
+      if (passField.type === 'password') {
+        passField.type = 'text';
+        toggleBtn.textContent = '👁️‍🗨️ Qari Password';
+      } else {
+        passField.type = 'password';
+        toggleBtn.textContent = '👁️ Muuji Password';
+      }
+    }
+
     const apiUrl = "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec";
 
     // Add Lesson
@@ -265,4 +261,4 @@ function togglePassword() {
     });
   </script>
 </body>
-</htm
+</html>
