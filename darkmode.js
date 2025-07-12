@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   toggle.style.position = 'fixed';
   toggle.style.bottom = '10px';
   toggle.style.right = '10px';
-  toggle.style.padding = '10px';
   toggle.style.zIndex = '999';
   toggle.onclick = () => {
     document.body.classList.toggle('dark-mode');
