@@ -180,33 +180,32 @@
 
   <!-- Scripts -->
   <script>
-    function checkLogin() {
-      const user = document.getElementById('adminUser').value.trim();
-      const pass = document.getElementById('adminPass').value.trim();
-      const panel = document.getElementById('adminPanel');
-      const msg = document.getElementById('loginMsg');
+  function checkLogin() {
+  const user = document.getElementById('adminUser').value.trim();
+  const pass = document.getElementById('adminPass').value.trim();
+  const panel = document.getElementById('adminPanel');
+  const msg = document.getElementById('loginMsg');
 
-      if (user === 'tartiilonline' && pass === 'tartiil2025') {
-        panel.style.display = 'block';
-        msg.textContent = '';
-        document.querySelector('.admin-login').style.display = 'none';
-      } else {
-        msg.textContent = '❌ Username ama Password waa khalad!';
-      }
-    }
+  if (user === 'tartiilonline' && pass === 'tartiil2025') {
+    panel.style.display = 'block';  // Dashboard-ka waa la soo bandhigayaa
+    msg.textContent = '';           // Fariin khalad waa la tirtiray
+    document.querySelector('.admin-login').style.display = 'none';  // Login form waa la qariyay
+  } else {
+    msg.textContent = '❌ Username ama Password waa khalad!';  // Fariin khalad ayaa soo baxaysa
+  }
+}
 
-    function togglePassword() {
-      const passField = document.getElementById('adminPass');
-      const toggleBtn = document.getElementById('togglePass');
-      if (passField.type === 'password') {
-        passField.type = 'text';
-        toggleBtn.textContent = '👁️‍🗨️ Qari Password';
-      } else {
-        passField.type = 'password';
-        toggleBtn.textContent = '👁️ Muuji Password';
-      }
-    }
-
+function togglePassword() {
+  const passField = document.getElementById('adminPass');
+  const toggleBtn = document.getElementById('togglePass');
+  if (passField.type === 'password') {
+    passField.type = 'text';
+    toggleBtn.textContent = '👁️‍🗨️ Qari Password';
+  } else {
+    passField.type = 'password';
+    toggleBtn.textContent = '👁️ Muuji Password';
+  }
+}
     const apiUrl = "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec";
 
     // Add Lesson
