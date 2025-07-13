@@ -2,13 +2,13 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <title>Diiwaangelinta Ardayga - Tartiiil Online</title>
+  <title>Diiwaangelinta Ardayga - Tartiiil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Foomka Diiwaangelinta</h1>
+    <h1>Foomka Diiwaangelinta Ardayda</h1>
   </header>
 
   <main>
@@ -16,21 +16,48 @@
       <label>Magaca:</label>
       <input type="text" name="Magaca" required />
 
-      <label>WhatsApp:</label>
+      <label>WhatsApp Nombar:</label>
       <input type="tel" name="WhatsApp" required />
 
       <label>Wadanka:</label>
       <input type="text" name="Wadanka" required />
 
+      <label>Heerka (Xifdiga):</label>
+      <select name="Heerka" required>
+        <option value="">-- Dooro --</option>
+        <option value="Biloow">Biloow</option>
+        <option value="Dhexdhexaad">Dhexdhexaad</option>
+        <option value="Dhamaystir">Dhamaystir</option>
+      </select>
+
+      <label>Taariikhda Dhalashada:</label>
+      <input type="date" name="Dhalashada" required />
+
+      <label>Qeybta:</label>
+      <select name="Qeybta" required>
+        <option value="">-- Dooro --</option>
+        <option value="Farbar">Farbar</option>
+        <option value="Xifdi">Xifdi</option>
+        <option value="Muraajaco">Muraajaco</option>
+        <option value="Ijaaso">Ijaaso</option>
+        <option value="Culuumul Quraan">Culuumul Quraan</option>
+      </select>
+
+      <label>Waqtiga:</label>
+      <input type="text" name="Waqtiga" placeholder="Tusaale: Subax, Galab, Habeen" required />
+
+      <label>Qaabka:</label>
+      <select name="Qaabka" required>
+        <option value="">-- Dooro --</option>
+        <option value="Qof Ahaan">Qof Ahaan</option>
+        <option value="Jamac">Jamac</option>
+      </select>
+
       <label>Email-kaaga:</label>
       <input type="email" name="Email" required />
 
-      <label>Heerka (xifdiga):</label>
-      <select name="Heerka">
-        <option value="Qayb ahaan">Qayb ahaan</option>
-        <option value="Dhamaystiran">Dhamaystiran</option>
-        <option value="Barasho cusub">Barasho cusub</option>
-      </select>
+      <label>Taariikh:</label>
+      <input type="date" name="Taariikh" required />
 
       <button type="submit">Diiwaangeli</button>
     </form>
@@ -48,11 +75,11 @@
       e.preventDefault();
       fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(response => {
-          alert("✅ Waad isdiiwaangelisay! Fadlan eeg emailkaaga.");
+          alert("✅ Diiwaangelinta waa la diray! Fadlan eeg emailkaaga.");
           form.reset();
         })
         .catch(error => {
-          alert("❌ Khalad ayaa dhacay. Fadlan isku day mar kale.");
+          alert("❌ Wuxuu dhacay khalad. Fadlan isku day mar kale.");
           console.error('Error!', error.message);
         });
     });
