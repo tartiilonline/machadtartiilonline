@@ -1,93 +1,50 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8">
-  <title>Diiwaangelin - Machadka Tartiiil Online</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="darkmode.js" defer></script>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 2rem; background: #f4f4f4; }
-    h1 { color: #800020; }
-    .section-list { margin-bottom: 2rem; }
-    .section-list button {
-      background: #800020; color: white; border: none;
-      padding: 0.75rem 1.5rem; margin: 0.3rem; border-radius: 8px;
-      cursor: pointer; font-weight: bold;
-    }
-    .section-list button:hover { background: #a0262b; }
-    .description { display: none; padding: 1rem; background: #fff3e6; border-left: 4px solid orange; margin-top: 1rem; border-radius: 8px; }
-    form {
-      background: white; padding: 2rem; border-radius: 10px; margin-top: 3rem;
-      max-width: 600px; margin-left: auto; margin-right: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    form label { display: block; margin-top: 1rem; font-weight: bold; }
-    form input, form select {
-      width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: 6px; margin-top: 0.3rem;
-    }
-    form button {
-      margin-top: 1.5rem; background: #800020; color: white; border: none;
-      padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1rem; cursor: pointer;
-    }
-    form button:hover { background: #a0262b; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koorsooyinka - Machadka Tartiiil Online</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <h1>Fadlan Dooro Qeybta Aad Rabto Inaad Iska Diiwaangeliso</h1>
+  <header>
+    <h1>Machadka Tartiiil Online</h1>
+  </header>
 
-  <div class="section-list">
-    <button onclick="showDesc('carabi')">1: Qeybta Farbarashada Carabiga</button>
-    <button onclick="showDesc('tasxiix')">2: Tasxiixa & Xifdiga</button>
-    <button onclick="showDesc('muraajaco')">3: Tasxiix & Muraajaco</button>
-    <button onclick="showDesc('ijaaza')">4: Ijaazaadka</button>
-    <button onclick="showDesc('culuum')">5: Culuumta Qur’aanka</button>
-  </div>
+  <nav>
+    <div class="menu-toggle">&#9776;</div>
+    <ul>
+      <li><a href="index.html">🏠 Bogga Hore</a></li>
+<li><a href="register.html">📝 Diiwaangelin</a></li>
+<li><a href="courses.html" class="active">📚 Koorsooyinka</a></li>
+<li><a href="schedule.html">📅 Jadwalka</a></li>
+<li><a href="gallery.html">🖼️ Muuqaalada</a></li>
+<li><a href="videos.html">🎥 Duruus Video</a></li>
+<li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
+<li><a href="contact.html">☎️ La Xiriir</a></li>
+    </ul>
+  </nav>
 
-  <div id="carabi" class="description">
-    <strong>Farbarashada Carabiga:</strong> Ardayga raba inuu barto Qur’aanka Kariimka ah waxaa lagama maarmaan ah in uu ka dhisanyahay dhanka akhrinta iyo qorista farta Carabiga si ay ugu sahlanaato barashada Qur’aanka iyo xifdintiisa iyadoo aan la adeegsan caawin joogto ah.
-  </div>
-  <div id="tasxiix" class="description">
-    <strong>Tasxiixa & Xifdiga:</strong> Ardayga raba inuu barto Qur’aanka Kariimka ah marka hore waxaa laga saxayaa dhawaqa xarfaha iyo kalimaadka Qur’aanka iyadoo loo maraayo hab casri ah oo fudud oo ay macalimiintu ku toosinayaan akhriska saxda ah si loo gaaro xifdin sax ah.
-  </div>
-  <div id="muraajaco" class="description">
-    <strong>Tasxiix & Muraajaco:</strong> Waxaa lagu xoojinayaa waxa horey loo xifdiyay iyadoo la tasxiixayo iyo la celinayo. Ardayga raba inuu Qur’aanka ijaaso ka qaato, balse horey u xifdiyay balse hadda uu iska dhexgalay, waxaa loogu talagalay qeyb uu ka heli karo subac iyo tasxiix lagana caawinaayo sidii uu u buuxin lahaa shuruuda ijaasada.
-  </div>
-  <div id="ijaaza" class="description">
-    <strong>Ijaazaadka:</strong> Ardayga raba inuu Qur’aanka Kariimka ah ijaaso ka qaato, islamarkaana horey u xifdiyay, balse hadda uu iska dhexgalay, waxaa loogu talagalay qeyb uu ka heli karo subac iyo tasxiix joogto ah, si looga caawiyo buuxinta shuruudaha ijaasada si habaysan oo nidaamsan.
-  </div>
-  <div id="culuum" class="description">
-    <strong>Culuumta Qur’aanka:</strong> Barashada tafsiirka, asbaabul-nuzuul, qawaa’idka tajwiidka iyo culuumta kale ee la xiriira Qur’aanka.
-  </div>
+  <main style="text-align: center; padding: 3rem 1rem;">
+    <h2 style="color: #800020;">Koorsooyinka</h2>
+    <p>Qeybta: Koorsooyinka - boggaan waxa uu ka tirsan yahay Machadka Tartiiil Online.</p>
+  </main>
 
-  <form action="https://formspree.io/f/mdkzvkvk" method="POST">
-    <h2>Foomka Diiwaangelinta Ardayga</h2>
-    <label>Magaca Ardayga:</label>
-    <input type="text" name="magac" required />
+  
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Machadka Tartiiil Online. Xuquuqda way dhowrsan tahay.</p>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/252612345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:tartiilonline@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
 
-    <label>Lambarka Taleefanka:</label>
-    <input type="text" name="telefoon" required />
 
-    <label>Wadanka:</label>
-    <input type="text" name="wadanka" required />
-
-    <label>Taariikhda Dhalashada:</label>
-    <input type="date" name="dob" required />
-
-    <label>Heerka Xifdiga:</label>
-    <select name="xifdi">
-      <option>Juz Amma</option>
-      <option>Dhex-dhexaad</option>
-      <option>Qur'aan Dhan</option>
-    </select>
-
-    <button type="submit">Diiwaangeli</button>
-  </form>
-
-  <script>
-    function showDesc(id) {
-      document.querySelectorAll('.description').forEach(div => div.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

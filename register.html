@@ -2,87 +2,49 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <title>Diiwaangelinta Ardayga - Tartiiil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diiwaangelin - Machadka Tartiiil Online</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <header>
-    <h1>Foomka Diiwaangelinta Ardayda</h1>
+    <h1>Machadka Tartiiil Online</h1>
   </header>
 
-  <main>
-    <form id="registerForm">
-      <label>Magaca:</label>
-      <input type="text" name="Magaca" required />
+  <nav>
+    <div class="menu-toggle">&#9776;</div>
+    <ul>
+      <li><a href="index.html">🏠 Bogga Hore</a></li>
+<li><a href="register.html" class="active">📝 Diiwaangelin</a></li>
+<li><a href="courses.html">📚 Koorsooyinka</a></li>
+<li><a href="schedule.html">📅 Jadwalka</a></li>
+<li><a href="gallery.html">🖼️ Muuqaalada</a></li>
+<li><a href="videos.html">🎥 Duruus Video</a></li>
+<li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
+<li><a href="contact.html">☎️ La Xiriir</a></li>
+    </ul>
+  </nav>
 
-      <label>WhatsApp Nombar:</label>
-      <input type="tel" name="WhatsApp" required />
-
-      <label>Wadanka:</label>
-      <input type="text" name="Wadanka" required />
-
-      <label>Heerka (Xifdiga):</label>
-      <select name="Heerka" required>
-        <option value="">-- Dooro --</option>
-        <option value="Biloow">Biloow</option>
-        <option value="Dhexdhexaad">Dhexdhexaad</option>
-        <option value="Dhamaystir">Dhamaystir</option>
-      </select>
-
-      <label>Taariikhda Dhalashada:</label>
-      <input type="date" name="Dhalashada" required />
-
-      <label>Qeybta:</label>
-      <select name="Qeybta" required>
-        <option value="">-- Dooro --</option>
-        <option value="Farbar">Farbar</option>
-        <option value="Xifdi">Xifdi</option>
-        <option value="Muraajaco">Muraajaco</option>
-        <option value="Ijaaso">Ijaaso</option>
-        <option value="Culuumul Quraan">Culuumul Quraan</option>
-      </select>
-
-      <label>Waqtiga:</label>
-      <input type="text" name="Waqtiga" placeholder="Tusaale: Subax, Galab, Habeen" required />
-
-      <label>Qaabka:</label>
-      <select name="Qaabka" required>
-        <option value="">-- Dooro --</option>
-        <option value="Qof Ahaan">Qof Ahaan</option>
-        <option value="Jamac">Jamac</option>
-      </select>
-
-      <label>Email-kaaga:</label>
-      <input type="email" name="Email" required />
-
-      <label>Taariikh:</label>
-      <input type="date" name="Taariikh" required />
-
-      <button type="submit">Diiwaangeli</button>
-    </form>
+  <main style="text-align: center; padding: 3rem 1rem;">
+    <h2 style="color: #800020;">Diiwaangelin</h2>
+    <p>Qeybta: Diiwaangelin - boggaan waxa uu ka tirsan yahay Machadka Tartiiil Online.</p>
   </main>
 
+  
   <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online</p>
+    <div class="footer-container">
+      <p>&copy; 2025 Machadka Tartiiil Online. Xuquuqda way dhowrsan tahay.</p>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/252612345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:tartiilonline@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyRqrRODbrgGY445xalhgFWTKRYQdmt0YALc74Til0PvW5aL4unmrDCdYDGoUSDSSZMNg/exec
-    const form = document.getElementById('registerForm');
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-          alert("✅ Diiwaangelinta waa la diray! Fadlan eeg emailkaaga.");
-          form.reset();
-        })
-        .catch(error => {
-          alert("❌ Wuxuu dhacay khalad. Fadlan isku day mar kale.");
-          console.error('Error!', error.message);
-        });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,60 +1,78 @@
+
 body {
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(to right, #800020, #b33a3a);
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fdfdfd;
+}
+header {
+  text-align: center;
+  padding: 1.5rem;
+  background: #fff4f0;
+}
+header h1 {
+  margin: 0;
+  color: #800020;
+}
+nav {
+  background: #800020;
+}
+nav .menu-toggle {
+  display: none;
+  padding: 1rem;
+  text-align: right;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+nav ul {
+  list-style: none;
   margin: 0;
   padding: 0;
-  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.3s ease-in-out;
 }
-
-main {
-  max-width: 700px;
-  margin: 3rem auto;
-  background: #fff;
-  color: #333;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+nav li {
+  margin: 0;
 }
-
-h1 {
-  text-align: center;
-  color: #800020;
-}
-
-label {
-  display: block;
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #800020;
-}
-
-input, select, button {
-  width: 100%;
-  padding: 0.7rem;
-  margin-top: 0.3rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: orange;
+nav a {
+  display: inline-block;
+  padding: 0.75rem 1rem;
   color: white;
-  border: none;
-  margin-top: 2rem;
-  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+nav a:hover {
+  background: #b3003c;
+  color: #FFD700;
+}
+nav a.active {
+  color: #FFD700;
   font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #4d0013;
 }
-
-button:hover {
-  background-color: #cc7000;
-}
-
-#status {
+footer {
   text-align: center;
-  margin-top: 1rem;
-  font-weight: bold;
+  background: #800020;
+  color: white;
+  padding: 1rem;
+}
+
+/* Responsive menu for small screens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    display: none;
+    padding-bottom: 1rem;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  nav .menu-toggle {
+    display: block;
+  }
 }
