@@ -2,87 +2,103 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <title>Diiwaangelinta Ardayga - Tartiiil</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diiwaangelinta Machadka Tartiiil Online</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Foomka Diiwaangelinta Ardayda</h1>
-  </header>
-
   <main>
-    <form id="registerForm">
-      <label>Magaca:</label>
-      <input type="text" name="Magaca" required />
+    <h1>Diiwaangelinta Ardayga</h1>
+    <form id="registrationForm">
+      <label for="Magaca">Magaca:</label>
+      <input type="text" id="Magaca" name="Magaca" required />
 
-      <label>WhatsApp Nombar:</label>
-      <input type="tel" name="WhatsApp" required />
+      <label for="WhatsApp">WhatsApp Nombar:</label>
+      <input type="tel" id="WhatsApp" name="WhatsApp" required />
 
-      <label>Wadanka:</label>
-      <input type="text" name="Wadanka" required />
+      <label for="Wadanka">Wadanka:</label>
+      <input type="text" id="Wadanka" name="Wadanka" required />
 
-      <label>Heerka (Xifdiga):</label>
-      <select name="Heerka" required>
-        <option value="">-- Dooro --</option>
-        <option value="Biloow">Biloow</option>
-        <option value="Dhexdhexaad">Dhexdhexaad</option>
-        <option value="Dhamaystir">Dhamaystir</option>
+      <label for="Heerka">Heerka:</label>
+      <select id="Heerka" name="Heerka" required>
+        <option value="">-- Xulo Heerka --</option>
+        <option value="biloow">1: Biloow</option>
+        <option value="dhexdhexaad">2: Dhexdhexaad</option>
+        <option value="dhamaystir">3: Dhamaystir</option>
       </select>
 
-      <label>Taariikhda Dhalashada:</label>
-      <input type="date" name="Dhalashada" required />
+      <label for="Dhalashada">Taariikhda Dhalashada:</label>
+      <input type="date" id="Dhalashada" name="Dhalashada" required />
 
-      <label>Qeybta:</label>
-      <select name="Qeybta" required>
-        <option value="">-- Dooro --</option>
-        <option value="Farbar">Farbar</option>
-        <option value="Xifdi">Xifdi</option>
-        <option value="Muraajaco">Muraajaco</option>
-        <option value="Ijaaso">Ijaaso</option>
-        <option value="Culuumul Quraan">Culuumul Quraan</option>
+      <label for="Qeybta">Qeybta:</label>
+      <select id="Qeybta" name="Qeybta" required>
+        <option value="">-- Xulo Qeybta --</option>
+        <option value="farbar">Farbar</option>
+        <option value="xifdi">Xifdi</option>
+        <option value="muraajaco">Muraajaco</option>
+        <option value="ijaaso">Ijaaso</option>
+        <option value="culuumul quraan">Culuumul Quraan</option>
       </select>
 
-      <label>Waqtiga:</label>
-      <input type="text" name="Waqtiga" placeholder="Tusaale: Subax, Galab, Habeen" required />
+      <label for="Waqtiga">Waqtiga:</label>
+      <input type="text" id="Waqtiga" name="Waqtiga" placeholder="Sida 10:00 AM" required />
 
-      <label>Qaabka:</label>
-      <select name="Qaabka" required>
-        <option value="">-- Dooro --</option>
-        <option value="Qof Ahaan">Qof Ahaan</option>
-        <option value="Jamac">Jamac</option>
+      <label for="Qaabka">Qaabka:</label>
+      <select id="Qaabka" name="Qaabka" required>
+        <option value="">-- Xulo Qaabka --</option>
+        <option value="qof ahaan">Qof Ahaan</option>
+        <option value="jamac">Jamac</option>
       </select>
 
-      <label>Email-kaaga:</label>
-      <input type="email" name="Email" required />
+      <label for="Taariikh">Taariikh (Diiwaangelinta):</label>
+      <input type="date" id="Taariikh" name="Taariikh" required />
 
-      <label>Taariikh:</label>
-      <input type="date" name="Taariikh" required />
+      <label for="Email">Email:</label>
+      <input type="email" id="Email" name="Email" required />
 
       <button type="submit">Diiwaangeli</button>
     </form>
+
+    <p id="status"></p>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online</p>
-  </footer>
-
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec';
-    const form = document.getElementById('registerForm');
+    const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+    const form = document.getElementById('registrationForm');
+    const status = document.getElementById('status');
 
     form.addEventListener('submit', e => {
       e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-          alert("✅ Diiwaangelinta waa la diray! Fadlan eeg emailkaaga.");
-          form.reset();
-        })
-        .catch(error => {
-          alert("❌ Wuxuu dhacay khalad. Fadlan isku day mar kale.");
-          console.error('Error!', error.message);
-        });
+
+      const data = {
+        type: 'register',
+        name: form.Magaca.value,
+        whatsapp: form.WhatsApp.value,
+        country: form.Wadanka.value,
+        level: form.Heerka.value,
+        birth: form.Dhalashada.value,
+        qeyb: form.Qeybta.value,
+        time: form.Waqtiga.value,
+        method: form.Qaabka.value,
+        reg_date: form.Taariikh.value,
+        Email: form.Email.value
+      };
+
+      fetch(scriptURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.text())
+      .then(text => {
+        status.textContent = '✅ Diiwaangelin guul leh!';
+        form.reset();
+      })
+      .catch(error => {
+        status.textContent = '❌ Khalad ayaa dhacay: ' + error.message;
+      });
     });
   </script>
 </body>
-</html>
+</html
