@@ -2,50 +2,60 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Foomka Diiwaangelinta</title>
+  <title>Diiwaangelinta Ardayga - Tartiiil Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-  <h1>Foomka Diiwaangelinta Ardayga</h1>
-  <form id="register-form">
-    <input type="text" name="Name" placeholder="Magaca" required />
-    <input type="text" name="Country" placeholder="Dalka" required />
-    <input type="tel" name="Phone" placeholder="Telefoonka" required />
-    <input type="date" name="Birthdate" placeholder="Dhalashada" required />
-    <input type="text" name="Level" placeholder="Heerka Xifdiga" required />
-    <button type="submit">Diiwaangeli</button>
-  </form>
-  <p id="register-status"></p>
-  <script src="darkmode.js"></script>
-  <script>
-    const form = document.getElementById("register-form");
-    const status = document.getElementById("register-status");
+  <header>
+    <h1>Foomka Diiwaangelinta</h1>
+  </header>
 
-    form.addEventListener("submit", async (e) => {
+  <main>
+    <form id="registerForm">
+      <label>Magaca:</label>
+      <input type="text" name="Magaca" required />
+
+      <label>WhatsApp:</label>
+      <input type="tel" name="WhatsApp" required />
+
+      <label>Wadanka:</label>
+      <input type="text" name="Wadanka" required />
+
+      <label>Email-kaaga:</label>
+      <input type="email" name="Email" required />
+
+      <label>Heerka (xifdiga):</label>
+      <select name="Heerka">
+        <option value="Qayb ahaan">Qayb ahaan</option>
+        <option value="Dhamaystiran">Dhamaystiran</option>
+        <option value="Barasho cusub">Barasho cusub</option>
+      </select>
+
+      <button type="submit">Diiwaangeli</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
+  </footer>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec';
+    const form = document.getElementById('registerForm');
+
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      status.textContent = "Fadlan sug...";
-      const formData = new FormData(form);
-      try {
-        const res = await fetch("https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec", {
-          method: "POST",
-          body: formData,
-        });
-        const result = await res.json();
-        if (result.success) {
-          status.textContent = "Waad ku guuleysatay!";
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          alert("✅ Waad isdiiwaangelisay! Fadlan eeg emailkaaga.");
           form.reset();
-        } else {
-          status.textContent = "Fadlan dib isku day!";
-        }
-      } catch {
-        status.textContent = "Qalad ayaa dhacay.";
-      }
+        })
+        .catch(error => {
+          alert("❌ Khalad ayaa dhacay. Fadlan isku day mar kale.");
+          console.error('Error!', error.message);
+        });
     });
   </script>
-  <script src="darkmode.js"></script>
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
 </body>
 </html>
-
