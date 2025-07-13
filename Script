@@ -1,0 +1,19 @@
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses");
+
+  const magac = e.parameter.Magaca;
+  const whatsapp = e.parameter.WhatsApp;
+  const wadanka = e.parameter.Wadanka;
+  const email = e.parameter.Email;
+  const heerka = e.parameter.Heerka;
+  const taariikh = new Date();
+
+  sheet.appendRow([magac, whatsapp, wadanka, email, heerka, taariikh]);
+
+  // Dir auto-email
+  const subject = "Mahadsanid Diiwaangelintaada - Tartiiil";
+  const body = `Asc ${magac},\n\nWaxaan helnay diiwaangelintaada. Waan kuu mahadcelinaynaa.\nFadlan la soco jadwalka darsiyada iyo fariimaha Machadka.\n\nMachadka Tartiiil Online.`;
+  
+  MailApp.sendEmail(email, subject, body);
+
+  return ContentService.createTextOutput("Success");
