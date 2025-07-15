@@ -1,27 +1,30 @@
-// darkmode.js
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.createElement("button");
-  toggleBtn.textContent = "🌙 Toggle Dark Mode";
-  toggleBtn.style.position = "fixed";
-  toggleBtn.style.bottom = "20px";
-  toggleBtn.style.right = "20px";
-  toggleBtn.style.padding = "10px 15px";
-  toggleBtn.style.border = "none";
-  toggleBtn.style.borderRadius = "8px";
-  toggleBtn.style.background = "#800020";
-  toggleBtn.style.color = "white";
-  toggleBtn.style.cursor = "pointer";
-  toggleBtn.style.zIndex = "1000";
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleButton = document.createElement("button");
+  toggleButton.textContent = "🌙";
+  toggleButton.style.position = "fixed";
+  toggleButton.style.top = "10px";
+  toggleButton.style.right = "10px";
+  toggleButton.style.padding = "0.5rem";
+  toggleButton.style.zIndex = "1000";
+  toggleButton.style.borderRadius = "50%";
+  toggleButton.style.border = "none";
+  toggleButton.style.cursor = "pointer";
+  toggleButton.title = "Toggle Dark Mode";
 
-  toggleBtn.addEventListener("click", () => {
+  document.body.appendChild(toggleButton);
+
+  toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+    toggleButton.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
   });
 
-  document.body.appendChild(toggleBtn);
+  // Mobile nav toggle
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navUl = document.querySelector("nav ul");
 
-  // Load saved preference
-  if (localStorage.getItem("darkMode") === "true") {
-    document.body.classList.add("dark-mode");
+  if (menuToggle && navUl) {
+    menuToggle.addEventListener("click", () => {
+      navUl.classList.toggle("active");
+    });
   }
 });
