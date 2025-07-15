@@ -33,37 +33,57 @@
 
   <main style="padding: 2rem; max-width: 700px; margin: auto;">
     <h2 style="color: #800020;">📝 Foomka Diiwaangelinta</h2>
-    <form action="https://formspree.io/f/mdkzvkvk" method="POST">
-      <label>Magaca:</label>
-      <input type="text" name="Magaca" required><br>
+   form action="https://formspree.io/f/mdkzvkvk" method="POST">
+  <label for="magaca">Magaca:</label>
+  <input type="text" id="magaca" name="Magaca" required>
 
-      <label>WhatsApp Number:</label>
-      <input type="tel" name="WhatsApp" required><br>
+  <label for="whatsapp">WhatsApp Number:</label>
+  <input type="tel" id="whatsapp" name="WhatsApp" required>
 
-      <label>Wadanka:</label>
-      <input type="text" name="Wadanka" required><br>
+  <label for="wadanka">Wadanka:</label>
+  <input type="text" id="wadanka" name="Wadanka" required>
 
-      <label>Heerka:</label>
-      <select name="Heerka" required>
-        <option value="">Dooro...</option>
-        <option value="Biloow">Biloow</option>
-        <option value="Dhexdhexaad">Dhexdhexaad</option>
-        <option value="Dhamaystir">Dhamaystir</option>
-      </select><br>
+  <label for="heerka">Heerka:</label>
+  <select id="heerka" name="Heerka" required>
+    <option value="">Dooro...</option>
+    <option value="Biloow">Biloow</option>
+    <option value="Dhexdhexaad">Dhexdhexaad</option>
+    <option value="Dhamaystir">Dhamaystir</option>
+  </select>
 
-      <label>Qeybta:</label>
-      <select name="Qeybta" required>
-        <option value="">Dooro...</option>
-        <option value="Farbar">Farbar</option>
-        <option value="Xifdi">Xifdi</option>
-        <option value="Muraajaco">Muraajaco</option>
-        <option value="Ijaaso">Ijaaso</option>
-        <option value="Culuumul Quraan">Culuumul Quraan</option>
-      </select><br>
+  <label for="qeybta">Qeybta:</label>
+  <select id="qeybta" name="Qeybta" required>
+    <option value="">Dooro...</option>
+    <option value="Farbar">Farbar</option>
+    <option value="Xifdi">Xifdi</option>
+    <option value="Muraajaco">Muraajaco</option>
+    <option value="Ijaaso">Ijaaso</option>
+    <option value="Culuumul Quraan">Culuumul Quraan</option>
+  </select>
 
-      <label>Waqtiga:</label>
-      <input type="text" name="Waqtiga" placeholder="Subax ama Galab" required><br>
+<label for="waqtiga">Waqtiga:</label>
+<select id="waqtiga" name="Waqtiga" onchange="toggleCustomTime(this)" required>
+  <option value="">Dooro...</option>
+  <option value="Subax">Subax</option>
+  <option value="Duhur">Duhur</option>
+  <option value="Galab">Galab</option>
+  <option value="Habeen">Habeen</option>
+  <option value="Custom">Waqti Gaar ah (Qor)</option>
+</select>
 
+<input type="text" id="waqtigaCustom" name="WaqtigaCustom" placeholder="Qor waqtigaaga halkan" style="display:none; margin-top: 0.5rem; padding:0.5rem; width:100%; max-width:100%; border:1px solid #ccc; border-radius:5px;">
+
+  <label for="qaabka">Qaabka:</label>
+  <select id="qaabka" name="Qaabka" required>
+    <option value="Qof Ahaan">Qof Ahaan</option>
+    <option value="Jamac">Jamac</option>
+  </select>
+
+  <label for="dhalasho">Taariikhda Dhalashada:</label>
+  <input type="date" id="dhalasho" name="Dhalasho" required>
+
+  <button type="submit">✔️ Diiwaangeli</button>
+</form>
       <label>Qaabka:</label>
       <select name="Qaabka" required>
         <option value="Qof Ahaan">Qof Ahaan</option>
