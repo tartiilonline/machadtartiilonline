@@ -8,6 +8,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="darkmode.js" defer></script>
 </head>
+
+  <script>
+function toggleCustomTime(selectElem) {
+  const customInput = document.getElementById('waqtigaCustom');
+  if(selectElem.value === 'Custom') {
+    customInput.style.display = 'block';
+    customInput.required = true;
+  } else {
+    customInput.style.display = 'none';
+    customInput.required = false;
+    customInput.value = '';
+  }
+}
+</script>
+  
 <body>
   <header>
     <h1>Machadka Tartiiil Online</h1>
