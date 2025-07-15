@@ -73,3 +73,10 @@ footer {
     display: block;
   }
 }
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #eee;
+}
+body.dark-mode a {
+  color: #FFD700;
+}
