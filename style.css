@@ -1,10 +1,9 @@
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: #fdfdfd;
 }
-
-/* ===== HEADER ===== */
 header {
   text-align: center;
   padding: 1.5rem;
@@ -14,8 +13,6 @@ header h1 {
   margin: 0;
   color: #800020;
 }
-
-/* ===== NAVIGATION ===== */
 nav {
   background: #800020;
 }
@@ -36,7 +33,6 @@ nav ul {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  transition: all 0.3s ease-in-out;
 }
 nav li {
   margin: 0;
@@ -58,51 +54,12 @@ nav a.active {
   font-weight: bold;
   background-color: #4d0013;
 }
-
-/* ===== MAIN CONTENT ===== */
-main {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2rem;
-  text-align: center;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-main h2 {
-  color: #800020;
-}
-
-/* ===== REGISTER BUTTON ===== */
-.register-btn {
-  display: inline-block;
-  margin-top: 2rem;
-  background-color: orange;
-  color: white;
-  padding: 0.8rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-}
-.register-btn:hover {
-  background-color: #cc7000;
-  color: #fff;
-  transform: scale(1.05);
-}
-
-/* ===== FOOTER ===== */
 footer {
   text-align: center;
   background: #800020;
   color: white;
   padding: 1rem;
 }
-
-/* ===== RESPONSIVE MENU ===== */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
