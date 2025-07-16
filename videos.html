@@ -1,1 +1,80 @@
-<!-- videos.html content -->
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duruus Video - Machadka Tartiiil Online</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="darkmode.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Machadka Tartiiil Online</h1>
+  </header>
+
+  <nav>
+    <div class="menu-toggle">&#9776;</div>
+    <ul>
+      <li><a href="index.html">🏠 Bogga Hore</a></li>
+      <li><a href="register.html">📝 Diiwaangelin</a></li>
+      <li><a href="courses.html">📚 Koorsooyinka</a></li>
+      <li><a href="schedule.html">📅 Jadwalka</a></li>
+      <li><a href="gallery.html">🖼️ Muuqaalada</a></li>
+      <li><a href="videos.html">🎥 Duruus Video</a></li>
+      <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
+      <li><a href="casharro.html">📖 Casharro</a></li>
+      <li><a href="waajibaad.html">📝 Waajibaad</a></li>
+      <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
+      <li><a href="live.html">📡 Live Zoom</a></li>
+      <li><a href="contact.html">☎️ La Xiriir</a></li>
+    </ul>
+  </nav>
+
+  <main style="padding: 2rem;">
+    <h2 style="text-align:center; color: #800020;">🎥 Duruus Video</h2>
+    <p style="text-align:center;">Halkan waxaad ka daawan kartaa duruus kala duwan oo diini ah.</p>
+
+    <section id="videoContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+      <p style="text-align:center;">Loading videos...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/252611456000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:tartiilonline@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:2421"><i class="fas fa-phone-alt"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    const api = "https://script.google.com/macros/s/AKfycbyk17aKWIop4osK1lSC7lBL31pgEeh0bTrHhmNuc4TNu3L_6YHiOeh9mzCluEN8MiBn/exec?sheet=Videos";
+
+    fetch(api)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("videoContainer");
+        container.innerHTML = "";
+        data.forEach(video => {
+          const div = document.createElement("div");
+          div.innerHTML = `
+            <div style="background:#fff; border-radius:10px; overflow:hidden; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
+              <iframe width="100%" height="200" src="${video.URL}" frameborder="0" allowfullscreen></iframe>
+              <div style="padding: 1rem;">
+                <h3 style="color: #800020;">${video.Title}</h3>
+                <p>${video.Description || ""}</p>
+              </div>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.getElementById("videoContainer").innerHTML = "<p style='text-align:center; color:red;'>Ma suurtagalin in la soo rogo muuqaalada. Hubi internet-ka ama isku xirka API-ga.</p>";
+      });
+  </script>
+</body>
+</html>
