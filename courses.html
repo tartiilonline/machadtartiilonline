@@ -5,47 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Koorsooyinka - Machadka Tartiiil Online</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     .courses-section {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      padding: 2rem;
+      padding: 2rem 1rem;
       max-width: 1200px;
-      margin: auto;
+      margin: 1rem auto 3rem auto;
     }
     .course-card {
       background: #fefefe;
       padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
     }
     .course-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     .course-icon {
       font-size: 2.5rem;
       color: #800020;
       margin-bottom: 1rem;
+      text-align: center;
     }
     .course-title {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       color: #800020;
       margin-bottom: 0.5rem;
+      text-align: center;
+      font-weight: 700;
     }
     .course-description {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #333;
+      text-align: center;
+      line-height: 1.4;
     }
+
+    /* Dark Mode Support */
     @media (prefers-color-scheme: dark) {
       .course-card {
         background: #222;
         color: #ddd;
+        box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+      }
+      .course-card:hover {
+        box-shadow: 0 8px 20px rgba(255,255,255,0.2);
       }
       .course-description {
         color: #bbb;
+      }
+      .course-icon {
+        color: #ff7f7f;
+      }
+      .course-title {
+        color: #ff6f6f;
       }
     }
   </style>
