@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Test - Machadka Tartiiil</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    form {
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+      background: #fefefe;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.25rem;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 2rem;
+      background-color: #800020;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .koorso-selected {
+      background: #dff0d8;
+      border: 1px solid #4cae4c;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      color: #3c763d;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 style="text-align:center; padding:1rem;">Machadka Tartiiil Online</h1>
+  </header>
+
+  <main style="padding: 2rem 1rem; text-align: center;">
+    <h2 style="color: #800020;">📝 Tijaabo: Diiwaangelin Koorsada</h2>
+    <p>Fadlan buuxi foomkan si aad u tijaabiso email auto-reply oo shaqeynaya.</p>
+  </main>
+
+  <section>
+    <form action="https://formspree.io/f/mdkzvkvk" method="POST">
+      <label for="magac">Magaca:</label>
+      <input type="text" id="magac" name="magac" required />
+
+      <label for="email">Email-kaaga:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="whatsapp">WhatsApp Number:</label>
+      <input type="tel" id="whatsapp" name="whatsapp" required />
+
+      <label for="dhalasho">Taariikhda Dhalashada:</label>
+      <input type="date" id="dhalasho" name="dhalasho" required />
+
+      <label for="koorso">Qeybta Koorso:</label>
+      <select name="koorso" id="koorso" required>
+        <option value="">-- Dooro Koorso --</option>
+        <option value="farbarasho">Farbarashada Qur'aanka</option>
+        <option value="tartiil">Tartiiilka Qur'aanka</option>
+        <option value="xifdi">Xifdinta Qur'aanka</option>
+        <option value="tafsiir">Tafsiirka Qur'aanka</option>
+        <option value="ijaaso">Koorsooyinka Ijaasada</option>
+        <option value="culuumul-quraan">Culuumul Qur'aan</option>
+      </select>
+
+      <input type="hidden" name="koorso_selected" id="koorso_selected">
+      <div id="selectedKoorso" class="koorso-selected" style="display:none;"></div>
+
+      <button type="submit">📩 Diiwaangeli Tijaabo</button>
+    </form>
+  </section>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const koorsoParam = getQueryParam("koorso");
+      const select = document.getElementById("koorso");
+      const msg = document.getElementById("selectedKoorso");
+      const hiddenInput = document.getElementById("koorso_selected");
+
+      const koorsoMagacyada = {
+        "farbarasho": "Farbarashada Qur'aanka",
+        "tartiil": "Tartiiilka Qur'aanka",
+        "xifdi": "Xifdinta Qur'aanka",
+        "tafsiir": "Tafsiirka Qur'aanka",
+        "ijaaso": "Koorsooyinka Ijaasada",
+        "culuumul-quraan": "Culuumul Qur'aan"
+      };
+
+      if (koorsoParam && select) {
+        select.value = koorsoParam;
+        const magac = koorsoMagacyada[koorsoParam] || koorsoParam;
+        msg.style.display = "block";
+        msg.textContent = "✅ Waxaad dooratay: " + magac;
+        hiddenInput.value = magac;
+      }
+
+      select.addEventListener("change", () => {
+        const value = select.value;
+        const magac = koorsoMagacyada[value] || value;
+        hiddenInput.value = magac;
+        msg.style.display = "block";
+        msg.textContent = "✅ Waxaad dooratay: " + magac;
+      });
+    });
+  </script>
+
+</body>
+</html>
