@@ -2,111 +2,11 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Xiriir - Machadka Tartiiil Online</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    form {
-      max-width: 600px;
-      margin: 2rem auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    input, textarea {
-      padding: 0.8rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    button {
-      background-color: #800020;
-      color: #fff;
-      border: none;
-      padding: 0.9rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #b3003c;
-    }
-    .quick-contact {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 1.8rem;
-      color: #800020;
-    }
-    .quick-contact a {
-      margin: 0 1rem;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-    .quick-contact a:hover {
-      color: #b3003c;
-    }
-    iframe {
-      margin-top: 3rem;
-      border-radius: 10px;
-      width: 100%;
-      height: 300px;
-      border: none;
-    }
-
-    /* Navigation & Menu Toggle */
-    nav {
-      background-color: #f4f4f4;
-      border-bottom: 1px solid #ccc;
-      position: relative;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-    }
-    nav li {
-      margin: 0.5rem 1rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #800020;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav a:hover, nav a.active {
-      color: #b3003c;
-    }
-    .menu-toggle {
-      display: none;
-      font-size: 2rem;
-      cursor: pointer;
-      position: absolute;
-      right: 1rem;
-      top: 0.3rem;
-      color: #800020;
-      user-select: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        display: none;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="darkmode.js" defer></script>
 </head>
 <body>
   <header>
@@ -127,82 +27,44 @@
       <li><a href="waajibaad.html">📝 Waajibaad</a></li>
       <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
       <li><a href="live.html">📡 Live Zoom</a></li>
-      <li><a href="contact.html" class="active">☎️ La Xiriir</a></li>
+      <li><a href="contact.html">☎️ La Xiriir</a></li>
     </ul>
   </nav>
 
-  <main>
-    <h2 style="text-align:center; color:#800020; margin-top:2rem;">La Xiriir Machadka Tartiiil Online</h2>
-    <p style="text-align:center; max-width:600px; margin:1rem auto;">
-      Fadlan buuxi foomka hoose si aad fariin noogu soo dirto ama isticmaal xiriirada tooska ah ee hoos ku qoran.
-    </p>
+  <main style="padding: 3rem 1rem; max-width: 700px; margin: auto;">
+    <h2 style="text-align: center; color: #800020;">☎️ Nala Soo Xiriir</h2>
+    <p style="text-align: center;">Fadlan buuxi foomka hoose si aad noogu soo dirto fariin. Waxa kale oo aad nagala xiriiri kartaa WhatsApp ama Email.</p>
 
-    <form action=https://formspree.io/f/mzzvbaqe
-      <label for="name">Magacaaga:</label>
-      <input type="text" id="name" name="name" required placeholder="Magacaaga buuxa" />
+    <form action="https://formspree.io/f/mzzvbaqe" method="POST" style="margin-top: 2rem;">
+      <label for="name">Magaca:</label>
+      <input type="text" id="name" name="name" required />
 
-      <label for="email">Emailkaaga:</label>
-      <input type="email" id="email" name="_replyto" required placeholder="Email sax ah" />
+      <label for="email">Email-ka:</label>
+      <input type="email" id="email" name="email" required />
 
       <label for="message">Fariintaada:</label>
-      <textarea id="message" name="message" rows="5" required placeholder="Qor fariintaada halkan..."></textarea>
+      <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit">Soo Dir Fariinta</button>
+      <button type="submit">📩 Dir Fariin</button>
     </form>
 
-    <div class="quick-contact">
-      <a href="https://wa.me/252612345678" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:tartiilonline@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://facebook.com/tartiilonline" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://youtube.com/channel/yourchannel" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <div style="text-align: center; margin-top: 2rem;">
+      <p>📞 WhatsApp: <a href="https://wa.me/252611456000" target="_blank">+252 611 456000</a></p>
+      <p>📧 Email: <a href="mailto:tartiilonline@gmail.com">tartiilonline@gmail.com</a></p>
+      <p>🌐 Facebook: <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank">Bogga Facebook</a></p>
     </div>
-
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3130.123456789!2d45.123456789!3d2.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMachadka%20Tartiiil!5e0!3m2!1sen!2sso!4v1590000000000!5m2!1sen!2sso" 
-      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </main>
 
   <footer>
-    <div class="footer-container" style="text-align:center; padding:1rem;">
+    <div class="footer-container">
       <p>&copy; 2025 Machadka Tartiiil Online. Xuquuqda way dhowrsan tahay.</p>
-      <div class="social-icons" style="font-size:1.2rem;">
+      <div class="social-icons">
         <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://wa.me/252612345678" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/252611456000" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <a href="mailto:tartiilonline@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </footer>
-
-  <script>
-    // Toggle mobile menu
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navUl = document.querySelector('nav ul');
-
-    menuToggle.addEventListener('click', () => {
-      navUl.classList.toggle('show');
-    });
-
-    // Dark Mode toggle button creation
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleBtn = document.createElement("button");
-      toggleBtn.textContent = "Toggle Dark Mode";
-      toggleBtn.style.position = "fixed";
-      toggleBtn.style.bottom = "20px";
-      toggleBtn.style.right = "20px";
-      toggleBtn.style.padding = "10px 15px";
-      toggleBtn.style.backgroundColor = "#800020";
-      toggleBtn.style.color = "#fff";
-      toggleBtn.style.border = "none";
-      toggleBtn.style.borderRadius = "5px";
-      toggleBtn.style.cursor = "pointer";
-      toggleBtn.style.zIndex = "1000";
-      document.body.appendChild(toggleBtn);
-
-      toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-      });
-    });
-  </script>
 </body>
 </html>
