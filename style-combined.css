@@ -142,3 +142,41 @@ body.dark-mode section {
     display: block;
   }
 }
+.live-section {
+  padding: 3rem 1rem;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.zoom-box {
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 2px dashed #e74c3c;
+  border-radius: 20px;
+  background-color: var(--light-bg, #fff);
+  transition: all 0.3s ease;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zoom-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.zoom-button:hover {
+  background-color: #c0392b;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
