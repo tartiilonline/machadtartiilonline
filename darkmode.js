@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.createElement("button");
-  toggle.textContent = "🌙 Toggle Dark Mode";
+  toggle.textContent = "🌙/☀️";
   toggle.style.position = "fixed";
   toggle.style.bottom = "20px";
   toggle.style.right = "20px";
@@ -24,3 +24,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.add("dark-mode");
   }
 });
+
