@@ -35,6 +35,37 @@
     <p>Qeybta: Duruus Video - boggaan waxa uu ka tirsan yahay Machadka Tartiiil Online.</p>
   </main>
 
+  <section class="video-list" style="max-width: 900px; margin:auto; padding:2rem;">
+  <h2 style="text-align:center; color:#800020;">🎥 Duruus Video</h2>
+  <div id="videoContainer">Loading videos...</div>
+</section>
+
+<script>
+  fetch("https://script.google.com/macros/s/AKfycbyk17aKWIop4osK1lSC7lBL31pgEeh0bTrHhmNuc4TNu3L_6YHiOeh9mzCluEN8MiBn/exec?sheet=Videos")
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("videoContainer");
+      container.innerHTML = "";
+      data.forEach(video => {
+        const url = new URL(video.YouTubeURL);
+        const videoId = url.searchParams.get("v");
+        if (videoId) {
+          container.innerHTML += `
+            <div style="margin-bottom: 2rem;">
+              <h3>${video.Title}</h3>
+              <iframe width="100%" height="315" 
+                src="https://www.youtube.com/embed/${videoId}" 
+                frameborder="0" allowfullscreen></iframe>
+            </div>
+          `;
+        }
+      });
+    })
+    .catch(err => {
+      document.getElementById("videoContainer").textContent = "⚠️ Wuxuu video xirmay ama lama helin.";
+      console.error(err);
+    });
+</script>
   
   <footer>
     <div class="footer-container">
