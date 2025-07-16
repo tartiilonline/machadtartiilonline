@@ -1,30 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const toggleButton = document.createElement("button");
-  toggleButton.textContent = "🌙";
-  toggleButton.style.position = "fixed";
-  toggleButton.style.top = "10px";
-  toggleButton.style.right = "10px";
-  toggleButton.style.padding = "0.5rem";
-  toggleButton.style.zIndex = "1000";
-  toggleButton.style.borderRadius = "50%";
-  toggleButton.style.border = "none";
-  toggleButton.style.cursor = "pointer";
-  toggleButton.title = "Toggle Dark Mode";
+  const toggle = document.createElement("button");
+  toggle.textContent = "🌙 Toggle Dark Mode";
+  toggle.style.position = "fixed";
+  toggle.style.bottom = "20px";
+  toggle.style.right = "20px";
+  toggle.style.padding = "0.5rem 1rem";
+  toggle.style.backgroundColor = "#800020";
+  toggle.style.color = "#fff";
+  toggle.style.border = "none";
+  toggle.style.borderRadius = "5px";
+  toggle.style.cursor = "pointer";
+  toggle.style.zIndex = "1000";
 
-  document.body.appendChild(toggleButton);
-
-  toggleButton.addEventListener("click", () => {
+  toggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    toggleButton.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
   });
 
-  // Mobile nav toggle
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navUl = document.querySelector("nav ul");
+  document.body.appendChild(toggle);
 
-  if (menuToggle && navUl) {
-    menuToggle.addEventListener("click", () => {
-      navUl.classList.toggle("active");
-    });
+  // Load saved theme preference
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
   }
 });
