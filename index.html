@@ -5,12 +5,10 @@
   <title>Bogga Hore - Machadka Tartiiil Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="darkmode.js" defer></script>
   <style>
     body {
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0; padding: 0;
       background: #fff;
       color: #222;
@@ -18,222 +16,155 @@
     }
     .dark-mode {
       background: #121212;
-      color: #eee;
+      color: #ddd;
     }
-
     nav {
       background: #800020;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     nav ul.main-menu {
       list-style: none;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
     }
     nav ul.main-menu > li {
-      margin: 0 8px;
       position: relative;
+      margin: 0 10px;
     }
-    nav ul.main-menu > li > a,
-    nav ul.main-menu > li > button {
+    nav ul.main-menu > li > a, nav ul.main-menu > li > button {
       color: #fff;
       text-decoration: none;
-      padding: 12px 16px;
-      display: block;
+      padding: 14px 12px;
+      display: inline-block;
       font-weight: 600;
-      border: none;
-      background: none;
       cursor: pointer;
-      border-radius: 6px;
+      background: none;
+      border: none;
     }
     nav ul.main-menu > li > a:hover,
     nav ul.main-menu > li > button:hover,
     nav ul.main-menu > li > a.active {
-      background: #a00030;
+      background: #aa002f;
+      border-radius: 6px;
     }
-
+    nav ul.main-menu li.dropdown:hover > ul.dropdown-content {
+      display: block;
+    }
     ul.dropdown-content {
-      display: none;
       position: absolute;
+      display: none;
       top: 100%;
       left: 0;
       background: #800020;
       min-width: 180px;
-      z-index: 10;
       border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      z-index: 10;
+      padding: 5px 0;
     }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
     ul.dropdown-content li a {
       display: block;
-      padding: 10px 16px;
+      padding: 10px 15px;
       color: #fff;
+      font-weight: normal;
     }
-
     ul.dropdown-content li a:hover {
-      background: #a00030;
+      background: #aa002f;
     }
-
     header {
-      padding: 2rem 1rem;
-      background: linear-gradient(to right, #800020, #a00030);
-      color: #fff;
+      padding: 1.5rem;
+      background: #f2f2f2;
       text-align: center;
     }
-
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin: 0;
-    }
-
     main {
-      max-width: 960px;
+      max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-
-    main h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    section ul li {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-
-    .highlight {
-      background-color: #ffe9e9;
-      border-left: 5px solid #800020;
-      padding: 1.5rem;
-      border-radius: 10px;
+    section {
       margin-top: 2rem;
-      font-size: 1.1rem;
-      line-height: 1.6;
     }
-
-    .btn-register {
-      display: inline-block;
-      background: #ff6600;
-      color: white !important;
-      padding: 12px 22px;
-      font-size: 1rem;
-      font-weight: 700;
-      border-radius: 8px;
-      text-decoration: none;
-      margin: 1.5rem auto;
-      transition: background 0.3s ease;
-    }
-
-    .btn-register:hover {
-      background: #e05600;
-    }
-
     footer {
-      background: #f2f2f2;
       text-align: center;
-      padding: 1.2rem 0;
-      font-size: 0.95rem;
+      padding: 1rem 0;
+      background: #eee;
       margin-top: 3rem;
     }
-
-    #darkModeToggle {
-      padding: 10px 14px;
-      border: none;
-      border-radius: 6px;
-      background: #444;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    #darkModeToggle:hover {
-      background: #666;
+    .highlight {
+      background-color: #ffe5e5;
+      border-left: 4px solid #800020;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Machadka Tartiiil Online</h1>
-    <p>Baro Qur'aanka Kariimka iyo culuumta diinta si casri ah — meel kasta oo aad joogto!</p>
+    <p>Baro Qur'aanka Kariimka iyo culuumta diinta si casri ah, meel kasta oo aad joogto!</p>
+    <nav>
+      <ul class="main-menu">
+        <li><a href="index.html" class="active">🏠 Bogga Hore</a></li>
+        <li><a href="register.html">📝 Diiwaangelin</a></li>
+        <li class="dropdown">
+          <a href="#">📚 Waxbarasho ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="courses.html">📘 Koorsooyinka</a></li>
+            <li><a href="casharro.html">📖 Casharro</a></li>
+            <li><a href="waajibaad.html">📝 Waajibaad</a></li>
+            <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">📅 Jadwal ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="schedule.html">🗓️ Jadwalka</a></li>
+            <li><a href="live.html">📡 Live Teams</a></li>
+            <li><a href="join-teams.html">🧑‍🏫 Kooxaha Teams</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">🎥 Muuqaalada ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="gallery.html">🖼️ Sawirro</a></li>
+            <li><a href="videos.html">🎞️ Duruus Video</a></li>
+            <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">⚙️ Maamul ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
+            <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
+            <li><a href="contact.html">☎️ La Xiriir</a></li>
+          </ul>
+        </li>
+        <li>
+          <button id="darkModeToggle">🌙 Dark Mode</button>
+        </li>
+      </ul>
+    </nav>
   </header>
 
-  <nav>
-    <ul class="main-menu">
-      <li><a href="index.html" class="active">🏠 Bogga Hore</a></li>
-      <li><a href="register.html" class="btn-register">📝 Isdiiwaangeli</a></li>
-      <li class="dropdown">
-        <a href="#">📚 Waxbarasho ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="courses.html">📘 Koorsooyinka</a></li>
-          <li><a href="casharro.html">📖 Casharro</a></li>
-          <li><a href="waajibaad.html">📝 Waajibaad</a></li>
-          <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">📅 Jadwal ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="schedule.html">🗓️ Jadwalka</a></li>
-          <li><a href="live.html">📡 Live Teams</a></li>
-          <li><a href="join-teams.html">🧑‍🏫 Kooxaha Teams</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">🎥 Muuqaalada ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="gallery.html">🖼️ Sawirro</a></li>
-          <li><a href="videos.html">🎞️ Duruus Video</a></li>
-          <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">⚙️ Maamul ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="login.html">🔐 Soo Gal</a></li>
-          <li><a href="admin.html">🛠️ Admin</a></li>
-          <li><a href="contact.html">☎️ Nala Soo Xiriir</a></li>
-        </ul>
-      </li>
-      <li><button id="darkModeToggle">🌙 Dark Mode</button></li>
-    </ul>
-  </nav>
-
   <main>
-    <h2>Ku Soo Dhawoow Machadka Tartiiil</h2>
-    <p>Waxaan bixinaa koorsooyin tayo sare leh oo Qur’aanka ah, xifdi, akhris, tajweed iyo culuumta diinta — dhammaan online.</p>
+    <h2>Ku Soo Dhawoow Machadka Tartiiil Online</h2>
+    <p>Machadkan waxa uu bixiyaa fursado waxbarasho oo tayo leh oo ku saabsan Qur'aanka Kariimka, akhrintiisa, xifdintiisa, iyo culuumta la xiriira, si online ah loogana faa’iideysto meel kasta.</p>
 
     <section>
       <h3>Waxyaabaha Aad Ka Heli Doonto</h3>
       <ul style="list-style:none; padding:0;">
-        <li>📗 Koorsooyin kala duwan (Farbar, Habeen, Ijaazo...)</li>
-        <li>📅 Jadwal u habaysan iyo duruus toos ah (Live)</li>
-        <li>👩‍🏫 Kooxo Microsoft Teams ah oo si gaar ah loo habeeyay</li>
-        <li>🎥 Duruus muuqaal ah iyo arday guuleystay</li>
-        <li>📞 Taageero toos ah iyo xiriir joogto ah</li>
+        <li>📘 Koorsooyin Qur'aanka ah oo kala duwan (Farbar, Habeen, Ijaazo)</li>
+        <li>📅 Jadwalka duruusta & fadhiyo live ah oo la qabto</li>
+        <li>🧑‍🏫 Kooxaha Microsoft Teams oo kala ah fasallo kala duwan</li>
+        <li>🎥 Muuqaalada duruusta iyo ardayda guuleystay</li>
+        <li>☎️ Taageero iyo xiriir joogto ah oo macallimiinta ah</li>
       </ul>
     </section>
 
     <div class="highlight">
-      <strong>🎯 Ujeedadeena:</strong> Inaan helno jiil akhriya, xifdiya, fahma, kuna dhaqma Qur’aanka Kariimka — anagoo isticmaalayna fursadaha online-ka casriga ah.
-    </div>
-
-    <div style="text-align:center;">
-      <a href="register.html" class="btn-register">🚀 Diiwaangelintaada Bilaaw</a>
+      <strong>Ujeedadeena:</strong> In la helo jiil Qur’aanka akhriya, fahma, kuna dhaqma — iyadoo la adeegsanayo hab online ah oo la jaanqaadaya waqtigeena.
     </div>
   </main>
 
