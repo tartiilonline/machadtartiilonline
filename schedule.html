@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>📅 Jadwalka Duruusta - Machadka Tartiiil Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="darkmode.js" defer></script>
@@ -12,8 +12,6 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: var(--bg-color, #fff);
-      color: var(--text-color, #000);
       padding: 20px;
       margin: 0;
     }
@@ -29,16 +27,16 @@
     }
 
     nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
     nav ul li {
-      margin: 0 15px;
+      margin: 0 10px;
     }
 
     nav ul li a {
@@ -63,23 +61,21 @@
 
     select {
       padding: 8px;
-      font-size: 16px;
       width: 100%;
-      border-radius: 5px;
+      font-size: 16px;
       border: 1px solid #ccc;
+      border-radius: 5px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
-      background-color: var(--bg-color);
-      color: var(--text-color);
     }
 
     th, td {
-      border: 1px solid #ccc;
-      padding: 12px;
+      border: 1px solid #ddd;
+      padding: 10px;
       text-align: center;
     }
 
@@ -100,26 +96,19 @@
 
     .loading {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 20px;
       font-style: italic;
-      font-size: 1.1rem;
     }
 
     footer {
       text-align: center;
       margin: 40px 0 20px;
-      color: var(--text-color);
     }
 
     .social-icons a {
       margin: 0 8px;
-      color: var(--text-color);
-      font-size: 1.5rem;
-      text-decoration: none;
-    }
-
-    .social-icons a:hover {
       color: #800020;
+      font-size: 1.5rem;
     }
   </style>
 </head>
@@ -147,8 +136,8 @@
 </nav>
 
 <div class="filter">
-  <label for="fasalFilter">Kala saar qeybta fasalka: </label>
-  <select id="fasalFilter" aria-label="Filter by fasal">
+  <label for="fasalFilter">Kala saar qeybta fasalka:</label>
+  <select id="fasalFilter">
     <option value="all">Dhammaan</option>
     <option value="Farbar">Farbar</option>
     <option value="Xifdi">Xifdi</option>
@@ -158,15 +147,15 @@
 </div>
 
 <div id="jadwalContainer">
-  <p class="loading">Loading jadwalka...</p>
+  <p class="loading">⏳ Xogta jadwalka ayaa soo degaysa...</p>
   <table id="jadwalTable" style="display:none;">
     <thead>
       <tr>
         <th>Maalin</th>
-        <th>Waqti</th>
+        <th>Saacad</th>
         <th>Qeybta</th>
         <th>Macalin</th>
-        <th>Link Teams</th>
+        <th>Link</th>
       </tr>
     </thead>
     <tbody id="jadwalBody"></tbody>
@@ -176,66 +165,61 @@
 <footer>
   <p>&copy; 2025 Machadka Tartiiil Online</p>
   <div class="social-icons">
-    <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-    <a href="https://wa.me/252611456000" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="mailto:tartiilonline@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-    <a href="tel:2421" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://wa.me/252611456000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:tartiilonline@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="tel:2421"><i class="fas fa-phone-alt"></i></a>
   </div>
 </footer>
 
 <script>
-  const jadwalBody = document.getElementById('jadwalBody');
-  const jadwalTable = document.getElementById('jadwalTable');
-  const loadingText = document.querySelector('.loading');
-  const fasalFilter = document.getElementById('fasalFilter');
+  const jadwalTable = document.getElementById("jadwalTable");
+  const jadwalBody = document.getElementById("jadwalBody");
+  const loadingText = document.querySelector(".loading");
+  const fasalFilter = document.getElementById("fasalFilter");
 
-  // Hubi inaad API URL-kan u beddesho midkaaga Google Apps Script
-  const API_URL = 'https://script.google.com/macros/s/AKfycbzdzk6uuXjVvoRJnvtSXDwooW3B_kcWfhMSsNsCGnzAIUBzlc5NObkckZ8TBLRJIiAe/exec';
+  const API_URL = "https://script.google.com/macros/s/AKfycbzdzk6uuXjVvoRJnvtSXDwooW3B_kcWfhMSsNsCGnzAIUBzlc5NObkckZ8TBLRJIiAe/exec";
 
-  function loadJadwal(filter = 'all') {
-    loadingText.style.display = 'block';
-    jadwalTable.style.display = 'none';
-    jadwalBody.innerHTML = '';
+  function fetchJadwal(filter = "all") {
+    loadingText.style.display = "block";
+    jadwalTable.style.display = "none";
+    jadwalBody.innerHTML = "";
 
     fetch(API_URL)
-      .then(res => res.json())
-      .then(data => {
-        let filtered = data;
-        if (filter !== 'all') {
-          filtered = data.filter(item => item.Qeybta === filter);
-        }
+      .then((res) => res.json())
+      .then((data) => {
+        const filtered = filter === "all" ? data : data.filter(row => row.Qeybta === filter);
 
         if (filtered.length === 0) {
-          jadwalBody.innerHTML = `<tr><td colspan="5" style="text-align:center;">Ma jiro jadwal u dhigma qeybtaas.</td></tr>`;
+          jadwalBody.innerHTML = '<tr><td colspan="5">Ma jiro jadwal la helay qeybtaas.</td></tr>';
         } else {
-          filtered.forEach(item => {
-            const tr = document.createElement('tr');
+          filtered.forEach(row => {
+            const tr = document.createElement("tr");
             tr.innerHTML = `
-              <td>${item.Maalin || ''}</td>
-              <td>${item.Saacad || ''}</td>
-              <td>${item.Qeybta || ''}</td>
-              <td>${item.Macalin || ''}</td>
-              <td><a href="${item.Link || '#'}" target="_blank" rel="noopener" class="link">Ku biir</a></td>
+              <td>${row.Maalin || ""}</td>
+              <td>${row.Saacad || ""}</td>
+              <td>${row.Qeybta || ""}</td>
+              <td>${row.Macalin || ""}</td>
+              <td><a href="${row.Link || "#"}" class="link" target="_blank">Ku biir</a></td>
             `;
             jadwalBody.appendChild(tr);
           });
         }
 
-        loadingText.style.display = 'none';
-        jadwalTable.style.display = 'table';
+        loadingText.style.display = "none";
+        jadwalTable.style.display = "table";
       })
-      .catch(err => {
-        loadingText.textContent = 'Waan ka xunnahay, xog lama heli karo.';
+      .catch((err) => {
+        loadingText.textContent = "⚠️ Xog lama helin. Fadlan dib isku day.";
         console.error(err);
       });
   }
 
-  fasalFilter.addEventListener('change', () => {
-    loadJadwal(fasalFilter.value);
+  fasalFilter.addEventListener("change", () => {
+    fetchJadwal(fasalFilter.value);
   });
 
-  // Load jadwal marka page la furo
-  loadJadwal();
+  fetchJadwal(); // Load on first visit
 </script>
 
 </body>
