@@ -113,9 +113,30 @@
   </nav>
 
   <main class="lessons-container">
-  <div style="text-align: center; margin-bottom: 1.5rem;">
-    <input type="text" id="searchInput" placeholder="🔍 Raadi cashar..." style="padding: 10px; width: 100%; max-width: 400px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;" />
+  <div style="text-align: center; margin-bottom: 1rem;">
+    <input type="text" id="searchInput" placeholder="🔍 Raadi cashar..." style="padding: 10px; width: 90%; max-width: 400px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;" />
   </div>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+    <select id="sortSelect" style="padding: 8px; border-radius: 5px;">
+      <option value="">🔀 Tartibin...</option>
+      <option value="title">🔡 Cinwaan (A-Z)</option>
+      <option value="date">📅 Taariikh (cusub → duq)</option>
+    </select>
+
+    <select id="subjectFilter" style="padding: 8px; border-radius: 5px;">
+      <option value="">📌 Maaddo (Filter)...</option>
+    </select>
+
+    <select id="teacherFilter" style="padding: 8px; border-radius: 5px;">
+      <option value="">👨‍🏫 Macalin (Filter)...</option>
+    </select>
+
+    <button onclick="window.print()" style="padding: 8px 12px; background: #800020; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      🖨️ Daabac / PDF
+    </button>
+  </div>
+
   <div id="lessons">
     <p class="loading">⏳ Casharrada ayaa soo degaya...</p>
   </div>
@@ -135,6 +156,10 @@
   const api = "https://script.google.com/macros/s/AKfycbyk17aKWIop4osK1lSC7lBL31pgEeh0bTrHhmNuc4TNu3L_6YHiOeh9mzCluEN8MiBn/exec?sheet=Casharro";
   const container = document.getElementById("lessons");
   const searchInput = document.getElementById("searchInput");
+  const sortSelect = document.getElementById("sortSelect");
+  const subjectFilter = document.getElementById("subjectFilter");
+  const teacherFilter = document.getElementById("teacherFilter");
+
   let allLessons = [];
 
   fetch(api)
@@ -144,16 +169,29 @@
         container.innerHTML = "<p>❗ Lama helin casharro.</p>";
         return;
       }
-
       allLessons = data;
-      renderLessons(allLessons);
+      populateFilters(data);
+      renderLessons(data);
     })
     .catch(error => {
       container.innerHTML = "<p style='color:red;'>❌ Casharro lama helin. Fadlan dib isku day.</p>";
       console.error("Fetch error:", error);
     });
 
+  function populateFilters(data) {
+    const subjects = [...new Set(data.map(d => d.Subject).filter(Boolean))];
+    const teachers = [...new Set(data.map(d => d.Teacher).filter(Boolean))];
+
+    subjectFilter.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+    teacherFilter.innerHTML += teachers.map(t => `<option value="${t}">${t}</option>`).join('');
+  }
+
   function renderLessons(lessons) {
+    if (lessons.length === 0) {
+      container.innerHTML = "<p>❗ Lama helin wax casharro ah oo la jaanqaadaya raadintaada.</p>";
+      return;
+    }
+
     container.innerHTML = lessons.map(item => `
       <div class="lesson-card">
         <div class="lesson-title">${item.Title || "Cinwaan la'aan"}</div>
@@ -163,14 +201,44 @@
     `).join('');
   }
 
-  searchInput.addEventListener("input", () => {
+  function filterAndSortLessons() {
+    let filtered = [...allLessons];
+
     const query = searchInput.value.toLowerCase();
-    const filtered = allLessons.filter(item =>
-      (item.Title && item.Title.toLowerCase().includes(query)) ||
-      (item.Description && item.Description.toLowerCase().includes(query))
-    );
+    const subject = subjectFilter.value;
+    const teacher = teacherFilter.value;
+    const sort = sortSelect.value;
+
+    if (query) {
+      filtered = filtered.filter(item =>
+        (item.Title && item.Title.toLowerCase().includes(query)) ||
+        (item.Description && item.Description.toLowerCase().includes(query))
+      );
+    }
+
+    if (subject) {
+      filtered = filtered.filter(item => item.Subject === subject);
+    }
+
+    if (teacher) {
+      filtered = filtered.filter(item => item.Teacher === teacher);
+    }
+
+    if (sort === "title") {
+      filtered.sort((a, b) => (a.Title || "").localeCompare(b.Title || ""));
+    }
+
+    if (sort === "date") {
+      filtered.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+    }
+
     renderLessons(filtered);
-  });
+  }
+
+  searchInput.addEventListener("input", filterAndSortLessons);
+  sortSelect.addEventListener("change", filterAndSortLessons);
+  subjectFilter.addEventListener("change", filterAndSortLessons);
+  teacherFilter.addEventListener("change", filterAndSortLessons);
 </script>
 </body>
 </html>
