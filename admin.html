@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard - Machadka Tartiiil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: var(--bg-color, #fff);
+      color: var(--text-color, #000);
+    }
+    h1 {
+      color: #800020;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      box-shadow: 0 0 8px rgba(128,0,32,0.15);
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #800020;
+      color: white;
+    }
+    .logout-btn {
+      margin: 10px 0 20px;
+      text-align: right;
+    }
+    .logout-btn button {
+      background: #800020;
+      color: white;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    .logout-btn button:hover {
+      background-color: #5a0016;
+    }
+    #filterFasal {
+      margin-bottom: 15px;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dashboard Admin</h1>
+  <div class="logout-btn">
+    <button onclick="logout()">Ka Bax</button>
+  </div>
+
+  <label for="filterFasal">Kala saar fasalka:</label>
+  <select id="filterFasal">
+    <option value="all">Dhammaan</option>
+    <option value="Al-Miftaax">Al-Miftaax</option>
+    <option value="Al-Mizmaar">Al-Mizmaar</option>
+    <option value="Al-Xaafid">Al-Xaafid</option>
+    <option value="Al-Itqaan">Al-Itqaan</option>
+    <option value="Al-Qaari">Al-Qaari</option>
+  </select>
+
+  <table id="attendanceTable" aria-live="polite">
+    <thead>
+      <tr>
+        <th>Magac</th>
+        <th>Xaalad</th>
+        <th>Taariikh</th>
+        <th>Fasal</th>
+        <th>Macalin</th>
+      </tr>
+    </thead>
+    <tbody id="attendanceBody">
+      <tr><td colspan="5" style="text-align:center;">Loading...</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    // Hubi login admin
+    if(sessionStorage.getItem('loggedInUser') !== 'admin'){
