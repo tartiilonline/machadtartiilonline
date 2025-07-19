@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Machadka Tartiiil</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background: var(--bg-color, #fff);
+      color: var(--text-color, #000);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(128,0,32,0.15);
+    }
+    h1 {
+      color: #800020;
+      text-align: center;
+    }
+    label, input, button {
+      width: 100%;
+      margin-top: 15px;
+      display: block;
+      font-size: 1.1rem;
+    }
+    input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 25px;
+      background-color: #d35400;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e67e22;
+    }
+    #errorMsg {
+      color: red;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 600;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Soo Gal Fasalka Ama Admin</h1>
+  <form id="loginForm" autocomplete="off">
+    <label for="username">Username:</label>
+    <input id="username" name="username" required autocomplete="off" />
+    <label for="password">Password:</label>
+    <input id="password" type="password" name="password" required autocomplete="off" />
+    <button type="submit">Soo Gal</button>
+    <div id="errorMsg"></div>
+  </form>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    const users = {
+      miftaax: { password: 'miftaax123', fasal: 'Al-Miftaax', sheet: 'AlMiftaax' },
+      mizmaar: { password: 'mizmaar123', fasal: 'Al-Mizmaar', sheet: 'AlMizmaar' },
+      xaafid: { password: 'xaafid123', fasal: 'Al-Xaafid', sheet: 'AlXaafid' },
+      itqaan: { password: 'itqaan123', fasal: 'Al-Itqaan', sheet: 'AlItqaan' },
+      qaari: { password: 'qaari123', fasal: 'Al-Qaari', sheet: 'AlQaari' },
+      admin: { password: 'admin2025', fasal: 'Admin', sheet: null }
+    };
+
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const username = loginForm.username.value.trim().toLowerCase();
+      const password = loginForm.password.value;
+
+      if(users[username] && users[username].password === password){
+        sessionStorage.setItem('loggedInUser', username);
+        sessionStorage.setItem('loggedInFasal', users[username].fasal);
+        sessionStorage.setItem('loggedInSheet', users[username].sheet);
+        if(username === 'admin'){
+          window.location.href = 'admin.html';
+        } else {
+          window.location.href = 'attendance.html';
+        }
+      } else {
+        errorMsg.textContent = 'Username ama password khaldan.';
+      }
+    });
+  </script>
+</body>
+</html>
