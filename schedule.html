@@ -4,111 +4,9 @@
   <meta charset="UTF-8" />
   <title>📅 Jadwalka Duruusta - Machadka Tartiiil Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="darkmode.js" defer></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      margin: 0;
-    }
-
-    header h1 {
-      text-align: center;
-      color: #800020;
-    }
-
-    nav {
-      background-color: #800020;
-      padding: 10px 0;
-    }
-
-    nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav ul li {
-      margin: 0 10px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 6px 12px;
-      display: inline-block;
-    }
-
-    nav ul li a.active,
-    nav ul li a:hover {
-      background-color: #5a0016;
-      border-radius: 4px;
-    }
-
-    .filter {
-      max-width: 300px;
-      margin: 20px auto;
-      text-align: center;
-    }
-
-    select {
-      padding: 8px;
-      width: 100%;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #800020;
-      color: white;
-    }
-
-    a.link {
-      color: #0078d7;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    a.link:hover {
-      text-decoration: underline;
-    }
-
-    .loading {
-      text-align: center;
-      margin-top: 20px;
-      font-style: italic;
-    }
-
-    footer {
-      text-align: center;
-      margin: 40px 0 20px;
-    }
-
-    .social-icons a {
-      margin: 0 8px;
-      color: #800020;
-      font-size: 1.5rem;
-    }
-  </style>
 </head>
 <body>
 
@@ -116,52 +14,54 @@
   <h1>Machadka Tartiiil Online</h1>
 </header>
 
-  <nav>
-    <ul class="main-menu">
-      <li><a href="index.html">🏠 Bogga Hore</a></li>
-      <li><a href="register.html">📝 Diiwaangelin</a></li>
+<nav>
+  <ul class="main-menu">
+    <li><a href="index.html">🏠 Bogga Hore</a></li>
+    <li><a href="register.html">📝 Diiwaangelin</a></li>
 
-      <li class="dropdown">
-        <a href="#">📚 Waxbarasho ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="courses.html">📘 Koorsooyinka</a></li>
-          <li><a href="casharro.html">📖 Casharro</a></li>
-          <li><a href="waajibaad.html">📝 Waajibaad</a></li>
-          <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
-        </ul>
-      </li>
+    <li class="dropdown">
+      <a href="#">📚 Waxbarasho ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="courses.html">📘 Koorsooyinka</a></li>
+        <li><a href="casharro.html">📖 Casharro</a></li>
+        <li><a href="waajibaad.html">📝 Waajibaad</a></li>
+        <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
+      </ul>
+    </li>
 
-      <li class="dropdown">
-        <a href="#">📅 Jadwal ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="schedule.html">🗓️ Jadwalka</a></li>
-          <li><a href="live.html">📡 Live Zoom</a></li>
-        </ul>
-      </li>
+    <li class="dropdown">
+      <a href="#">📅 Jadwal ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="schedule.html" class="active">🗓️ Jadwalka</a></li>
+        <li><a href="live.html">📡 Live Zoom</a></li>
+      </ul>
+    </li>
 
-      <li class="dropdown">
-        <a href="#">🎥 Muuqaalada ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="gallery.html">🖼️ Sawirro</a></li>
-          <li><a href="videos.html">🎞️ Duruus Video</a></li>
-          <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
-        </ul>
-      </li>
+    <li class="dropdown">
+      <a href="#">🎥 Muuqaalada ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="gallery.html">🖼️ Sawirro</a></li>
+        <li><a href="videos.html">🎞️ Duruus Video</a></li>
+        <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
+      </ul>
+    </li>
 
-      <li class="dropdown">
-        <a href="#">⚙️ Maamul ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
-          <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
-          <li><a href="contact.html">☎️ La Xiriir</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+    <li class="dropdown">
+      <a href="#">⚙️ Maamul ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
+        <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
+        <li><a href="contact.html">☎️ La Xiriir</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
-<div id="jadwalContainer">
-  <p class="loading">⏳ Xogta jadwalka ayaa soo degaysa...</p>
-  <table id="jadwalTable" style="display:none;">
+<main class="container">
+  <h2 class="page-title">📅 Jadwalka Duruusta</h2>
+  <div class="loading">⏳ Xogta jadwalka ayaa soo degaysa...</div>
+
+  <table id="jadwalTable" class="data-table" style="display:none;">
     <thead>
       <tr>
         <th>Maalin</th>
@@ -173,7 +73,7 @@
     </thead>
     <tbody id="jadwalBody"></tbody>
   </table>
-</div>
+</main>
 
 <footer>
   <p>&copy; 2025 Machadka Tartiiil Online</p>
@@ -189,11 +89,10 @@
   const jadwalTable = document.getElementById("jadwalTable");
   const jadwalBody = document.getElementById("jadwalBody");
   const loadingText = document.querySelector(".loading");
-  const fasalFilter = document.getElementById("fasalFilter");
 
   const API_URL = "https://script.google.com/macros/s/AKfycbzdzk6uuXjVvoRJnvtSXDwooW3B_kcWfhMSsNsCGnzAIUBzlc5NObkckZ8TBLRJIiAe/exec";
 
-  function fetchJadwal(filter = "all") {
+  function fetchJadwal() {
     loadingText.style.display = "block";
     jadwalTable.style.display = "none";
     jadwalBody.innerHTML = "";
@@ -201,12 +100,10 @@
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
-        const filtered = filter === "all" ? data : data.filter(row => row.Qeybta === filter);
-
-        if (filtered.length === 0) {
-          jadwalBody.innerHTML = '<tr><td colspan="5">Ma jiro jadwal la helay qeybtaas.</td></tr>';
+        if (!data || data.length === 0) {
+          jadwalBody.innerHTML = '<tr><td colspan="5">Ma jiro jadwal la helay.</td></tr>';
         } else {
-          filtered.forEach(row => {
+          data.forEach(row => {
             const tr = document.createElement("tr");
             tr.innerHTML = `
               <td>${row.Maalin || ""}</td>
@@ -218,7 +115,6 @@
             jadwalBody.appendChild(tr);
           });
         }
-
         loadingText.style.display = "none";
         jadwalTable.style.display = "table";
       })
@@ -228,11 +124,7 @@
       });
   }
 
-  fasalFilter.addEventListener("change", () => {
-    fetchJadwal(fasalFilter.value);
-  });
-
-  fetchJadwal(); // Load on first visit
+  fetchJadwal();
 </script>
 
 </body>
