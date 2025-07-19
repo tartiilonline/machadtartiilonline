@@ -6,9 +6,192 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script src="darkmode.js" defer></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background-color: #800020;
+      color: white;
+      padding: 1rem 1rem 0.5rem;
+    }
+
+    nav {
+      background-color: #670018;
+      padding: 0.5rem;
+    }
+
+    .main-menu {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .main-menu > li {
+      position: relative;
+    }
+
+    .main-menu li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      display: block;
+    }
+
+    .main-menu li a:hover {
+      background-color: #9e0030;
+      border-radius: 4px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 1;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dropdown-content li a {
+      color: black;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    header h1 {
+      text-align: center;
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    header p {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    main.teams-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .team-card {
+      background-color: var(--card-bg);
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-card h2 {
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background-color: orange;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: darkorange;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Dark mode variables */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #222;
+      --card-bg: #fefefe;
+    }
+
+    .dark-mode {
+      --bg-color: #1e1e1e;
+      --text-color: #f0f0f0;
+      --card-bg: #2b2b2b;
+    }
+  </style>
 </head>
 <body>
   <header>
+    <nav>
+      <ul class="main-menu">
+        <li><a href="index.html">🏠 Bogga Hore</a></li>
+        <li><a href="register.html">📝 Diiwaangelin</a></li>
+
+        <li class="dropdown">
+          <a href="#">📚 Waxbarasho ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="courses.html">📘 Koorsooyinka</a></li>
+            <li><a href="casharro.html">📖 Casharro</a></li>
+            <li><a href="waajibaad.html">📝 Waajibaad</a></li>
+            <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">📅 Jadwal ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="schedule.html">🗓️ Jadwalka</a></li>
+            <li><a href="live.html">📡 Live Teams</a></li>
+            <li><a href="join-teams.html">🧑‍🏫 Kooxaha Teams</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">🎥 Muuqaalada ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="gallery.html">🖼️ Sawirro</a></li>
+            <li><a href="videos.html">🎞️ Duruus Video</a></li>
+            <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">⚙️ Maamul ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
+            <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
+            <li><a href="contact.html">☎️ La Xiriir</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
     <h1>📲 Ku Biir Kooxdaada Microsoft Teams</h1>
     <p>Dooro qeybta aad ka tirsan tahay si aad ugu biirto kooxdeeda Teams:</p>
   </header>
