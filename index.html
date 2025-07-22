@@ -1,198 +1,75 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8">
-  <title>Machadka Tartiiil Online - Bogga Hore</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-      --bg-light: #ffffff;
-      --bg-dark: #121212;
-      --text-light: #222;
-      --text-dark: #ddd;
-      --primary: #800020;
-      --primary-hover: #aa002f;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-light);
-      transition: background 0.3s, color 0.3s;
-    }
-
-    body.dark-mode {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
-
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 1.5rem 1rem;
-      text-align: center;
-    }
-
-    nav {
-      background: var(--primary);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a, nav button {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.75rem 1rem;
-      font-weight: bold;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    nav a:hover, nav button:hover {
-      background: var(--primary-hover);
-      border-radius: 6px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    h2 {
-      text-align: center;
-      color: var(--primary);
-    }
-
-    ul.features {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0;
-    }
-
-    ul.features li {
-      margin: 0.5rem 0;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    ul.features li::before {
-      content: '✔️';
-      position: absolute;
-      left: 0;
-    }
-
-    .highlight {
-      background: #ffe5e5;
-      border-left: 4px solid var(--primary);
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 2rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #eee;
-      margin-top: 3rem;
-    }
-
-    body.dark-mode footer {
-      background: #1e1e1e;
-    }
-
-    .dark-mode .highlight {
-      background: #2a2a2a;
-      color: #ccc;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diiwaangelin - Machadka Tartiiil Online</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="darkmode.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
   <header>
-    <h1>Machadka Tartiiil Online</h1>
-    <p>Baro Qur’aanka Kariimka iyo culuumta diiniga ah si casri ah, meel kasta oo aad joogto!</p>
+    <nav class="navbar">
+      <h1>Machadka Tartiiil Online</h1>
+      <button id="darkModeToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
   </header>
 
-  < <nav>
-    <ul class="main-menu">
-      <li><a href="index.html">🏠 Bogga Hore</a></li>
-      <li><a href="register.html">📝 Diiwaangelin</a></li>
+  <main class="form-container">
+    <h2>Diiwaangelinta Ardayga</h2>
+    <form action="https://formspree.io/f/mdkzvkvk" method="POST">
+      <label for="name">👤 Magaca:</label>
+      <input type="text" id="name" name="Magaca" required />
 
-      <li class="dropdown">
-        <a href="#">📚 Waxbarasho ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="courses.html">📘 Koorsooyinka</a></li>
-          <li><a href="casharro.html">📖 Casharro</a></li>
-          <li><a href="waajibaad.html">📝 Waajibaad</a></li>
-          <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
-        </ul>
-      </li>
+      <label for="whatsapp">📱 WhatsApp Number:</label>
+      <input type="tel" id="whatsapp" name="WhatsApp Nombar" required />
 
-      <li class="dropdown">
-        <a href="#">📅 Jadwal ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="schedule.html">🗓️ Jadwalka</a></li>
-          <li><a href="live.html">📡  Live Teams</a></li>
-        </ul>
-      </li>
+      <label for="country">🌍 Wadanka:</label>
+      <input type="text" id="country" name="Wadanka" required />
 
-      <li class="dropdown">
-        <a href="#">🎥 Muuqaalada ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="gallery.html">🖼️ Sawirro</a></li>
-          <li><a href="videos.html">🎞️ Duruus Video</a></li>
-          <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
-        </ul>
-      </li>
+      <label for="level">📖 Heerka Xifdiga:</label>
+      <select id="level" name="Heerka" required>
+        <option value="">Dooro Heerka</option>
+        <option value="Biloow">Biloow</option>
+        <option value="Dhexdhexaad">Dhexdhexaad</option>
+        <option value="Dhamaystir">Dhamaystir</option>
+      </select>
 
-      <li class="dropdown">
-        <a href="#">⚙️ Maamul ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
-          <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
-          <li><a href="contact.html">☎️ La Xiriir</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+      <label for="birthdate">📅 Taariikhda Dhalashada:</label>
+      <input type="date" id="birthdate" name="Taariikhda Dhalashada" required />
 
-  <main>
-    <h2>Ku Soo Dhawoow!</h2>
-    <p>Machadka Tartiiil Online waxa uu siiyee ardayda fursad ay Qur’aanka iyo cilmiga diinta uga bartaan internet-ka si fudud, xirfad leh, iyo khibrad sare leh.</p>
+      <label for="qeybta">📚 Qeybta:</label>
+      <select id="qeybta" name="Qeybta" required>
+        <option value="">Dooro Qeybta</option>
+        <option value="Farbar">Farbar</option>
+        <option value="Xifdi">Xifdi</option>
+        <option value="Muraajaco">Muraajaco</option>
+        <option value="Ijaaso">Ijaaso</option>
+        <option value="Culuumul Quraan">Culuumul Quraan</option>
+      </select>
 
-    <ul class="features">
-      <li>📖 Koorsooyin Qur’aan iyo culuum kale ah (Farbar, Xifdi, Ijaazo iwm)</li>
-      <li>💻 Duruus toos ah oo la qabto jadwal gaar ah</li>
-      <li>🧑‍🏫 Fasallo Teams ah oo kala duwan (galab, habeen)</li>
-      <li>📷 Muuqaal & Video: Ardayda guuleystay iyo casharro</li>
-      <li>🛟 Taageero joogto ah iyo xiriir la leh macallimiin</li>
-    </ul>
+      <label for="waqtiga">🕰️ Waqtiga:</label>
+      <input type="time" id="waqtiga" name="Waqtiga" required />
 
-    <div class="highlight">
-      <strong>Ujeedadeena:</strong> In la helo jiil Qur’aanka fahma, akhriya, kuna dhaqma iyadoo la adeegsanayo tignoolajiyadda casriga ah.
-    </div>
+      <label for="qaabka">👥 Qaabka:</label>
+      <select id="qaabka" name="Qaabka" required>
+        <option value="">Dooro Qaabka</option>
+        <option value="Qof Ahaan">Qof Ahaan</option>
+        <option value="Jamac">Jamac</option>
+      </select>
+
+      <label for="date">🗓️ Taariikh:</label>
+      <input type="date" id="date" name="Taariikh" required />
+
+      <button type="submit">Diiwaangeli</button>
+    </form>
   </main>
 
   <footer>
     <p>&copy; 2025 Machadka Tartiiil Online. Dhammaan xuquuqdu way xafidan tahay.</p>
   </footer>
-
-  <script>
-    const toggle = document.getElementById('darkModeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      toggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
-      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-    });
-
-    if (localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark-mode');
-      document.getElementById('darkModeToggle').textContent = '☀️ Light Mode';
-    }
-  </script>
 </body>
 </html>
