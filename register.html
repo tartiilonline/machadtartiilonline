@@ -166,25 +166,31 @@
     </ul>
   </nav>
 
-  <main>
-    <h2 style="text-align:center; color:#800020;">📝 Foomka Diiwaangelinta</h2>
-    <form action="https://formspree.io/f/mzzvbaqe" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
-      <input type="text" name="Magaca" placeholder="Magaca" required>
-      <input type="text" name="WhatsApp Nambarka" placeholder="WhatsApp Number" required>
-      <input type="text" name="Wadanka" placeholder="Wadanka" required>
+ <main class="form-container">
+    <h1>Foomka Diiwaangelinta Ardayda</h1>
+    <form action="https://formspree.io/f/mdkzvkvk" method="POST">
+      <label>Magaca:</label>
+      <input type="text" name="magaca" required />
+
+      <label>WhatsApp Number:</label>
+      <input type="tel" name="whatsapp" required />
+
+      <label>Wadanka:</label>
+      <input type="text" name="wadanka" required />
 
       <label>Heerka:</label>
-      <select name="Heerka" required>
+      <select name="heerka" required>
         <option value="">Dooro Heerka</option>
         <option value="Biloow">Biloow</option>
         <option value="Dhexdhexaad">Dhexdhexaad</option>
         <option value="Dhamaystir">Dhamaystir</option>
       </select>
 
-      <input type="text" name="Taariikhda Dhalashada" placeholder="Taariikhda Dhalashada" required>
+      <label>Taariikhda Dhalashada:</label>
+      <input type="date" name="dhalasho" required />
 
       <label>Qeybta:</label>
-      <select name="Qeybta" required>
+      <select name="qeybta" required>
         <option value="">Dooro Qeybta</option>
         <option value="Farbar">Farbar</option>
         <option value="Xifdi">Xifdi</option>
@@ -194,21 +200,17 @@
       </select>
 
       <label>Waqtiga:</label>
-      <select name="Waqtiga" required>
-        <option value="">Dooro Waqti</option>
-        <option value="Subax">Subax</option>
-        <option value="Galab">Galab</option>
-        <option value="Fiid">Fiid</option>
-      </select>
+      <input type="time" name="waqtiga" required />
 
       <label>Qaabka:</label>
-      <select name="Qaabka" required>
+      <select name="qaabka" required>
         <option value="">Dooro Qaabka</option>
         <option value="Qof Ahaan">Qof Ahaan</option>
         <option value="Jamac">Jamac</option>
       </select>
 
-      <input type="text" name="Taariikhda Diiwaangelinta" placeholder="Taariikhda Diiwaangelinta" required>
+      <label>Taariikhda Diiwaangelinta:</label>
+      <input type="date" name="taariikh" value="<?= date('Y-m-d'); ?>" required />
 
       <button type="submit">Diiwaangeli</button>
     </form>
