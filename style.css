@@ -1,186 +1,100 @@
-/* Aasaaska */
+:root {
+  --color-primary: #800020; /* Burgundy */
+  --color-accent: #ff6f00;  /* Orange */
+  --bg-light: #ffffff;
+  --text-light: #111;
+  --bg-dark: #121212;
+  --text-dark: #f1f1f1;
+}
+
 body {
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
-  line-height: 1.6;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Header */
-header {
-  background-color: #800020; /* Burgundy */
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-/* Navigation */
-nav {
-  background-color: #f4f4f4;
-  border-bottom: 1px solid #ccc;
-}
-
-.main-menu {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-}
-
-.main-menu li {
-  position: relative;
-}
-
-.main-menu a {
-  text-decoration: none;
-  color: #800020;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  border-radius: 6px;
-}
-
-.main-menu a:hover {
-  color: #b3003c;
-  background-color: #fce4ec;
-}
-
-/* Dropdown style */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 180px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  border-radius: 6px;
-  top: 100%;
-  left: 0;
-}
-
-.dropdown-content li {
-  padding: 8px 12px;
-}
-
-.dropdown-content li a {
-  color: black;
-  text-decoration: none;
-  display: block;
-  font-weight: normal;
-}
-
-.dropdown-content li a:hover {
-  background-color: #f4f4f4;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown > a::after {
-  content: ' ▾';
-  margin-left: 5px;
-  font-weight: normal;
-  font-size: 0.7rem;
-  color: #800020;
-}
-
-/* Main content */
-main {
-  padding: 2rem 1rem;
-}
-
-section {
-  background-color: #fff;
-  padding: 2rem;
-  margin: auto;
-  border-radius: 10px;
-  max-width: 900px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-h2, h3 {
-  color: #800020;
-}
-
-ul li {
-  margin-bottom: 0.5rem;
-}
-
-/* Footer */
-footer {
-  background-color: #f4f4f4;
-  padding: 1rem;
-  text-align: center;
-  border-top: 1px solid #ccc;
-  font-size: 0.95rem;
-  color: #222;
-}
-
-.social-icons a {
-  margin: 0 0.5rem;
-  color: #800020;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #b3003c;
-}
-
-/* Isdiiwaangelinta Button */
-a.register-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #ff5722;
-  color: white;
-  padding: 12px 26px;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s, transform 0.3s;
-}
-
-a.register-btn:hover {
-  background-color: #e64a19;
-  transform: translateY(-2px);
-}
-
-/* Dark Mode */
 body.dark-mode {
-  background-color: #121212;
-  color: #eaeaea;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
-body.dark-mode header,
-body.dark-mode footer {
-  background-color: #1f1f1f;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-primary);
+  padding: 1rem 2rem;
   color: #fff;
 }
 
-body.dark-mode nav {
-  background-color: #222;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
 }
 
-body.dark-mode .main-menu a {
-  color: #ffa07a;
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-body.dark-mode .main-menu a:hover {
-  color: #ffdab9;
-  background-color: transparent;
+.nav-links li a.active,
+.nav-links li a:hover {
+  color: var(--color-accent);
 }
 
-body.dark-mode section {
-  background-color: #1b1b1b;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 
+.mode-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: 12px;
+}
+
+body.dark-mode .form-container {
+  background: rgba(18,18,18,0.9);
+}
+
+form label {
+  display: block;
+  margin: 0.8rem 0 0.2rem;
+}
+
+form input,
+form select,
+form button {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #e65c00;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-primary);
+  color: white;
+}
