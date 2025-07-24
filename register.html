@@ -76,7 +76,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
-    form input, form select {
+     form input, form select {
       padding: 0.75rem;
       border: 1px solid #ccc;
       border-radius: 6px;
@@ -161,14 +161,18 @@
           <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
           <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
           <li><a href="contact.html">☎️ La Xiriir</a></li>
-        </ul>
+         ...
       </li>
-    </ul>
+       <button id="darkModeToggle" style="background:none; border:none; font-weight:bold; color:#800020; cursor:pointer;">
+        🌙 Dark Mode
+      </button>
+    </li>
+  </ul>
   </nav>
 
  <main class="form-container">
     <h1>Foomka Diiwaangelinta Ardayda</h1>
-    <form action="https://formspree.io/f/mdkzvkvk" method="POST">
+    <form id="registerForm">
       <label>Magaca:</label>
       <input type="text" name="magaca" required />
 
@@ -244,6 +248,35 @@
         toggle.textContent = '☀️ Light Mode';
       }
     }
+  </script>
+
+  <!-- Register Form Submission Script -->
+  <script>
+    const form = document.getElementById('registerForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      fetch('https://script.google.com/macros/s/AKfycbzFZVrJBuYH7cZ5_GXadmKs30wB9KdSaXNEOQmr97jhq2Z3ItP3YbmlB8AYoisl7A2Mug/exec', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(result => {
+        alert('✅ Diiwaangelinta waa la diray!');
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('❌ Wuxuu jiro qalad. Fadlan isku day mar kale.');
+      });
+    });
   </script>
 </body>
 </html>
