@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <title>Diiwaangelin - Machadka Tartiiil Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="darkmode.js" defer></script>
+
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -16,19 +15,16 @@
       background-color: var(--bg-color, #f9f9f9);
       color: var(--text-color, #333);
     }
-
     header, footer {
       background-color: #800020;
       color: white;
       text-align: center;
       padding: 1rem;
     }
-
     nav {
       background-color: #f1f1f1;
       padding: 0.5rem 0;
     }
-
     nav ul {
       list-style: none;
       display: flex;
@@ -37,18 +33,15 @@
       padding: 0;
       margin: 0;
     }
-
     nav ul li {
       margin: 0 10px;
       position: relative;
     }
-
     nav a {
       text-decoration: none;
       color: #800020;
       font-weight: 600;
     }
-
     nav .dropdown-content {
       display: none;
       position: absolute;
@@ -58,15 +51,12 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       z-index: 1;
     }
-
     nav .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .main-menu li a:hover {
       color: orange;
     }
-
     main {
       max-width: 700px;
       margin: 2rem auto;
@@ -75,15 +65,14 @@
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-
-     form input, form select {
+    form input, form select {
       padding: 0.75rem;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 1rem;
       width: 100%;
+      margin-bottom: 1rem;
     }
-
     form button {
       background-color: #800020;
       color: white;
@@ -94,28 +83,22 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     form button:hover {
       background-color: orange;
       color: #fff;
     }
-
     .social-icons {
       margin-top: 1rem;
     }
-
     .social-icons a {
       color: white;
       margin: 0 0.5rem;
       font-size: 1.2rem;
       transition: color 0.3s;
     }
-
     .social-icons a:hover {
       color: orange;
     }
-
-    /* Dark Mode (optional support) */
     .dark-mode {
       --bg-color: #1c1c1c;
       --text-color: #f1f1f1;
@@ -161,52 +144,47 @@
           <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
           <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
           <li><a href="contact.html">☎️ La Xiriir</a></li>
-         ...
+        </ul>
       </li>
-       <button id="darkModeToggle" style="background:none; border:none; font-weight:bold; color:#800020; cursor:pointer;">
-        🌙 Dark Mode
-      </button>
-    </li>
-  </ul>
+      <li>
+        <button id="darkModeToggle" style="background:none; border:none; font-weight:bold; color:#800020; cursor:pointer;">
+          🌙 Dark Mode
+        </button>
+      </li>
+    </ul>
   </nav>
-  
- <h1>Foomka Diiwaangelinta Ardayda</h1>
 
-  <form method="POST" action="https://script.google.com/macros/s/AKfycbyPwYCzKNjBff5u7siu_1nGXxA5M_xpRkbrYE8esCKDm-Q-gct20VnCgk_S5CmirfO-bw/exec">
-
-    <input type="text" name="Magaca" placeholder="Magaca" required />
-    <input type="text" name="WhatsApp" placeholder="WhatsApp Number" required />
-    <input type="text" name="Wadanka" placeholder="Wadanka" required />
-
-    <select name="Heerka" required>
-      <option value="">Dooro Heerka</option>
-      <option value="Biloow">Biloow</option>
-      <option value="Dhexdhexaad">Dhexdhexaad</option>
-      <option value="Dhamaystir">Dhamaystir</option>
-    </select>
-
-    <input type="date" name="Dhalasho" required />
-
-    <select name="Qeybta" required>
-      <option value="">Dooro Qeybta</option>
-      <option value="Farbar">Farbar</option>
-      <option value="Xifdi">Xifdi</option>
-      <option value="Muraajaco">Muraajaco</option>
-      <option value="Ijaaso">Ijaaso</option>
-      <option value="Culuumul Quraan">Culuumul Quraan</option>
-    </select>
-
-    <input type="text" name="Waqtiga" placeholder="Waqtiga" />
-
-    <select name="Qaabka" required>
-      <option value="">Dooro Qaabka</option>
-      <option value="Qof Ahaan">Qof Ahaan</option>
-      <option value="Jamac">Jamac</option>
-    </select>
-
-    <button type="submit">Diiwaangeli</button>
-
-  </form>
+  <main>
+    <h2>Foomka Diiwaangelinta Ardayda</h2>
+    <form id="diiwaangelinForm">
+      <input type="text" name="Magaca" placeholder="Magaca" required />
+      <input type="text" name="WhatsApp" placeholder="WhatsApp Number" required />
+      <input type="text" name="Wadanka" placeholder="Wadanka" required />
+      <select name="Heerka" required>
+        <option value="">Dooro Heerka</option>
+        <option value="Biloow">Biloow</option>
+        <option value="Dhexdhexaad">Dhexdhexaad</option>
+        <option value="Dhamaystir">Dhamaystir</option>
+      </select>
+      <input type="date" name="Dhalasho" required />
+      <select name="Qeybta" required>
+        <option value="">Dooro Qeybta</option>
+        <option value="Farbar">Farbar</option>
+        <option value="Xifdi">Xifdi</option>
+        <option value="Muraajaco">Muraajaco</option>
+        <option value="Ijaaso">Ijaaso</option>
+        <option value="Culuumul Quraan">Culuumul Quraan</option>
+      </select>
+      <input type="text" name="Waqtiga" placeholder="Waqtiga" />
+      <select name="Qaabka" required>
+        <option value="">Dooro Qaabka</option>
+        <option value="Qof Ahaan">Qof Ahaan</option>
+        <option value="Jamac">Jamac</option>
+      </select>
+      <button type="submit">Diiwaangeli</button>
+    </form>
+    <p id="successMsg" style="margin-top:1rem; color:green; font-weight:bold;"></p>
+  </main>
 
   <footer>
     <p>&copy; 2025 Machadka Tartiiil Online</p>
@@ -217,47 +195,30 @@
     </div>
   </footer>
 
-<script>
-  const form = document.getElementById('registerForm');
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbweg1eEjHBVvPG27FjcO8UPicaoFnSWdrA8WT9Wt5A9cfRZ7bzkl7PdvYgVd8dC3pUXBQ/exec';
+    const form = document.getElementById('diiwaangelinForm');
+    const successMsg = document.getElementById('successMsg');
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
 
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-    })
-    .then(response => response.text())
-    .then(text => {
-      alert('✅ Diiwaangelinta waa la diray!');
-      form.reset();
-    })
-    .catch(error => {
-      alert('❌ Wuxuu jiro qalad: ' + error);
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            successMsg.textContent = "✅ Diiwaangelinta waa la diray!";
+            form.reset();
+          } else {
+            successMsg.textContent = "❌ Khalad: " + (data.error || 'Fadlan isku day mar kale.');
+          }
+        })
+        .catch(error => {
+          successMsg.textContent = "❌ Khalad ayaa dhacay!";
+          console.error('Error!', error.message);
+        });
     });
-  });
-</script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbweg1eEjHBVvPG27FjcO8UPicaoFnSWdrA8WT9Wt5A9cfRZ7bzkl7PdvYgVd8dC3pUXBQ/exec';
-  const form = document.getElementById('diiwaangelinForm');
-  const successMsg = document.getElementById('successMsg');
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const formData = new FormData(form);
-
-    fetch(scriptURL, { method: 'POST', body: formData })
-      .then(response => {
-        successMsg.textContent = "Waad ku guuleysatay! Diiwaangelinta waa la diray ✅";
-        form.reset();
-      })
-      .catch(error => {
-        successMsg.textContent = "Khalad ayaa dhacay! Fadlan isku day mar kale ❌";
-        console.error('Error!', error.message);
-      });
-  });
-</script>
-</form>
+  </script>
 </body>
 </html>
