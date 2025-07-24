@@ -234,37 +234,41 @@
         toggle.textContent = '☀️ Light Mode';
       }
     }
-  </script>
+ <script>
+  const form = document.getElementById('diiwaangelinForm');
+  const responseEl = document.getElementById('responseMessage');
 
-  <!-- Register Form Submission Script -->
-  <script>
-    const form = document.getElementById('registerForm');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    responseEl.innerText = "⏳ Fadlan sug...";
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-
-      fetch('https://script.google.com/macros/s/AKfycbzFZVrJBuYH7cZ5_GXadmKs30wB9KdSaXNEOQmr97jhq2Z3ItP3YbmlB8AYoisl7A2Mug/exec', {
-        method: 'POST',
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzFZVrJBuYH7cZ5_GXadmKs30wB9KdSaXNEOQmr97jhq2Z3ItP3YbmlB8AYoisl7A2Mug/exec", {
+        method: "POST",
         body: JSON.stringify(data),
         headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(result => {
-        alert('✅ Diiwaangelinta waa la diray!');
-        form.reset();
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('❌ Wuxuu jiro qalad. Fadlan isku day mar kale.');
+          "Content-Type": "application/json",
+        },
       });
-    });
-  </script>
- 
+
+      const result = await response.json();
+
+      if (result.success) {
+        responseEl.innerText = "✅ Waad guuleysatay! Diiwaangelin waa la helay.";
+        form.reset();
+      } else {
+        responseEl.innerText = "❌ Wuxuu jiro qalad. Fadlan isku day mar kale.";
+      }
+
+    } catch (error) {
+      console.error(error);
+      responseEl.innerText = "❌ Xiriirka wuu guuldareystay. Fadlan isku day mar kale.";
+    }
+  });
+</script>
 </form>
 </body>
 </html>
