@@ -195,30 +195,42 @@
     </div>
   </footer>
 
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyPwYCzKNjBff5u7siu_1nGXxA5M_xpRkbrYE8esCKDm-Q-gct20VnCgk_S5CmirfO-bw/exec';
-    const form = document.getElementById('diiwaangelinForm');
-    const successMsg = document.getElementById('successMsg');
+ <script>
+  document.getElementById("diiwaangelinForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const formData = new FormData(form);
+    const form = e.target;
+    const data = {
+      Magaca: form.Magaca.value,
+      WhatsApp: form.WhatsApp.value,
+      Wadanka: form.Wadanka.value,
+      Heerka: form.Heerka.value,
+      Dhalasho: form.Dhalasho.value,
+      Qeybta: form.Qeybta.value,
+      Waqtiga: form.Waqtiga.value,
+      Qaabka: form.Qaabka.value
+    };
 
-      fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            successMsg.textContent = "✅ Diiwaangelinta waa la diray!";
-            form.reset();
-          } else {
-            successMsg.textContent = "❌ Khalad: " + (data.error || 'Fadlan isku day mar kale.');
-          }
-        })
-        .catch(error => {
-          successMsg.textContent = "❌ Khalad ayaa dhacay!";
-          console.error('Error!', error.message);
-        });
-    });
-  </script>
+    fetch("https://script.google.com/macros/s/AKfycbyPwYCzKNjBff5u7siu_1nGXxA5M_xpRkbrYE8esCKDm-Q-gct20VnCgk_S5CmirfO-bw/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(response => {
+        if (response.status === "success") {
+          alert("✅ Diiwaangelintu waa guuleysatay!");
+          form.reset();
+        } else {
+          alert("❌ Khalad: " + response.message);
+        }
+      })
+      .catch(err => {
+        alert("❌ Khalad: " + err.message);
+      });
+  });
+</script>
 </body>
 </html>
