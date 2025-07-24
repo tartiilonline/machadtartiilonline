@@ -170,37 +170,29 @@
   </ul>
   </nav>
 
-<form id="diiwaangelinForm">
-  <input type="text" name="magaca" placeholder="Magaca" required />
-  <input type="text" name="whatsapp" placeholder="WhatsApp Number" required />
-  <input type="text" name="wadanka" placeholder="Wadanka" required />
-  
-  <select name="heerka" required>
-    <option disabled selected>Heerka</option>
+<form id="registerForm" method="POST" action="https://script.google.com/macros/s/AKfycbyMyz-Zu9utMcI93iyG4dcELm9HrCuo0M_QQn9qnDsveD3OrqU62NRt_X-8G6-AjAY_4A/exec">
+  <input type="text" name="Magaca" placeholder="Magaca" required />
+  <input type="text" name="WhatsApp" placeholder="WhatsApp Number" required />
+  <input type="text" name="Wadanka" placeholder="Wadanka" required />
+  <select name="Heerka" required>
     <option value="Biloow">Biloow</option>
     <option value="Dhexdhexaad">Dhexdhexaad</option>
     <option value="Dhamaystir">Dhamaystir</option>
   </select>
-  
-  <select name="qeybta" required>
-    <option disabled selected>Qeybta</option>
+  <input type="date" name="Dhalasho" required />
+  <select name="Qeybta" required>
     <option value="Farbar">Farbar</option>
     <option value="Xifdi">Xifdi</option>
     <option value="Muraajaco">Muraajaco</option>
     <option value="Ijaaso">Ijaaso</option>
     <option value="Culuumul Quraan">Culuumul Quraan</option>
   </select>
-  
-  <input type="text" name="waqtiga" placeholder="Waqtiga" />
-  
-  <select name="qaabka" required>
-    <option disabled selected>Qaabka</option>
+  <input type="text" name="Waqtiga" placeholder="Waqtiga" required />
+  <select name="Qaabka" required>
     <option value="Qof Ahaan">Qof Ahaan</option>
     <option value="Jamac">Jamac</option>
   </select>
-  
-  <input type="date" name="dhalasho" required />
-
+  <input type="date" name="Taariikh" required />
   <button type="submit">Diiwaangeli</button>
 </form>
 <p id="successMsg" style="color:green;"></p>
@@ -215,26 +207,28 @@
     </div>
   </footer>
 
-  <script>
-    const toggle = document.getElementById('darkModeToggle');
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        if(document.body.classList.contains('dark-mode')) {
-          localStorage.setItem('darkMode', 'enabled');
-          toggle.textContent = '☀️ Light Mode';
-        } else {
-          localStorage.setItem('darkMode', 'disabled');
-          toggle.textContent = '🌙 Dark Mode';
-        }
-      });
-
-      if(localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-        toggle.textContent = '☀️ Light Mode';
-      }
-    }
 <script>
+  const form = document.getElementById('registerForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => response.text())
+    .then(text => {
+      alert('✅ Diiwaangelinta waa la diray!');
+      form.reset();
+    })
+    .catch(error => {
+      alert('❌ Wuxuu jiro qalad: ' + error);
+    });
+  });
+</script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbweg1eEjHBVvPG27FjcO8UPicaoFnSWdrA8WT9Wt5A9cfRZ7bzkl7PdvYgVd8dC3pUXBQ/exec';
   const form = document.getElementById('diiwaangelinForm');
   const successMsg = document.getElementById('successMsg');
