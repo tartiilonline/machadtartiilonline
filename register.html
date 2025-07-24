@@ -195,42 +195,28 @@
     </div>
   </footer>
 
- <script>
-  document.getElementById("diiwaangelinForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+<script>
+document.getElementById("diiwaangelinForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    const form = e.target;
-    const data = {
-      Magaca: form.Magaca.value,
-      WhatsApp: form.WhatsApp.value,
-      Wadanka: form.Wadanka.value,
-      Heerka: form.Heerka.value,
-      Dhalasho: form.Dhalasho.value,
-      Qeybta: form.Qeybta.value,
-      Waqtiga: form.Waqtiga.value,
-      Qaabka: form.Qaabka.value
-    };
-         
-    fetch("https://script.google.com/macros/s/AKfycbzYo35D93FLLFeqTFxPMi0Sx23E8IaTGSIQGFG7BfyyLZNd9Of2PpZCs4AjCpfwTZHPVg/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
+  const form = e.target;
+  const formData = new FormData(form);
+  const data = new URLSearchParams(formData);
+
+  fetch("YOUR_DEPLOYED_SCRIPT_URL", {https://script.google.com/macros/s/AKfycbzYo35D93FLLFeqTFxPMi0Sx23E8IaTGSIQGFG7BfyyLZNd9Of2PpZCs4AjCpfwTZHPVg/exec", {
+    method: "POST",
+    body: data,
+  })
+    .then((res) => res.json())
+    .then((resData) => {
+      alert("✅ Diiwaangelinta waa lagu guuleystay!");
+      form.reset();
     })
-      .then(res => res.json())
-      .then(response => {
-        if (response.status === "success") {
-          alert("✅ Diiwaangelintu waa guuleysatay!");
-          form.reset();
-        } else {
-          alert("❌ Khalad: " + response.message);
-        }
-      })
-      .catch(err => {
-        alert("❌ Khalad: " + err.message);
-      });
-  });
+    .catch((err) => {
+      alert("❌ Khalad: Fadlan isku day mar kale.");
+      console.error(err);
+    });
+});
 </script>
 </body>
 </html>
