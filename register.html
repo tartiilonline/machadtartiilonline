@@ -2,143 +2,157 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8">
-  <title>Diiwaangelinta Machadka Tartiiil</title>
+  <title>Diiwaangelinta – Machadka Tartiiil Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ======== STYLES ======== -->
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
+    :root{
+      --clr-primary:#800020;
+      --clr-bg:#f9f9f9;
+      --clr-card:#ffffff;
+      --clr-text:#222;
+    }
+    /* dark‑mode vars (togglable) */
+    .dark{
+      --clr-bg:#171717;
+      --clr-card:#222;
+      --clr-text:#f3f3f3;
     }
 
-    h2 {
-      text-align: center;
-      color: #b03a2e;
-      padding: 1rem;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Segoe UI',sans-serif;
+      background:var(--clr-bg);
+      color:var(--clr-text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
     }
 
-    nav {
-      background-color: #fff;
-      padding: 10px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* ---------- NAV ---------- */
+    nav{
+      background:var(--clr-card);
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+      padding:12px 5vw;
+    }
+    .main-menu{list-style:none;display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+    .main-menu li{position:relative}
+    .main-menu a, #darkModeToggle{
+      font-weight:600;color:var(--clr-primary);text-decoration:none;font-size:.95rem;
+      padding:4px 6px;border-radius:4px;transition:.2s;
+    }
+    .main-menu a:hover, #darkModeToggle:hover{background:var(--clr-primary);color:#fff}
+
+    /* dropdown */
+    .dropdown-content{
+      display:none;position:absolute;top:115%;left:0;background:var(--clr-card);
+      box-shadow:0 4px 12px rgba(0,0,0,.08);border-radius:6px;min-width:180px
+    }
+    .dropdown:hover .dropdown-content{display:block}
+    .dropdown-content a{display:block;padding:10px 16px;white-space:nowrap}
+    .dropdown-content a:hover{background:var(--clr-primary);color:#fff}
+
+    /* ---------- TITLE ---------- */
+    h2{
+      text-align:center;
+      color:var(--clr-primary);
+      margin:1.5rem 0 .75rem;
     }
 
-    .main-menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
+    /* ---------- FORM CARD ---------- */
+    .form-wrapper{
+      width:100%;max-width:880px;margin-inline:auto;padding:1rem 1rem 3rem;
+    }
+    .card{
+      background:var(--clr-card);
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(0,0,0,.05);
+      overflow:hidden;
+    }
+    .responsive-iframe{width:100%;height:2400px;border:none}
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      margin-top:auto;text-align:center;padding:1rem 0;font-size:.85rem;color:var(--clr-text)
     }
 
-    .main-menu li {
-      position: relative;
-    }
-
-    .main-menu a {
-      text-decoration: none;
-      color: #800020;
-      font-weight: bold;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content li a {
-      display: block;
-      padding: 10px 20px;
-      white-space: nowrap;
-    }
-
-    .form-container {
-      max-width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .responsive-iframe {
-      width: 100%;
-      max-width: 800px;
-      height: 2300px;
-      border: none;
+    /* small screens tweak */
+    @media (max-width:600px){
+      .responsive-iframe{height:2600px}
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- ======== NAVIGATION ======== -->
   <nav>
     <ul class="main-menu">
-      <li><a href="index.html">🏠 Bogga Hore</a></li>
-      <li><a href="register.html">📝 Diiwaangelin</a></li>
+      <li><a href="index.html">🏠 Bogga Hore</a></li>
+      <li><a href="register.html">📝 Diiwaangelin</a></li>
+
       <li class="dropdown">
-        <a href="#">📚 Waxbarasho ▾</a>
+        <a href="#">📚 Waxbarasho ▾</a>
         <ul class="dropdown-content">
-          <li><a href="courses.html">📘 Koorsooyinka</a></li>
-          <li><a href="casharro.html">📖 Casharro</a></li>
-          <li><a href="waajibaad.html">📝 Waajibaad</a></li>
-          <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
+          <li><a href="courses.html">📘 Koorsooyinka</a></li>
+          <li><a href="casharro.html">📖 Casharro</a></li>
+          <li><a href="waajibaad.html">📝 Waajibaad</a></li>
+          <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
         </ul>
       </li>
+
       <li class="dropdown">
-        <a href="#">📅 Jadwal ▾</a>
+        <a href="#">📅 Jadwal ▾</a>
         <ul class="dropdown-content">
-          <li><a href="schedule.html">🗓️ Jadwalka</a></li>
-          <li><a href="live.html">📡 Live Teams</a></li>
+          <li><a href="schedule.html">🗓️ Jadwalka</a></li>
+          <li><a href="live.html">📡 Live Teams</a></li>
         </ul>
       </li>
+
       <li class="dropdown">
-        <a href="#">🎥 Muuqaalada ▾</a>
+        <a href="#">🎥 Muuqaalada ▾</a>
         <ul class="dropdown-content">
-          <li><a href="gallery.html">🖼️ Sawirro</a></li>
-          <li><a href="videos.html">🎞️ Duruus Video</a></li>
-          <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
+          <li><a href="gallery.html">🖼️ Sawirro</a></li>
+          <li><a href="videos.html">🎞️ Duruus Video</a></li>
+          <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
         </ul>
       </li>
+
       <li class="dropdown">
-        <a href="#">⚙️ Maamul ▾</a>
+        <a href="#">⚙️ Maamul ▾</a>
         <ul class="dropdown-content">
-          <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
-          <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
-          <li><a href="contact.html">☎️ La Xiriir</a></li>
+          <li><a href="login.html">🔐 Soo Gal Macallin</a></li>
+          <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
+          <li><a href="contact.html">☎️ La Xiriir</a></li>
         </ul>
       </li>
-      <li>
-        <button id="darkModeToggle" style="background:none; border:none; font-weight:bold; color:#800020; cursor:pointer;">
-          🌙 Dark Mode
-        </button>
-      </li>
+
+      <li><button id="darkModeToggle">🌙 Dark Mode</button></li>
     </ul>
   </nav>
 
-  <!-- Title -->
-  <h2>Fadlan Buuxi Foomka Diiwaangelinta</h2>
+  <!-- ======== TITLE ======== -->
+  <h2>Fadlan Buuxi Foomka Diiwaangelinta</h2>
 
-  <!-- Google Form -->
-  <div class="form-container">
-    <iframe class="responsive-iframe"
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfBGsJAJOwiMkITrGarcANawVJ2TLlF50gKwFjartAC3FN5ZQ/viewform?embedded=true">
-      Foomka Diiwaangelintu ma muuqanayo.
-    </iframe>
+  <!-- ======== FORM CARD ======== -->
+  <div class="form-wrapper">
+    <div class="card">
+      <iframe class="responsive-iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfBGsJAJOwiMkITrGarcANawVJ2TLlF50gKwFjartAC3FN5ZQ/viewform?embedded=true">
+        Foomka Diiwaangelintu ma muuqanayo.
+      </iframe>
+    </div>
   </div>
 
+  <footer>&copy; 2025 Machadka Tartiiil Online</footer>
+
+  <!-- ======== DARK‑MODE SCRIPT (fudud) ======== -->
+  <script>
+    const toggle=document.getElementById('darkModeToggle');
+    toggle.addEventListener('click',()=>{
+      document.documentElement.classList.toggle('dark');
+      toggle.textContent=document.documentElement.classList.contains('dark')?'☀️ Light Mode':'🌙 Dark Mode';
+    });
+  </script>
 </body>
 </html>
