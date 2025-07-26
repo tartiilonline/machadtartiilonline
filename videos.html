@@ -3,131 +3,40 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <title>Duruus Video - Machadka Tartiiil Online</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muuqaalada - Machadka Tartiiil Online</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="darkmode.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>Machadka Tartiiil Online</h1>
+    <h1>🎞️ Muuqaalada YouTube</h1>
   </header>
 
- <nav>
-    <ul class="main-menu">
-      <li><a href="index.html">🏠 Bogga Hore</a></li>
-      <li><a href="register.html">📝 Diiwaangelin</a></li>
-
-      <li class="dropdown">
-        <a href="#">📚 Waxbarasho ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="courses.html">📘 Koorsooyinka</a></li>
-          <li><a href="casharro.html">📖 Casharro</a></li>
-          <li><a href="waajibaad.html">📝 Waajibaad</a></li>
-          <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <a href="#">📅 Jadwal ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="schedule.html">🗓️ Jadwalka</a></li>
-          <li><a href="live.html">📡  Live Teams</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <a href="#">🎥 Muuqaalada ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="gallery.html">🖼️ Sawirro</a></li>
-          <li><a href="videos.html">🎞️ Duruus Video</a></li>
-          <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <a href="#">⚙️ Maamul ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
-          <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
-          <li><a href="contact.html">☎️ La Xiriir</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <main style="padding: 2rem;">
-    <h2 style="text-align:center; color: #800020;">🎥 Duruus Video</h2>
-    <p style="text-align:center;">Halkan waxaad ka daawan kartaa duruus kala duwan oo diini ah.</p>
-
-    <!-- Button ku dar video -->
-    <div style="text-align:center; margin-bottom: 1.5rem;">
-      <a href="add-video.html" style="background:#800020; color:#fff; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration:none; font-weight:bold;">
-        ➕ Ku dar Video Cusub
-      </a>
-    </div>
-
-    <section id="videoContainer" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 2rem;">
-      <p style="text-align:center;">Loading videos...</p>
-    </section>
+  <main>
+    <div id="videoList" class="video-grid">Loading...</div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online</p>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/252611456000" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:tartiilonline@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="tel:2421"><i class="fas fa-phone-alt"></i></a>
-    </div>
-  </footer>
-
   <script>
-    const api = "https://script.google.com/macros/s/AKfycbxOby_AFVnnt6Gza96UHWIyXfj3ppMIxFvIFNPmEzXpnS07Xit173kxQt_G_rUJTUfd8A/exec?sheet=Videos";
-    
-    fetch(api)
+    fetch("https://script.google.com/macros/s/AKfycbxOby_AFVnnt6Gza96UHWIyXfj3ppMIxFvIFNPmEzXpnS07Xit173kxQt_G_rUJTUfd8A/exec?action=getVideos")
       .then(res => res.json())
       .then(data => {
-        const container = document.getElementById("videoContainer");
-        container.innerHTML = "";
-        if (!data.length) {
-          container.innerHTML = "<p style='text-align:center;'>Ma jiraan wax muuqaal ah oo la heli karo.</p>";
-          return;
-        }
+        const videoList = document.getElementById("videoList");
+        videoList.innerHTML = "";
         data.forEach(video => {
-          let videoURL = video.URL;
-
-          // Haddii link-ku yahay URL caadi ah, u beddel embed
-          if (videoURL.includes("watch?v=")) {
-            videoURL = videoURL.replace("watch?v=", "embed/");
-          }
-
-          // Ka saar wixii query params dheeraad ah kadib ID-ga video-ga
-          const ampersandPosition = videoURL.indexOf('&');
-          if (ampersandPosition !== -1) {
-            videoURL = videoURL.substring(0, ampersandPosition);
-          }
-
-          const div = document.createElement("div");
-          div.style.background = "#fff";
-          div.style.borderRadius = "10px";
-          div.style.overflow = "hidden";
-          div.style.boxShadow = "0 0 10px rgba(0,0,0,0.05)";
-          div.innerHTML = `
-            <iframe width="100%" height="200" src="${videoURL}" frameborder="0" allowfullscreen></iframe>
-            <div style="padding: 1rem;">
-              <h3 style="color: #800020;">${video.Title}</h3>
+          let embedURL = video.URL.replace("watch?v=", "embed/");
+          videoList.innerHTML += `
+            <div class="video-card">
+              <iframe width="100%" height="200" src="${embedURL}" frameborder="0" allowfullscreen></iframe>
+              <h3>${video.Title}</h3>
               <p>${video.Description || ""}</p>
-            </div>
-          `;
-          container.appendChild(div);
+            </div>`;
         });
       })
       .catch(err => {
-        document.getElementById("videoContainer").innerHTML = "<p style='text-align:center; color:red;'>Ma suurtagalin in la soo rogo muuqaalada. Fadlan hubi xiriirka internetka ama API-ga.</p>";
+        document.getElementById("videoList").innerHTML = "❌ Xog lama helin.";
+        console.error(err);
       });
   </script>
 </body>
 </html>
-
