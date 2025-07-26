@@ -1,115 +1,90 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8" />
-  <title>Diiwaangelin - Machadka Tartiiil Online</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <meta charset="UTF-8">
+  <title>Diiwaangelinta Machadka Tartiiil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
-      background-color: var(--bg-color, #f9f9f9);
-      color: var(--text-color, #333);
     }
-    header, footer {
-      background-color: #800020;
-      color: white;
+
+    h2 {
       text-align: center;
+      color: #b03a2e;
       padding: 1rem;
     }
+
     nav {
-      background-color: #f1f1f1;
-      padding: 0.5rem 0;
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    nav ul {
+
+    .main-menu {
       list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
+      gap: 1rem;
+    }
+
+    .main-menu li {
+      position: relative;
+    }
+
+    .main-menu a {
+      text-decoration: none;
+      color: #800020;
+      font-weight: bold;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1;
+      list-style: none;
       padding: 0;
       margin: 0;
     }
-    nav ul li {
-      margin: 0 10px;
-      position: relative;
-    }
-    nav a {
-      text-decoration: none;
-      color: #800020;
-      font-weight: 600;
-    }
-    nav .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      z-index: 1;
-    }
-    nav .dropdown:hover .dropdown-content {
+
+    .dropdown:hover .dropdown-content {
       display: block;
     }
-    .main-menu li a:hover {
-      color: orange;
+
+    .dropdown-content li a {
+      display: block;
+      padding: 10px 20px;
+      white-space: nowrap;
     }
-    main {
-      max-width: 700px;
-      margin: 2rem auto;
-      background-color: white;
+
+    .form-container {
+      max-width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    form input, form select {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
+
+    .responsive-iframe {
       width: 100%;
-      margin-bottom: 1rem;
-    }
-    form button {
-      background-color: #800020;
-      color: white;
+      max-width: 800px;
+      height: 2300px;
       border: none;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      padding: 0.75rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    form button:hover {
-      background-color: orange;
-      color: #fff;
-    }
-    .social-icons {
-      margin-top: 1rem;
-    }
-    .social-icons a {
-      color: white;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: orange;
-    }
-    .dark-mode {
-      --bg-color: #1c1c1c;
-      --text-color: #f1f1f1;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Machadka Tartiiil Online</h1>
-  </header>
 
+  <!-- Navigation -->
   <nav>
     <ul class="main-menu">
       <li><a href="index.html">🏠 Bogga Hore</a></li>
@@ -127,7 +102,7 @@
         <a href="#">📅 Jadwal ▾</a>
         <ul class="dropdown-content">
           <li><a href="schedule.html">🗓️ Jadwalka</a></li>
-          <li><a href="live.html">📡  Live Teams</a></li>
+          <li><a href="live.html">📡 Live Teams</a></li>
         </ul>
       </li>
       <li class="dropdown">
@@ -154,69 +129,16 @@
     </ul>
   </nav>
 
-  <main>
-    <h2>Foomka Diiwaangelinta Ardayda</h2>
-    <form id="diiwaangelinForm">
-      <input type="text" name="Magaca" placeholder="Magaca" required />
-      <input type="text" name="WhatsApp" placeholder="WhatsApp Number" required />
-      <input type="text" name="Wadanka" placeholder="Wadanka" required />
-      <select name="Heerka" required>
-        <option value="">Dooro Heerka</option>
-        <option value="Biloow">Biloow</option>
-        <option value="Dhexdhexaad">Dhexdhexaad</option>
-        <option value="Dhamaystir">Dhamaystir</option>
-      </select>
-      <input type="date" name="Dhalasho" required />
-      <select name="Qeybta" required>
-        <option value="">Dooro Qeybta</option>
-        <option value="Farbar">Farbar</option>
-        <option value="Xifdi">Xifdi</option>
-        <option value="Muraajaco">Muraajaco</option>
-        <option value="Ijaaso">Ijaaso</option>
-        <option value="Culuumul Quraan">Culuumul Quraan</option>
-      </select>
-      <input type="text" name="Waqtiga" placeholder="Waqtiga" />
-      <select name="Qaabka" required>
-        <option value="">Dooro Qaabka</option>
-        <option value="Qof Ahaan">Qof Ahaan</option>
-        <option value="Jamac">Jamac</option>
-      </select>
-      <button type="submit">Diiwaangeli</button>
-    </form>
-    <p id="successMsg" style="margin-top:1rem; color:green; font-weight:bold;"></p>
-  </main>
+  <!-- Title -->
+  <h2>Fadlan Buuxi Foomka Diiwaangelinta</h2>
 
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online</p>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/252611456000" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="tel:2421"><i class="fas fa-phone-alt"></i></a>
-    </div>
-  </footer>
+  <!-- Google Form -->
+  <div class="form-container">
+    <iframe class="responsive-iframe"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfBGsJAJOwiMkITrGarcANawVJ2TLlF50gKwFjartAC3FN5ZQ/viewform?embedded=true">
+      Foomka Diiwaangelintu ma muuqanayo.
+    </iframe>
+  </div>
 
-<script>
-document.getElementById("diiwaangelinForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const formData = new FormData(form);
-  const data = new URLSearchParams(formData);
-
-  fetch("YOUR_DEPLOYED_SCRIPT_URL", {https://script.google.com/macros/s/AKfycbwWFGRs_AcwXt5NFVUdnP7t0lBnJ83iEhjZhWcTBi_egNHcpcTxVK1pwqsTDNC8HMEy/exec", {
-    method: "POST",
-    body: data,
-  })
-    .then((res) => res.json())
-    .then((resData) => {
-      alert("✅ Diiwaangelinta waa lagu guuleystay!");
-      form.reset();
-    })
-    .catch((err) => {
-      alert("❌ Khalad: Fadlan isku day mar kale.");
-      console.error(err);
-    });
-});
-</script>
 </body>
 </html>
