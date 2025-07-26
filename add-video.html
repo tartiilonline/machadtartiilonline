@@ -2,63 +2,42 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <title>Kudar Video Cusub - Machadka Tartiiil Online</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ku dar Video YouTube - Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main id="mainContent" style="max-width: 600px; margin: auto; padding: 2rem; display:none;">
-    <h2 style="text-align:center; color:#800020;">➕ Kudar Video Cusub</h2>
+  <h2>🎞️ Ku dar Video Cusub</h2>
+  <form id="videoForm">
+    <label>Cinwaanka Video-ga:</label>
+    <input type="text" name="Title" required /><br />
+    
+    <label>Link-ga YouTube:</label>
+    <input type="url" name="URL" required /><br />
 
-    <form id="videoForm">
-      <label for="title">🎞️ Cinwaanka Video-ga:</label>
-      <input type="text" id="title" name="Title" required />
+    <label>Sharaxaad (ikhtiyaari):</label>
+    <textarea name="Description"></textarea><br />
 
-      <label for="url">🔗 Link-ga YouTube (embed):</label>
-      <input type="url" id="url" name="URL" placeholder="https://www.youtube.com/embed/VIDEO_ID" required />
-
-      <label for="desc">📝 Sharaxaad (ikhtiyaari):</label>
-      <textarea id="desc" name="Description" rows="3"></textarea>
-
-      <button type="submit">💾 Kaydi Video-ga</button>
-    </form>
-
-    <p id="status" style="margin-top: 1rem; text-align:center;"></p>
-  </main>
+    <button type="submit">Kaydi Video-ga</button>
+    <p id="responseMsg"></p>
+  </form>
 
   <script>
-    // Password Protection
-    (function() {
-      const username = prompt("Fadlan geli username:");
-      const password = prompt("Fadlan geli password:");
-
-      if (username === "admin" && password === "tartiil2025") {
-        document.getElementById("mainContent").style.display = "block";
-      } else {
-        alert("Username ama password khaldan. Ma geli kartid boggan.");
-        document.body.innerHTML = "<h2 style='text-align:center; margin-top: 5rem; color: red;'>Ma haysatid ogolaansho inaad gasho boggan.</h2>";
-      }
-    })();
-
-    // Form Submit
     document.getElementById("videoForm").addEventListener("submit", function(e) {
       e.preventDefault();
-
-      const form = e.target;
-      const data = new FormData(form);
-      const status = document.getElementById("status");
-
+      const formData = new FormData(this);
       fetch("https://script.google.com/macros/s/AKfycbxOby_AFVnnt6Gza96UHWIyXfj3ppMIxFvIFNPmEzXpnS07Xit173kxQt_G_rUJTUfd8A/exec", {
         method: "POST",
-        body: data
+        body: new URLSearchParams(formData)
       })
-      .then(res => res.ok ? res.text() : Promise.reject("Server error"))
-      .then(txt => {
-        status.innerText = "✅ Video-ga si guul ah ayaa loo kaydiyay!";
-        form.reset();
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("responseMsg").textContent = "✅ Waa la kaydiyay!";
+        this.reset();
       })
       .catch(err => {
-        status.innerText = "❌ Khalad ayaa dhacay: " + err;
+        document.getElementById("responseMsg").textContent = "❌ Khalad ayaa dhacay.";
+        console.error(err);
       });
     });
   </script>
