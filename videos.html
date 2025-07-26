@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Duruus Video - Machadka Tartiiil Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="darkmode.js" defer></script>
@@ -13,7 +14,7 @@
     <h1>Machadka Tartiiil Online</h1>
   </header>
 
-  <nav>
+ <nav>
     <ul class="main-menu">
       <li><a href="index.html">🏠 Bogga Hore</a></li>
       <li><a href="register.html">📝 Diiwaangelin</a></li>
@@ -60,7 +61,14 @@
     <h2 style="text-align:center; color: #800020;">🎥 Duruus Video</h2>
     <p style="text-align:center;">Halkan waxaad ka daawan kartaa duruus kala duwan oo diini ah.</p>
 
-    <section id="videoContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+    <!-- Button ku dar video -->
+    <div style="text-align:center; margin-bottom: 1.5rem;">
+      <a href="add-video.html" style="background:#800020; color:#fff; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration:none; font-weight:bold;">
+        ➕ Ku dar Video Cusub
+      </a>
+    </div>
+
+    <section id="videoContainer" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 2rem;">
       <p style="text-align:center;">Loading videos...</p>
     </section>
   </main>
@@ -76,30 +84,50 @@
   </footer>
 
   <script>
-    const api = "https://script.google.com/macros/s/AKfycbyk17aKWIop4osK1lSC7lBL31pgEeh0bTrHhmNuc4TNu3L_6YHiOeh9mzCluEN8MiBn/exec?sheet=Videos";
+    const api = "https://script.google.com/macros/s/AKfycbxOby_AFVnnt6Gza96UHWIyXfj3ppMIxFvIFNPmEzXpnS07Xit173kxQt_G_rUJTUfd8A/exec?sheet=Videos";
 
     fetch(api)
       .then(res => res.json())
       .then(data => {
         const container = document.getElementById("videoContainer");
         container.innerHTML = "";
+        if (!data.length) {
+          container.innerHTML = "<p style='text-align:center;'>Ma jiraan wax muuqaal ah oo la heli karo.</p>";
+          return;
+        }
         data.forEach(video => {
+          let videoURL = video.URL;
+
+          // Haddii link-ku yahay URL caadi ah, u beddel embed
+          if (videoURL.includes("watch?v=")) {
+            videoURL = videoURL.replace("watch?v=", "embed/");
+          }
+
+          // Ka saar wixii query params dheeraad ah kadib ID-ga video-ga
+          const ampersandPosition = videoURL.indexOf('&');
+          if (ampersandPosition !== -1) {
+            videoURL = videoURL.substring(0, ampersandPosition);
+          }
+
           const div = document.createElement("div");
+          div.style.background = "#fff";
+          div.style.borderRadius = "10px";
+          div.style.overflow = "hidden";
+          div.style.boxShadow = "0 0 10px rgba(0,0,0,0.05)";
           div.innerHTML = `
-            <div style="background:#fff; border-radius:10px; overflow:hidden; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-              <iframe width="100%" height="200" src="${video.URL}" frameborder="0" allowfullscreen></iframe>
-              <div style="padding: 1rem;">
-                <h3 style="color: #800020;">${video.Title}</h3>
-                <p>${video.Description || ""}</p>
-              </div>
+            <iframe width="100%" height="200" src="${videoURL}" frameborder="0" allowfullscreen></iframe>
+            <div style="padding: 1rem;">
+              <h3 style="color: #800020;">${video.Title}</h3>
+              <p>${video.Description || ""}</p>
             </div>
           `;
           container.appendChild(div);
         });
       })
       .catch(err => {
-        document.getElementById("videoContainer").innerHTML = "<p style='text-align:center; color:red;'>Ma suurtagalin in la soo rogo muuqaalada. Hubi internet-ka ama isku xirka API-ga.</p>";
+        document.getElementById("videoContainer").innerHTML = "<p style='text-align:center; color:red;'>Ma suurtagalin in la soo rogo muuqaalada. Fadlan hubi xiriirka internetka ama API-ga.</p>";
       });
   </script>
 </body>
 </html>
+
