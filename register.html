@@ -2,253 +2,124 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <title>Diiwaangelin - Machadka Tartiiil Online</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+  <title>Diiwaangelinta – Machadka Tartiiil Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
   <style>
-    /* Variables for light and dark */
-    :root {
-      --color-bg-light: #f5f5f5;
-      --color-bg-dark: #1f0b0b;
-      --color-primary: #800020;
-      --color-primary-dark: #aa002f;
-      --color-text-light: #222;
-      --color-text-dark: #ddd;
-      --color-form-bg-light: rgba(255,255,255,0.95);
-      --color-form-bg-dark: rgba(40, 20, 20, 0.95);
-    }
-
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(rgba(31, 11, 11, 0.8), rgba(31, 11, 11, 0.8)),
-                  url('images/quran-pattern.jpg') no-repeat center center fixed;
-      background-size: cover;
-      padding: 20px;
-      color: var(--color-text-light);
+      background-color: #f5f5f5;
       margin: 0;
-      transition: background-color 0.5s ease, color 0.5s ease;
+      padding: 0;
+      color: #333;
     }
 
-    header h1 {
+    header {
+      background-color: #8B0000;
+      color: #fff;
       text-align: center;
-      color: var(--color-primary);
-      margin-bottom: 1rem;
-      transition: color 0.5s ease;
+      padding: 1rem 0;
     }
 
-    nav {
-      max-width: 700px;
-      margin: 0 auto 2rem auto;
-    }
-
-    nav ul.main-menu {
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+      overflow: hidden;
       display: flex;
       justify-content: center;
-      gap: 15px;
       flex-wrap: wrap;
-      padding: 0;
-      list-style: none;
     }
 
-    nav ul.main-menu li a {
-      text-decoration: none;
-      color: var(--color-primary);
-      font-weight: 600;
-      padding: 8px 15px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
+    nav ul li {
+      flex: 1 1 auto;
     }
 
-    nav ul.main-menu li a:hover,
-    nav ul.main-menu li a.active {
-      background-color: var(--color-primary-dark);
+    nav ul li a {
+      display: block;
       color: white;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
     }
 
     main {
-      max-width: 700px;
-      margin: auto;
       padding: 2rem;
-      background: var(--color-form-bg-light);
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      transition: background-color 0.5s ease, color 0.5s ease;
-    }
-
-    main h2 {
-      text-align: center;
-      color: var(--color-primary);
-      margin-bottom: 1.5rem;
-      transition: color 0.5s ease;
-    }
-
-    form input, form select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      margin: 10px 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      max-width: 600px;
+      margin: auto;
       background-color: white;
-      color: black;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
 
-    form label {
-      font-weight: 600;
-      margin-top: 10px;
-      display: block;
-      color: #4a4a4a;
-      transition: color 0.5s ease;
+    form {
+      display: grid;
+      gap: 1rem;
     }
 
-    button {
+    label {
+      font-weight: bold;
+    }
+
+    input, select, button {
+      padding: 0.7rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
       width: 100%;
-      padding: 14px;
-      background-color: var(--color-primary);
+    }
+
+    button[type="submit"] {
+      background-color: #8B0000;
       color: white;
       border: none;
-      border-radius: 10px;
-      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-family: 'Segoe UI', sans-serif;
     }
 
-    button:hover:not(:disabled) {
-      background-color: var(--color-primary-dark);
-    }
-
-    button:disabled {
-      background-color: #a87b7b;
-      cursor: not-allowed;
+    button[type="submit"]:hover {
+      background-color: #a10000;
     }
 
     footer {
       text-align: center;
-      background-color: var(--color-primary);
+      background-color: #333;
       color: white;
       padding: 1rem;
-      margin-top: 3rem;
-      transition: background-color 0.5s ease;
     }
 
-    .social-icons {
-      margin-top: 10px;
+    @media screen and (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
     }
 
-    .social-icons a {
-      color: #fff;
-      margin: 0 10px;
-      font-size: 1.4rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: var(--color-primary-dark);
-    }
-
-    /* Toast message */
-    #message {
-      display: none;
-      text-align: center;
+    .success-message {
       background-color: #d4edda;
       color: #155724;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(21, 87, 36, 0.3);
-      transition: opacity 0.3s ease;
-    }
-
-    /* Dark mode styles */
-    body.dark-mode {
-      background: #1f0b0b;
-      color: var(--color-text-dark);
-    }
-
-    body.dark-mode header h1,
-    body.dark-mode nav ul.main-menu li a {
-      color: var(--color-text-dark);
-    }
-
-    body.dark-mode nav ul.main-menu li a:hover,
-    body.dark-mode nav ul.main-menu li a.active {
-      background-color: #aa002f;
-      color: white;
-    }
-
-    body.dark-mode main {
-      background: var(--color-form-bg-dark);
-      color: var(--color-text-dark);
-    }
-
-    body.dark-mode form input,
-    body.dark-mode form select {
-      background-color: #2b1a1a;
-      color: #ddd;
-      border-color: #555;
-    }
-
-    body.dark-mode form label {
-      color: #ddd;
-    }
-
-    body.dark-mode footer {
-      background-color: #aa002f;
-      color: #eee;
-    }
-
-    /* Dark mode toggle button */
-    #darkModeToggle {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      background-color: var(--color-primary);
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
-      z-index: 10000;
-    }
-    #darkModeToggle:hover {
-      background-color: var(--color-primary-dark);
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      nav ul.main-menu {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #darkModeToggle {
-        top: auto;
-        bottom: 15px;
-        right: 15px;
-      }
+      border: 1px solid #c3e6cb;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
     }
   </style>
 </head>
 <body>
-
-  <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button>
-
   <header>
     <h1>Machadka Tartiiil Online</h1>
   </header>
 
-<nav>
+  <nav>
     <ul class="main-menu">
       <li><a href="index.html">🏠 Bogga Hore</a></li>
       <li><a href="register.html" class="active">📝 Diiwaangelin</a></li>
@@ -291,28 +162,32 @@
     </ul>
   </nav>
 
-
   <main>
-    <h2>📝 Foomka Diiwaangelinta</h2>
-    <form id="my-form" action="https://formspree.io/f/mzzvbaqe" method="POST" autocomplete="off" novalidate>
-      <input type="text" name="Magaca" placeholder="Magaca" required />
-      <input type="text" name="WhatsApp Nambarka" placeholder="WhatsApp Number" required />
-      <input type="text" name="Wadanka" placeholder="Wadanka" required />
+    <h2>Diiwaangelinta Ardayda</h2>
+    <form id="registration-form" action="https://formspree.io/f/mdkzvkvk" method="POST">
+      <label for="magaca">👤 Magaca:</label>
+      <input type="text" id="magaca" name="magaca" required>
 
-      <label for="Heerka">Heerka:</label>
-      <select name="Heerka" id="Heerka" required>
-        <option value="">Dooro Heerka</option>
+      <label for="whatsapp">📱 WhatsApp Number:</label>
+      <input type="tel" id="whatsapp" name="whatsapp" required>
+
+      <label for="wadanka">🌍 Wadanka:</label>
+      <input type="text" id="wadanka" name="wadanka" required>
+
+      <label for="heerka">📖 Heerka:</label>
+      <select id="heerka" name="heerka" required>
+        <option value="">-- Dooro Heerka --</option>
         <option value="Biloow">Biloow</option>
         <option value="Dhexdhexaad">Dhexdhexaad</option>
         <option value="Dhamaystir">Dhamaystir</option>
       </select>
 
-      <label for="TaariikhdaDhalashada">Taariikhda Dhalashada:</label>
-      <input type="date" name="Taariikhda Dhalashada" id="TaariikhdaDhalashada" required />
+      <label for="dhalasho">🎂 Taariikhda Dhalashada:</label>
+      <input type="date" id="dhalasho" name="dhalasho" required>
 
-      <label for="Qeybta">Qeybta:</label>
-      <select name="Qeybta" id="Qeybta" required>
-        <option value="">Dooro Qeybta</option>
+      <label for="qeybta">🕌 Qeybta:</label>
+      <select id="qeybta" name="qeybta" required>
+        <option value="">-- Dooro Qeybta --</option>
         <option value="Farbar">Farbar</option>
         <option value="Xifdi">Xifdi</option>
         <option value="Muraajaco">Muraajaco</option>
@@ -320,109 +195,64 @@
         <option value="Culuumul Quraan">Culuumul Quraan</option>
       </select>
 
-      <label for="Waqtiga">Waqtiga:</label>
-      <select name="Waqtiga" id="Waqtiga" required>
-        <option value="">Dooro Waqti</option>
+      <label for="waqtiga">🕰️ Waqtiga:</label>
+      <select id="waqtiga" name="waqtiga" required>
+        <option value="">-- Dooro Waqti --</option>
         <option value="Subax">Subax</option>
-        <option value="Galab">Galab</option>
-        <option value="Fiid">Fiid</option>
+        <option value="Duhur">Duhur</option>
+        <option value="Habeen">Habeen</option>
       </select>
 
-      <label for="Qaabka">Qaabka:</label>
-      <select name="Qaabka" id="Qaabka" required>
-        <option value="">Dooro Qaabka</option>
+      <label for="qaabka">👥 Qaabka:</label>
+      <select id="qaabka" name="qaabka" required>
+        <option value="">-- Door Qaabka --</option>
         <option value="Qof Ahaan">Qof Ahaan</option>
         <option value="Jamac">Jamac</option>
       </select>
 
-      <label for="TaariikhdaDiiwaangelinta">Taariikhda Diiwaangelinta:</label>
-      <input type="date" name="Taariikhda Diiwaangelinta" id="TaariikhdaDiiwaangelinta" required />
+      <label for="taariikh">📅 Taariikhda Diiwaangelinta:</label>
+      <input type="date" id="taariikh" name="taariikh" required>
 
-      <button type="submit" id="submitBtn">Diiwaangeli</button>
-      <div id="message">✅ Foomka waa la diray. Mahadsanid!</div>
+      <button type="submit">✅ Diiwaangeli</button>
     </form>
+    <div id="successMessage" class="success-message">✅ Foomka waa la diray! Mahadsanid.</div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online</p>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/252611456000" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="tel:2421" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
-    </div>
+    <p>&copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqdu Way Xaq u Leedahay.</p>
   </footer>
 
   <script>
-    // Dark mode toggle with localStorage save
-    const darkToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
+  const form = document.getElementById("registration-form");
+  const successMessage = document.getElementById("successMessage");
 
-    function setDarkMode(enabled) {
-      if (enabled) {
-        body.classList.add('dark-mode');
-        darkToggle.textContent = '☀️'; // sun icon
-        localStorage.setItem('darkMode', 'enabled');
-      } else {
-        body.classList.remove('dark-mode');
-        darkToggle.textContent = '🌙'; // moon icon
-        localStorage.setItem('darkMode', 'disabled');
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
       }
-    }
+    }).then(response => {
+      if (response.ok) {
+        successMessage.style.display = "block";
+        form.reset();
 
-    darkToggle.addEventListener('click', () => {
-      const enabled = body.classList.contains('dark-mode');
-      setDarkMode(!enabled);
-    });
-
-    // On page load, check saved preference
-    window.onload = () => {
-      const saved = localStorage.getItem('darkMode');
-      if (saved === 'enabled') {
-        setDarkMode(true);
+        // Fariinta guusha ha tirtiranto 5 ilbiriqsi kadib
+        setTimeout(() => {
+          successMessage.style.display = "none";
+        }, 5000);
       } else {
-        setDarkMode(false);
+        alert("Foomka ma dirmin. Fadlan isku day mar kale.");
       }
-    };
-
-    // Form submit handling
-    const form = document.getElementById('my-form');
-    const btn = document.getElementById('submitBtn');
-    const message = document.getElementById('message');
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      btn.disabled = true;
-      const originalText = btn.innerText;
-      btn.innerText = "⏳ Fadlan Sug...";
-
-      const formData = new FormData(form);
-
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      })
-        .then(response => {
-          if (response.ok) {
-            form.reset();
-            message.style.display = "block";
-            setTimeout(() => {
-              message.style.display = "none";
-            }, 4000);
-          } else {
-            alert("Foomka lama dirin. Fadlan isku day mar kale.");
-          }
-          btn.disabled = false;
-          btn.innerText = originalText;
-        })
-        .catch(error => {
-          alert("Cillad ayaa dhacday. Fadlan isku day mar kale.");
-          btn.disabled = false;
-          btn.innerText = originalText;
-        });
+    }).catch(error => {
+      alert("Khalad ayaa dhacay: " + error.message);
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
