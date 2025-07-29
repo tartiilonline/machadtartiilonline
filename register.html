@@ -49,6 +49,39 @@
       background-color: #555;
     }
 
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #444;
+      min-width: 180px;
+      z-index: 999;
+      border-radius: 5px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .dropdown-content li {
+      width: 100%;
+    }
+
+    .dropdown-content li a {
+      padding: 10px;
+      display: block;
+      color: white;
+      text-align: left;
+    }
+
+    .dropdown-content li a:hover {
+      background-color: #666;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
     main {
       padding: 2rem;
       max-width: 600px;
@@ -88,19 +121,6 @@
       background-color: #a10000;
     }
 
-    footer {
-      text-align: center;
-      background-color: #333;
-      color: white;
-      padding: 1rem;
-    }
-
-    @media screen and (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-      }
-    }
-
     .success-message {
       background-color: #d4edda;
       color: #155724;
@@ -112,11 +132,25 @@
       font-weight: bold;
       display: none;
     }
+
+    footer {
+      text-align: center;
+      background-color: #8B0000;
+      color: white;
+      padding: 1rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Machadka Tartiiil Online</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </header>
 
   <nav>
@@ -161,8 +195,7 @@
       </li>
     </ul>
   </nav>
-
-  <main>
+<main>
     <h2>Diiwaangelinta Ardayda</h2>
     <form id="registration-form" action="https://formspree.io/f/mdkzvkvk" method="POST">
       <label for="magaca">👤 Magaca:</label>
@@ -217,42 +250,52 @@
     </form>
     <div id="successMessage" class="success-message">✅ Foomka waa la diray! Mahadsanid.</div>
   </main>
+<footer style="text-align: center; padding: 1rem; background-color: #f2f2f2;">
+  <p>&copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqdu Way Xaq u Leedahay.</p>
+  
+  <div style="margin-top: 10px;">
+    <a href="https://facebook.com/tartiilonline" target="_blank" style="margin: 0 10px; text-decoration: none; color: #4267B2;">
+      <i class="fab fa-facebook fa-lg"></i> Facebook
+    </a>
+    <a href="https://wa.me/2526xxxxxxxx" target="_blank" style="margin: 0 10px; text-decoration: none; color: #25D366;">
+      <i class="fab fa-whatsapp fa-lg"></i> WhatsApp
+    </a>
+  </div>
+</footer>
+<script>
+const form = document.getElementById("registration-form");
+const successMessage = document.getElementById("successMessage");
 
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqdu Way Xaq u Leedahay.</p>
-  </footer>
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
 
-  <script>
-  const form = document.getElementById("registration-form");
-  const successMessage = document.getElementById("successMessage");
-
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        successMessage.style.display = "block";
-        form.reset();
-
-        // Fariinta guusha ha tirtiranto 5 ilbiriqsi kadib
-        setTimeout(() => {
-          successMessage.style.display = "none";
-        }, 5000);
-      } else {
-        alert("Foomka ma dirmin. Fadlan isku day mar kale.");
-      }
-    }).catch(error => {
-      alert("Khalad ayaa dhacay: " + error.message);
-    });
+  fetch(form.action, {
+    method: "POST",
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      successMessage.style.display = "block";
+      form.reset();
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 5000);
+    } else {
+      return response.json().then(data => {
+        alert("Foomka ma dirmin: " + (data.error || "Fadlan isku day mar kale."));
+        console.error("Formspree error:", data);
+      });
+    }
+  }).catch(error => {
+    alert("Khalad ayaa dhacay: " + error.message);
+    console.error("Fetch error:", error);
   });
+});
 </script>
-
 </body>
 </html>
+
+
