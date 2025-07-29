@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casharrada - Machadka Tartiiil Online</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="darkmode.js" defer></script>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; padding: 1rem; background-color: var(--bg-light); color: var(--text-light); }
+    .cashar-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .cashar-title { font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .cashar-actions a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 Casharrada Machadka</h1>
+  <div id="casharContainer"></div>
+
+  <script>
+    fetch('casharro.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('casharContainer');
+        data.forEach(c => {
+          const div = document.createElement('div');
+          div.className = 'cashar-card';
+          div.innerHTML = `
+            <div class="cashar-title">${c.cinwaan}</div>
+            <div>${c.sharaxaad}</div>
+            <div class="cashar-actions">
+              ${c.video ? `<a href="${c.video}" target="_blank">Daawo Video</a>` : ''}
+              ${c.pdf ? `<a href="${c.pdf}" download>Download PDF</a>` : ''}
+            </div>
+          `;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
