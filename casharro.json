@@ -47,5 +47,25 @@
         });
       });
   </script>
+[
+  {
+    "cinwaan": "Cashar 1: Hordhac Tajwiidka",
+    "sharaxaad": "Casharkani wuxuu sharxayaa muhiimadda tajwiidka iyo sida loo barto.",
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "pdf": "pdfs/cashar1.pdf"
+  },
+  {
+    "cinwaan": "Cashar 2: Makhrajyada",
+    "sharaxaad": "Waa barasho ku saabsan meelaha laga soo saaro xarafka Quraanka.",
+    "video": "https://www.youtube.com/watch?v=Ixqb3d8QfpY",
+    "pdf": "pdfs/cashar2.pdf"
+  },
+  {
+    "cinwaan": "Cashar 3: Sifaatka Xarafka",
+    "sharaxaad": "Casharkani wuxuu sharxayaa astaamaha xarafka sida qalqalah iyo hams.",
+    "video": "https://www.youtube.com/watch?v=abc123example",
+    "pdf": "pdfs/cashar3.pdf"
+  }
+]
 </body>
 </html>
