@@ -2,162 +2,135 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <title>Diiwaangelinta – Machadka Tartiiil Online</title>
+  <title>Diiwaangelin - Machadka Tartiiil Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="darkmode.js" defer></script>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      color: #333;
+      background-color: var(--bg-color, #f9f9f9);
+      color: var(--text-color, #333);
     }
 
-    header {
-      background-color: #8B0000;
-      color: #fff;
-      text-align: center;
-      padding: 1rem 0;
-    }
-
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #333;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    nav ul li {
-      flex: 1 1 auto;
-    }
-
-    nav ul li a {
-      display: block;
+    header, footer {
+      background-color: #800020;
       color: white;
       text-align: center;
-      padding: 14px;
-      text-decoration: none;
-    }
-
-    nav ul li a:hover {
-      background-color: #555;
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #444;
-      min-width: 180px;
-      z-index: 999;
-      border-radius: 5px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    .dropdown-content li {
-      width: 100%;
-    }
-
-    .dropdown-content li a {
-      padding: 10px;
-      display: block;
-      color: white;
-      text-align: left;
-    }
-
-    .dropdown-content li a:hover {
-      background-color: #666;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    main {
-      padding: 2rem;
-      max-width: 600px;
-      margin: auto;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    form {
-      display: grid;
-      gap: 1rem;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input, select, button {
-      padding: 0.7rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      width: 100%;
-    }
-
-    button[type="submit"] {
-      background-color: #8B0000;
-      color: white;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #a10000;
-    }
-
-    .success-message {
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-      padding: 12px;
-      margin-top: 15px;
-      border-radius: 6px;
-      text-align: center;
-      font-weight: bold;
-      display: none;
-    }
-
-    footer {
-      text-align: center;
-      background-color: #8B0000;
-      color: white;
       padding: 1rem;
     }
 
-    @media screen and (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-      }
+    nav {
+      background-color: #f1f1f1;
+      padding: 0.5rem 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #800020;
+      font-weight: 600;
+    }
+
+    nav .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1;
+    }
+
+    nav .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .main-menu li a:hover {
+      color: orange;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 2rem auto;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    form input, form select {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    form button {
+      background-color: #800020;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      padding: 0.75rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: orange;
+      color: #fff;
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: orange;
+    }
+
+    /* Dark Mode (optional support) */
+    .dark-mode {
+      --bg-color: #1c1c1c;
+      --text-color: #f1f1f1;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Machadka Tartiiil Online</h1>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </header>
 
   <nav>
     <ul class="main-menu">
       <li><a href="index.html">🏠 Bogga Hore</a></li>
-      <li><a href="register.html" class="active">📝 Diiwaangelin</a></li>
-
+      <li><a href="register.html">📝 Diiwaangelin</a></li>
       <li class="dropdown">
         <a href="#">📚 Waxbarasho ▾</a>
         <ul class="dropdown-content">
@@ -167,15 +140,13 @@
           <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
         </ul>
       </li>
-
       <li class="dropdown">
         <a href="#">📅 Jadwal ▾</a>
         <ul class="dropdown-content">
           <li><a href="schedule.html">🗓️ Jadwalka</a></li>
-          <li><a href="live.html">📡 Live Teams</a></li>
+          <li><a href="live.html">📡  Live Teams</a></li>
         </ul>
       </li>
-
       <li class="dropdown">
         <a href="#">🎥 Muuqaalada ▾</a>
         <ul class="dropdown-content">
@@ -184,7 +155,6 @@
           <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
         </ul>
       </li>
-
       <li class="dropdown">
         <a href="#">⚙️ Maamul ▾</a>
         <ul class="dropdown-content">
@@ -195,32 +165,33 @@
       </li>
     </ul>
   </nav>
-<main>
-    <h2>Diiwaangelinta Ardayda</h2>
-    <form id="registration-form" action="https://formspree.io/f/mdkzvkvk" method="POST">
-      <label for="magaca">👤 Magaca:</label>
-      <input type="text" id="magaca" name="magaca" required>
 
-      <label for="whatsapp">📱 WhatsApp Number:</label>
-      <input type="tel" id="whatsapp" name="whatsapp" required>
+ <main class="form-container">
+    <h1>Foomka Diiwaangelinta Ardayda</h1>
+     <form id="registration-form" action="https://formspree.io/f/mdkzvkvk" method="POST">
+      <label>Magaca:</label>
+      <input type="text" name="magaca" required />
 
-      <label for="wadanka">🌍 Wadanka:</label>
-      <input type="text" id="wadanka" name="wadanka" required>
+      <label>WhatsApp Number:</label>
+      <input type="tel" name="whatsapp" required />
 
-      <label for="heerka">📖 Heerka:</label>
-      <select id="heerka" name="heerka" required>
-        <option value="">-- Dooro Heerka --</option>
+      <label>Wadanka:</label>
+      <input type="text" name="wadanka" required />
+
+      <label>Heerka:</label>
+      <select name="heerka" required>
+        <option value="">Dooro Heerka</option>
         <option value="Biloow">Biloow</option>
         <option value="Dhexdhexaad">Dhexdhexaad</option>
         <option value="Dhamaystir">Dhamaystir</option>
       </select>
 
-      <label for="dhalasho">🎂 Taariikhda Dhalashada:</label>
-      <input type="date" id="dhalasho" name="dhalasho" required>
+      <label>Taariikhda Dhalashada:</label>
+      <input type="date" name="dhalasho" required />
 
-      <label for="qeybta">🕌 Qeybta:</label>
-      <select id="qeybta" name="qeybta" required>
-        <option value="">-- Dooro Qeybta --</option>
+      <label>Qeybta:</label>
+      <select name="qeybta" required>
+        <option value="">Dooro Qeybta</option>
         <option value="Farbar">Farbar</option>
         <option value="Xifdi">Xifdi</option>
         <option value="Muraajaco">Muraajaco</option>
@@ -228,73 +199,52 @@
         <option value="Culuumul Quraan">Culuumul Quraan</option>
       </select>
 
-      <label for="waqtiga">🕰️ Waqtiga:</label>
-      <select id="waqtiga" name="waqtiga" required>
-        <option value="">-- Dooro Waqti --</option>
-        <option value="Subax">Subax</option>
-        <option value="Duhur">Duhur</option>
-        <option value="Habeen">Habeen</option>
-      </select>
+      <label>Waqtiga:</label>
+      <input type="time" name="waqtiga" required />
 
-      <label for="qaabka">👥 Qaabka:</label>
-      <select id="qaabka" name="qaabka" required>
-        <option value="">-- Door Qaabka --</option>
+      <label>Qaabka:</label>
+      <select name="qaabka" required>
+        <option value="">Dooro Qaabka</option>
         <option value="Qof Ahaan">Qof Ahaan</option>
         <option value="Jamac">Jamac</option>
       </select>
 
-      <label for="taariikh">📅 Taariikhda Diiwaangelinta:</label>
-      <input type="date" id="taariikh" name="taariikh" required>
+      <label>Taariikhda Diiwaangelinta:</label>
+      <input type="date" name="taariikh" value="<?= date('Y-m-d'); ?>" required />
 
-      <button type="submit">✅ Diiwaangeli</button>
+      <button type="submit">Diiwaangeli</button>
     </form>
-    <div id="successMessage" class="success-message">✅ Foomka waa la diray! Mahadsanid.</div>
   </main>
-<footer style="text-align: center; padding: 1rem; background-color: #f2f2f2;">
-  <p>&copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqdu Way Xaq u Leedahay.</p>
-  
-  <div style="margin-top: 10px;">
-    <a href="https://facebook.com/tartiilonline" target="_blank" style="margin: 0 10px; text-decoration: none; color: #4267B2;">
-      <i class="fab fa-facebook fa-lg"></i> Facebook
-    </a>
-    <a href="https://wa.me/2526xxxxxxxx" target="_blank" style="margin: 0 10px; text-decoration: none; color: #25D366;">
-      <i class="fab fa-whatsapp fa-lg"></i> WhatsApp
-    </a>
-  </div>
-</footer>
-<script>
-const form = document.getElementById("registration-form");
-const successMessage = document.getElementById("successMessage");
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-  const formData = new FormData(form);
+  <footer>
+    <p>&copy; 2025 Machadka Tartiiil Online</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/252611456000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="tel:2421"><i class="fas fa-phone-alt"></i></a>
+    </div>
+  </footer>
 
-  fetch(form.action, {
-    method: "POST",
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  }).then(response => {
-    if (response.ok) {
-      successMessage.style.display = "block";
-      form.reset();
-      setTimeout(() => {
-        successMessage.style.display = "none";
-      }, 5000);
-    } else {
-      return response.json().then(data => {
-        alert("Foomka ma dirmin: " + (data.error || "Fadlan isku day mar kale."));
-        console.error("Formspree error:", data);
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if(document.body.classList.contains('dark-mode')) {
+          localStorage.setItem('darkMode', 'enabled');
+          toggle.textContent = '☀️ Light Mode';
+        } else {
+          localStorage.setItem('darkMode', 'disabled');
+          toggle.textContent = '🌙 Dark Mode';
+        }
       });
+
+      if(localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        toggle.textContent = '☀️ Light Mode';
+      }
     }
-  }).catch(error => {
-    alert("Khalad ayaa dhacay: " + error.message);
-    console.error("Fetch error:", error);
-  });
-});
-</script>
+  </script>
 </body>
 </html>
 
