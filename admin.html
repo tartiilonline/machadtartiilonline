@@ -84,30 +84,25 @@
     <pre id="output"></pre>
   </main>
 
-  <script>
-    function generateJSON() {
-      const cashar = getLessonFromForm();
-      document.getElementById("output").textContent = JSON.stringify(cashar, null, 4);
+  <<script>
+  function previewVideo() {
+    let url = document.getElementById("video").value.trim();
+
+    // Haddii url yahay watch?v=VIDEO
+    if (url.includes("watch?v=")) {
+      const videoId = url.split("watch?v=")[1];
+      url = "https://www.youtube.com/embed/" + videoId;
     }
 
-    function saveToLocal() {
-      const cashar = getLessonFromForm();
-      const key = "casharro";
-      const current = JSON.parse(localStorage.getItem(key)) || [];
-      current.push(cashar);
-      localStorage.setItem(key, JSON.stringify(current));
-      alert("✅ Cashar si guul ah ayaa loo keydiyay!");
-    }
+    // Embed ka furo
+    showVideo(url);
+  }
 
-    function getLessonFromForm() {
-      return {
-        cinwaan: document.getElementById("cinwaan").value,
-        sharaxaad: document.getElementById("sharaxaad").value,
-        video: document.getElementById("video").value,
-        audio: document.getElementById("audio").value,
-        pdf: document.getElementById("pdf").value
-      };
-    }
-  </script>
+  function showVideo(url) {
+    const modal = document.getElementById("videoModal");
+    modal.querySelector("iframe").src = url;
+    modal.style.display = "flex";
+  }
+</script>
 </body>
 </html>
