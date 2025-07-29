@@ -2,57 +2,33 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8">
-  <title>Ku dar Cashar Cusub</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; background: #f2f2f2; }
-    input, textarea { width: 100%; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-    button { padding: 10px 20px; background-color: #8b0000; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    pre { background: #eee; padding: 10px; border-radius: 5px; }
-  </style>
+    <meta charset="UTF-8" />
+    <title>Admin - Ku dar Cashar</title>
 </head>
 <body>
-  <h2>Foomka Cashar Cusub</h2>
-  <label>Cinwaanka Casharka:</label>
-  <input type="text" id="cinwaan">
+    <h2>Ku dar Cashar Cusub</h2>
+    <form id="lessonForm">
+        <label>Cinwaan:</label><br><input type="text" id="cinwaan"><br>
+        <label>Sharaxaad:</label><br><textarea id="sharaxaad"></textarea><br>
+        <label>Video (YouTube Embed Link):</label><br><input type="text" id="video"><br>
+        <label>Audio (URL or local path):</label><br><input type="text" id="audio"><br>
+        <label>PDF (URL or local path):</label><br><input type="text" id="pdf"><br><br>
+        <button type="button" onclick="generateJSON()">✅ Soo Saar JSON</button>
+    </form>
+    <h3>JSON-kaaga:</h3>
+    <pre id="output" style="background:#eee;padding:10px;"></pre>
 
-  <label>Sharraxaad:</label>
-  <textarea id="sharaxaad"></textarea>
-
-  <label>YouTube Link (e.g., https://www.youtube.com/watch?v=xxxxx):</label>
-  <input type="text" id="video">
-
-  <label>Audio URL (e.g., audio/cashar1.mp3):</label>
-  <input type="text" id="audio">
-
-  <label>PDF URL (e.g., pdfs/cashar1.pdf):</label>
-  <input type="text" id="pdf">
-
-  <button onclick="generateJSON()">Soo Saar JSON</button>
-
-  <h3>Natiijada JSON:</h3>
-  <pre id="output"></pre>
-
-  <script>
-    function generateJSON() {
-      let videoUrl = document.getElementById("video").value.trim();
-      if (videoUrl.includes("watch?v=")) {
-          videoUrl = videoUrl.replace("watch?v=", "embed/");
-      } else if (videoUrl.includes("youtu.be/")) {
-          const id = videoUrl.split("youtu.be/")[1];
-          videoUrl = "https://www.youtube.com/embed/" + id;
-      }
-
-      const cashar = {
-        cinwaan: document.getElementById("cinwaan").value,
-        sharaxaad: document.getElementById("sharaxaad").value,
-        video: videoUrl,
-        audio: document.getElementById("audio").value,
-        pdf: document.getElementById("pdf").value
-      };
-
-      document.getElementById("output").textContent = JSON.stringify(cashar, null, 4);
-    }
-  </script>
+    <script>
+        function generateJSON() {
+            const cashar = {
+                cinwaan: document.getElementById("cinwaan").value,
+                sharaxaad: document.getElementById("sharaxaad").value,
+                video: document.getElementById("video").value,
+                audio: document.getElementById("audio").value,
+                pdf: document.getElementById("pdf").value
+            };
+            document.getElementById("output").textContent = JSON.stringify(cashar, null, 4);
+        }
+    </script>
 </body>
 </html>
