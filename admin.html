@@ -1,156 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8" />
-  <title>Admin - Ku dar Cashar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="darkmode.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Ku dar Cashar Cusub</title>
   <style>
-    main {
-      max-width: 600px;
-      margin: auto;
-      background: var(--bg);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    }
-    form label {
-      font-weight: bold;
-      display: block;
-      margin-top: 10px;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 4px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    button {
-      margin-top: 15px;
-      background: #8B0000;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #a52a2a;
-    }
-    pre {
-      white-space: pre-wrap;
-      background: #f5f5f5;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 15px;
-    }
+    body { font-family: sans-serif; padding: 20px; background: #f2f2f2; }
+    input, textarea { width: 100%; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    button { padding: 10px 20px; background-color: #8b0000; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Machadka Tartiiil Online</h1>
-  </header>
+  <h2>Foomka Cashar Cusub</h2>
+  <label>Cinwaanka Casharka:</label>
+  <input type="text" id="cinwaan">
 
+  <label>Sharraxaad:</label>
+  <textarea id="sharaxaad"></textarea>
 
-    <nav>
-    <ul class="main-menu">
-      <li><a href="index.html">🏠 Bogga Hore</a></li>
-      <li><a href="register.html">📝 Diiwaangelin</a></li>
+  <label>YouTube Link (e.g., https://www.youtube.com/watch?v=xxxxx):</label>
+  <input type="text" id="video">
 
-      <li class="dropdown">
-        <a href="#">📚 Waxbarasho ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="courses.html">📘 Koorsooyinka</a></li>
-          <li><a href="casharro.html">📖 Casharro</a></li>
-          <li><a href="waajibaad.html">📝 Waajibaad</a></li>
-          <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
-        </ul>
-      </li>
+  <label>Audio URL (e.g., audio/cashar1.mp3):</label>
+  <input type="text" id="audio">
 
-      <li class="dropdown">
-        <a href="#">📅 Jadwal ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="schedule.html">🗓️ Jadwalka</a></li>
-          <li><a href="live.html">📡  Live Teams</a></li>
-        </ul>
-      </li>
+  <label>PDF URL (e.g., pdfs/cashar1.pdf):</label>
+  <input type="text" id="pdf">
 
-      <li class="dropdown">
-        <a href="#">🎥 Muuqaalada ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="gallery.html">🖼️ Sawirro</a></li>
-          <li><a href="videos.html">🎞️ Duruus Video</a></li>
-          <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
-        </ul>
-      </li>
+  <button onclick="generateJSON()">Soo Saar JSON</button>
 
-      <li class="dropdown">
-        <a href="#">⚙️ Maamul ▾</a>
-        <ul class="dropdown-content">
-          <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
-          <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
-          <li><a href="contact.html">☎️ La Xiriir</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <main>
-    <h2>➕ Ku dar Cashar Cusub</h2>
-    <form id="lessonForm">
-      <label>Cinwaan:</label>
-      <input type="text" id="cinwaan" required>
-
-      <label>Sharaxaad:</label>
-      <textarea id="sharaxaad" rows="3" required></textarea>
-
-      <label>Video (YouTube Embed Link):</label>
-      <input type="text" id="video">
-
-      <label>Audio (URL or local path):</label>
-      <input type="text" id="audio">
-
-      <label>PDF (URL or local path):</label>
-      <input type="text" id="pdf">
-
-      <button type="button" onclick="generateJSON()">📄 Soo Saar JSON</button>
-      <button type="button" onclick="saveToLocal()">💾 Keydi Casharka</button>
-    </form>
-
-    <h3>JSON-kaaga:</h3>
-    <pre id="output"></pre>
-  </main>
+  <h3>Natiijada JSON:</h3>
+  <pre id="output"></pre>
 
   <script>
     function generateJSON() {
-      const cashar = getLessonFromForm();
-      document.getElementById("output").textContent = JSON.stringify(cashar, null, 4);
-    }
+      let videoUrl = document.getElementById("video").value.trim();
+      if (videoUrl.includes("watch?v=")) {
+          videoUrl = videoUrl.replace("watch?v=", "embed/");
+      } else if (videoUrl.includes("youtu.be/")) {
+          const id = videoUrl.split("youtu.be/")[1];
+          videoUrl = "https://www.youtube.com/embed/" + id;
+      }
 
-    function saveToLocal() {
-      const cashar = getLessonFromForm();
-      const key = "casharro";
-      const current = JSON.parse(localStorage.getItem(key)) || [];
-      current.push(cashar);
-      localStorage.setItem(key, JSON.stringify(current));
-      alert("✅ Cashar si guul ah ayaa loo keydiyay!");
-    }
-
-    function getLessonFromForm() {
-      return {
+      const cashar = {
         cinwaan: document.getElementById("cinwaan").value,
         sharaxaad: document.getElementById("sharaxaad").value,
-        video: document.getElementById("video").value,
+        video: videoUrl,
         audio: document.getElementById("audio").value,
         pdf: document.getElementById("pdf").value
       };
+
+      document.getElementById("output").textContent = JSON.stringify(cashar, null, 4);
     }
   </script>
 </body>
 </html>
-
