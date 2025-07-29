@@ -156,22 +156,24 @@
   <script>
     const sheetURL = "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec?sheet=Casharro";
 
-    fetch(sheetURL)
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById("lessons");
-        data.forEach(lesson => {
-          const card = document.createElement("div");
-          card.className = "lesson-card";
-          card.innerHTML = `
-            <div class="lesson-title">${lesson.cinwaan}</div>
-            <div class="lesson-description">${lesson.sharaxaad}</div>
-            <div class="lesson-link"><a href="#" onclick='openModal(${JSON.stringify(lesson)})'>Fur Casharka</a></div>
-          `;
-          container.appendChild(card);
-        });
-      });
-
+fetch("lessons.json")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("lessons");
+    data.forEach(lesson => {
+      const card = document.createElement("div");
+      card.className = "lesson-card";
+      card.innerHTML = `
+        <div class="lesson-title">${lesson.cinwaan}</div>
+        <div class="lesson-description">${lesson.sharaxaad}</div>
+        ${lesson.audio ? `<audio controls src="${lesson.audio}" style="width:100%; margin-bottom:10px;"></audio>` : ""}
+        ${lesson.pdf ? `<p><a href="${lesson.pdf}" target="_blank">⬇️ Download PDF</a></p>` : ""}
+        ${lesson.video ? `<div class="lesson-link"><a href="#" onclick='openModal(${JSON.stringify(lesson)})'>🎥 Daawo Video</a></div>` : ""}
+      `;
+      container.appendChild(card);
+    });
+  });
+    
     function openModal(lesson) {
       const modal = document.getElementById("lessonModal");
       const body = document.getElementById("modalBody");
