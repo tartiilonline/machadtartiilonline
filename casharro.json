@@ -3,49 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casharrada - Machadka Tartiiil Online</title>
+  <title>📖 Casharro - Machadka Tartiiil Online</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="darkmode.js" defer></script>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; padding: 1rem; background-color: var(--bg-light); color: var(--text-light); }
-    .cashar-card {
-      background: var(--card-bg);
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e6ecf0);
+      padding: 2rem;
     }
-    .cashar-title { font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .cashar-actions a {
-      margin-right: 10px;
-      text-decoration: none;
-      color: orange;
+    .lessons-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .lesson-card {
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease;
+    }
+    .lesson-card:hover {
+      transform: translateY(-5px);
+    }
+    .lesson-title {
+      color: #800020;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .lesson-description {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    .lesson-link a {
+      color: #800020;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    @media (prefers-color-scheme: dark), body.dark-mode {
+      .lesson-card {
+        background: #1e1e1e;
+        color: #e0e0e0;
+      }
+      .lesson-description {
+        color: #ccc;
+      }
+      .lesson-link a {
+        color: #ffb6c1;
+      }
+    }
+    form {
+      margin-top: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #1d8c60;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #success-message {
+      text-align: center;
+      margin-top: 1rem;
+      color: green;
+      font-weight: bold;
+    }
+    #lessonForm {
+      margin-top: 3rem;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #lessonForm .success {
+      background-color: #d1fae5;
+      padding: 10px;
+      margin-top: 20px;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>📚 Casharrada Machadka</h1>
-  <div id="casharContainer"></div>
+  <header>
+    <h1 style="text-align:center;">📖 Casharro Qur’aan & Tafsiir</h1>
+  </header>
+
+  <div class="lessons-container" id="lessons"></div>
+
+  <div id="lessonModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Foomka Kudar Cashar Cusub -->
+  <form id="lessonForm">
+    <h2>Kudar Cashar Cusub</h2>
+    <label>Cinwaanka Casharka:</label>
+    <input type="text" id="cinwaan" required>
+
+    <label>Sharaxaada:</label>
+    <textarea id="sharaxaad" rows="3"></textarea>
+
+    <label>Link Video:</label>
+    <input type="url" id="video">
+
+    <label>Link PDF:</label>
+    <input type="text" id="pdf">
+
+    <label>Link Audio:</label>
+    <input type="text" id="audio">
+
+    <button type="submit">Kaydi Casharka</button>
+    <div class="success" id="successMsg">✅ Casharka waa la keydiyay gudaha <code>casharro.json</code>.</div>
+  </form>
 
   <script>
-    fetch('casharro.json')
+    const sheetURL = "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec?sheet=Casharro";
+
+    fetch(sheetURL)
       .then(res => res.json())
       .then(data => {
-        const container = document.getElementById('casharContainer');
-        data.forEach(c => {
-          const div = document.createElement('div');
-          div.className = 'cashar-card';
-          div.innerHTML = `
-            <div class="cashar-title">${c.cinwaan}</div>
-            <div>${c.sharaxaad}</div>
-            <div class="cashar-actions">
-              ${c.video ? `<a href="${c.video}" target="_blank">Daawo Video</a>` : ''}
-              ${c.pdf ? `<a href="${c.pdf}" download>Download PDF</a>` : ''}
-            </div>
+        const container = document.getElementById("lessons");
+        data.forEach(lesson => {
+          const card = document.createElement("div");
+          card.className = "lesson-card";
+          card.innerHTML = `
+            <div class="lesson-title">${lesson.cinwaan}</div>
+            <div class="lesson-description">${lesson.sharaxaad}</div>
+            <div class="lesson-link"><a href="#" onclick='openModal(${JSON.stringify(lesson)})'>Fur Casharka</a></div>
           `;
-          container.appendChild(div);
+          container.appendChild(card);
         });
       });
+
+    function openModal(lesson) {
+      const modal = document.getElementById("lessonModal");
+      const body = document.getElementById("modalBody");
+      body.innerHTML = `
+        <h2>${lesson.cinwaan}</h2>
+        <p>${lesson.sharaxaad}</p>
+        ${lesson.video ? `<iframe width="100%" height="315" src="${lesson.video}" frameborder="0" allowfullscreen></iframe>` : ""}
+        ${lesson.audio ? `<audio controls src="${lesson.audio}" style="width:100%;"></audio>` : ""}
+        ${lesson.pdf ? `<p><a href="${lesson.pdf}" target="_blank">Download PDF</a></p>` : ""}
+      `;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("lessonModal").style.display = "none";
+    }
+
+    const lessonForm = document.getElementById('lessonForm');
+    const successMsg = document.getElementById('successMsg');
+
+    lessonForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const cashar = {
+        cinwaan: document.getElementById('cinwaan').value,
+        sharaxaad: document.getElementById('sharaxaad').value,
+        video: document.getElementById('video').value,
+        pdf: document.getElementById('pdf').value,
+        audio: document.getElementById('audio').value,
+      };
+
+      try {
+        const response = await fetch('casharro.json');
+        const casharro = await response.json();
+
+        casharro.push(cashar);
+
+        const blob = new Blob([JSON.stringify(casharro, null, 2)], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "casharro.json";
+        a.click();
+
+        successMsg.style.display = "block";
+        lessonForm.reset();
+      } catch (err) {
+        alert("Waa lagu guuldaraystay akhrinta faylka: " + err);
+      }
+    });
   </script>
 </body>
 </html>
