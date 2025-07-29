@@ -2,20 +2,22 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
-  <title>📖 Casharro - Machadka Tartiiil Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <title>📖 Casharro - Machadka Tartiiil Online</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="darkmode.js" defer></script>
-
   <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e6ecf0);
+      padding: 2rem;
+    }
     .lessons-container {
       max-width: 1000px;
       margin: auto;
       padding: 2rem 1rem;
     }
-
     .lesson-card {
       background: #fff;
       padding: 1.5rem;
@@ -24,30 +26,25 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.06);
       transition: transform 0.3s ease;
     }
-
     .lesson-card:hover {
       transform: translateY(-5px);
     }
-
     .lesson-title {
       color: #800020;
       font-size: 1.25rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
-
     .lesson-description {
       font-size: 1rem;
       color: #333;
       margin-bottom: 1rem;
     }
-
     .lesson-link a {
       color: #800020;
       font-weight: bold;
       text-decoration: underline;
     }
-
     @media (prefers-color-scheme: dark), body.dark-mode {
       .lesson-card {
         background: #1e1e1e;
@@ -60,20 +57,48 @@
         color: #ffb6c1;
       }
     }
+    form {
+      margin-top: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #1d8c60;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #success-message {
+      text-align: center;
+      margin-top: 1rem;
+      color: green;
+      font-weight: bold;
+    }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>📖 Casharro Qur’aan & Tafsiir</h1>
+    <h1 style="text-align:center;">📖 Casharro Qur’aan & Tafsiir</h1>
   </header>
-
   <!-- Navigation -->
   <nav>
     <ul class="main-menu">
       <li><a href="index.html">🏠 Bogga Hore</a></li>
       <li><a href="register.html">📝 Diiwaangelin</a></li>
-
       <li class="dropdown">
         <a href="#">📚 Waxbarasho ▾</a>
         <ul class="dropdown-content">
@@ -83,7 +108,6 @@
           <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
         </ul>
       </li>
-
       <li class="dropdown">
         <a href="#">📅 Jadwal ▾</a>
         <ul class="dropdown-content">
@@ -91,7 +115,6 @@
           <li><a href="live.html">📡  Live Teams</a></li>
         </ul>
       </li>
-
       <li class="dropdown">
         <a href="#">🎥 Muuqaalada ▾</a>
         <ul class="dropdown-content">
@@ -100,7 +123,6 @@
           <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
         </ul>
       </li>
-
       <li class="dropdown">
         <a href="#">⚙️ Maamul ▾</a>
         <ul class="dropdown-content">
@@ -112,133 +134,88 @@
     </ul>
   </nav>
 
-  <main class="lessons-container">
-  <div style="text-align: center; margin-bottom: 1rem;">
-    <input type="text" id="searchInput" placeholder="🔍 Raadi cashar..." style="padding: 10px; width: 90%; max-width: 400px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;" />
-  </div>
+  <div class="lessons-container" id="lessons"></div>
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-    <select id="sortSelect" style="padding: 8px; border-radius: 5px;">
-      <option value="">🔀 Tartibin...</option>
-      <option value="title">🔡 Cinwaan (A-Z)</option>
-      <option value="date">📅 Taariikh (cusub → duq)</option>
-    </select>
-
-    <select id="subjectFilter" style="padding: 8px; border-radius: 5px;">
-      <option value="">📌 Maaddo (Filter)...</option>
-    </select>
-
-    <select id="teacherFilter" style="padding: 8px; border-radius: 5px;">
-      <option value="">👨‍🏫 Macalin (Filter)...</option>
-    </select>
-
-    <button onclick="window.print()" style="padding: 8px 12px; background: #800020; color: white; border: none; border-radius: 5px; cursor: pointer;">
-      🖨️ Daabac / PDF
-    </button>
-  </div>
-
-  <div id="lessons">
-    <p class="loading">⏳ Casharrada ayaa soo degaya...</p>
-  </div>
-</main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online</p>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/share/19GF3rQruy/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/252611456000" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="tel:2421" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+  <!-- Modal -->
+  <div id="lessonModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div id="modalBody"></div>
     </div>
-  </footer>
+  </div>
+
+  <!-- Foomka La Xiriir -->
+  <form id="contact-form" action="https://formspree.io/f/mdkzvkvk" method="POST">
+    <input type="text" name="name" placeholder="Magacaaga" required>
+    <input type="email" name="email" placeholder="Emailkaaga" required>
+    <textarea name="message" placeholder="Fariintaada" required></textarea>
+    <button type="submit">Dir</button>
+  </form>
+  <div id="success-message" style="display:none;">✅ Fariinta waa la diray. Mahadsanid!</div>
 
   <script>
-  const api = "https://script.google.com/macros/s/AKfycbyk17aKWIop4osK1lSC7lBL31pgEeh0bTrHhmNuc4TNu3L_6YHiOeh9mzCluEN8MiBn/exec?sheet=Casharro";
-  const container = document.getElementById("lessons");
-  const searchInput = document.getElementById("searchInput");
-  const sortSelect = document.getElementById("sortSelect");
-  const subjectFilter = document.getElementById("subjectFilter");
-  const teacherFilter = document.getElementById("teacherFilter");
+    const sheetURL = "https://script.google.com/macros/s/AKfycbxKeEK5v9VA4CyxQEqlXLHQXIIR4cXi6fxHGixjpUGLe528vqv-7CiwqCKVYi1WY-eSTQ/exec?sheet=Casharro";
 
-  let allLessons = [];
+    fetch(sheetURL)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("lessons");
+        data.forEach(lesson => {
+          const card = document.createElement("div");
+          card.className = "lesson-card";
+          card.innerHTML = `
+            <div class="lesson-title">${lesson.cinwaan}</div>
+            <div class="lesson-description">${lesson.sharaxaad}</div>
+            <div class="lesson-link"><a href="#" onclick='openModal(${JSON.stringify(lesson)})'>Fur Casharka</a></div>
+          `;
+          container.appendChild(card);
+        });
+      });
 
-  fetch(api)
-    .then(res => res.json())
-    .then(data => {
-      if (!data || data.length === 0) {
-        container.innerHTML = "<p>❗ Lama helin casharro.</p>";
-        return;
-      }
-      allLessons = data;
-      populateFilters(data);
-      renderLessons(data);
-    })
-    .catch(error => {
-      container.innerHTML = "<p style='color:red;'>❌ Casharro lama helin. Fadlan dib isku day.</p>";
-      console.error("Fetch error:", error);
+    function openModal(lesson) {
+      const modal = document.getElementById("lessonModal");
+      const body = document.getElementById("modalBody");
+      body.innerHTML = `
+        <h2>${lesson.cinwaan}</h2>
+        <p>${lesson.sharaxaad}</p>
+        ${lesson.video ? `<iframe width="100%" height="315" src="${lesson.video}" frameborder="0" allowfullscreen></iframe>` : ""}
+        ${lesson.audio ? `<audio controls src="${lesson.audio}" style="width:100%;"></audio>` : ""}
+        ${lesson.pdf ? `<p><a href="${lesson.pdf}" target="_blank">Download PDF</a></p>` : ""}
+      `;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("lessonModal").style.display = "none";
+    }
+
+    const form = document.getElementById("contact-form");
+    const successMessage = document.getElementById("success-message");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          successMessage.style.display = "block";
+          form.reset();
+          setTimeout(() => {
+            successMessage.style.display = "none";
+          }, 5000);
+        } else {
+          alert("Foomka ma dirmin. Fadlan isku day mar kale.");
+        }
+      }).catch(error => {
+        alert("Khalad ayaa dhacay: " + error.message);
+      });
     });
-
-  function populateFilters(data) {
-    const subjects = [...new Set(data.map(d => d.Subject).filter(Boolean))];
-    const teachers = [...new Set(data.map(d => d.Teacher).filter(Boolean))];
-
-    subjectFilter.innerHTML += subjects.map(s => `<option value="${s}">${s}</option>`).join('');
-    teacherFilter.innerHTML += teachers.map(t => `<option value="${t}">${t}</option>`).join('');
-  }
-
-  function renderLessons(lessons) {
-    if (lessons.length === 0) {
-      container.innerHTML = "<p>❗ Lama helin wax casharro ah oo la jaanqaadaya raadintaada.</p>";
-      return;
-    }
-
-    container.innerHTML = lessons.map(item => `
-      <div class="lesson-card">
-        <div class="lesson-title">${item.Title || "Cinwaan la'aan"}</div>
-        <div class="lesson-description">${item.Description || "Sharaxaad ma jirto."}</div>
-        <div class="lesson-link"><a href="${item.Link || '#'}" target="_blank" rel="noopener">Fur Casharka</a></div>
-      </div>
-    `).join('');
-  }
-
-  function filterAndSortLessons() {
-    let filtered = [...allLessons];
-
-    const query = searchInput.value.toLowerCase();
-    const subject = subjectFilter.value;
-    const teacher = teacherFilter.value;
-    const sort = sortSelect.value;
-
-    if (query) {
-      filtered = filtered.filter(item =>
-        (item.Title && item.Title.toLowerCase().includes(query)) ||
-        (item.Description && item.Description.toLowerCase().includes(query))
-      );
-    }
-
-    if (subject) {
-      filtered = filtered.filter(item => item.Subject === subject);
-    }
-
-    if (teacher) {
-      filtered = filtered.filter(item => item.Teacher === teacher);
-    }
-
-    if (sort === "title") {
-      filtered.sort((a, b) => (a.Title || "").localeCompare(b.Title || ""));
-    }
-
-    if (sort === "date") {
-      filtered.sort((a, b) => new Date(b.Date) - new Date(a.Date));
-    }
-
-    renderLessons(filtered);
-  }
-
-  searchInput.addEventListener("input", filterAndSortLessons);
-  sortSelect.addEventListener("change", filterAndSortLessons);
-  subjectFilter.addEventListener("change", filterAndSortLessons);
-  teacherFilter.addEventListener("change", filterAndSortLessons);
-</script>
+  </script>
 </body>
 </html>
