@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="so">
 <head>
   <meta charset="UTF-8" />
@@ -9,44 +8,149 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="darkmode.js" defer></script>
   <style>
-        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
-        .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-        .video-modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; justify-content:center; align-items:center; }
-        .video-modal iframe { width:80vw; height:45vw; }
-    </style>
+    .card {
+      background: var(--bg-card, #fff);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      color: var(--text-color, #333);
+    }
+
+    .card p {
+      color: var(--text-muted, #555);
+    }
+
+    .video-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .video-modal iframe {
+      width: 90vw;
+      height: 50vw;
+      border-radius: 8px;
+    }
+
+    .video-modal.show {
+      display: flex;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+  </style>
 </head>
 <body>
-    <h1>Casharrada Machadka</h1>
+  <header>
+    <h1>Machadka Tartiiil Online</h1>
+  </header>
+
+  <nav>
+    <ul class="main-menu">
+      <li><a href="index.html">🏠 Bogga Hore</a></li>
+      <li><a href="register.html">📝 Diiwaangelin</a></li>
+      <li class="dropdown">
+        <a href="#">📚 Waxbarasho ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="courses.html">📘 Koorsooyinka</a></li>
+          <li><a href="casharro.html">📖 Casharro</a></li>
+          <li><a href="waajibaad.html">📝 Waajibaad</a></li>
+          <li><a href="muraajaco.html">🔁 Muraajaco</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">📅 Jadwal ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="schedule.html">🗓️ Jadwalka</a></li>
+          <li><a href="live.html">📡 Live Teams</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">🎥 Muuqaalada ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="gallery.html">🖼️ Sawirro</a></li>
+          <li><a href="videos.html">🎞️ Duruus Video</a></li>
+          <li><a href="top-students.html">🏅 Ardayda Guuleystay</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">⚙️ Maamul ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="login.html">🔐 Soo Galitaanka Macallimiinta</a></li>
+          <li><a href="admin.html">🛠️ Dashboard Admin</a></li>
+          <li><a href="contact.html">☎️ La Xiriir</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2 style="text-align:center; margin-top:20px;">📖 Casharrada Machadka</h2>
     <div id="casharro"></div>
+  </main>
 
-    <div id="videoModal" class="video-modal" onclick="this.style.display='none'">
-        <iframe src="" frameborder="0" allowfullscreen></iframe>
-    </div>
+  <div id="videoModal" class="video-modal" onclick="closeVideo()">
+    <iframe src="" frameborder="0" allowfullscreen></iframe>
+  </div>
 
-    <script>
+  <script>
+    const container = document.getElementById('casharro');
+
+    function loadCasharro() {
+      const localData = localStorage.getItem("casharro");
+      const lessons = localData ? JSON.parse(localData) : [];
+
+      if (lessons.length === 0) {
         fetch('lessons.json')
-            .then(res => res.json())
-            .then(data => {
-                const container = document.getElementById('casharro');
-                data.forEach(cashar => {
-                    const div = document.createElement('div');
-                    div.className = 'card';
-                    div.innerHTML = `
-                        <h2>${cashar.cinwaan}</h2>
-                        <p>${cashar.sharaxaad}</p>
-                        ${cashar.audio ? `<audio controls src="\${cashar.audio}"></audio><br>` : ''}
-                        ${cashar.pdf ? `<a href="\${cashar.pdf}" download>⬇️ Download PDF</a><br>` : ''}
-                        ${cashar.video ? `<button onclick="showVideo('\${cashar.video}')">🎥 Daawo Video</button>` : ''}
-                    `;
-                    container.appendChild(div);
-                });
-            });
+          .then(res => res.json())
+          .then(displayLessons);
+      } else {
+        displayLessons(lessons);
+      }
+    }
 
-        function showVideo(url) {
-            const modal = document.getElementById('videoModal');
-            modal.querySelector('iframe').src = url;
-            modal.style.display = 'flex';
-        }
-    </script>
+    function displayLessons(data) {
+      data.forEach(cashar => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `
+          <h2>${cashar.cinwaan}</h2>
+          <p>${cashar.sharaxaad}</p>
+          ${cashar.audio ? `<audio controls src="${cashar.audio}"></audio><br>` : ''}
+          ${cashar.pdf ? `<a href="${cashar.pdf}" download>⬇️ Download PDF</a><br>` : ''}
+          ${cashar.video ? `<button onclick="showVideo('${cashar.video}')">🎥 Daawo Video</button>` : ''}
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function showVideo(url) {
+      const modal = document.getElementById('videoModal');
+      modal.querySelector('iframe').src = url;
+      modal.classList.add('show');
+    }
+
+    function closeVideo() {
+      const modal = document.getElementById('videoModal');
+      modal.classList.remove('show');
+      modal.querySelector('iframe').src = '';
+    }
+
+    window.onload = loadCasharro;
+  </script>
 </body>
 </html>
