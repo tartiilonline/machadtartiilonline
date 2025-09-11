@@ -7,10 +7,8 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
   <script src="darkmode.js" defer></script>
@@ -23,15 +21,17 @@
       scroll-behavior: smooth;
     }
 
+    /* Header */
     header {
       background: linear-gradient(135deg, #800020, #ff6600);
       color: #fff;
-      padding: 40px 20px;
+      padding: 50px 20px;
       text-align: center;
     }
-    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; }
+    header h1 { font-size: 2.8rem; margin-bottom: 10px; }
+    header p { font-size: 1.3rem; }
 
+    /* Navigation */
     nav ul {
       display: flex;
       justify-content: center;
@@ -46,7 +46,7 @@
       color: #fff;
       font-weight: bold;
       text-decoration: none;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 6px;
       transition: 0.3s;
     }
@@ -55,30 +55,25 @@
       color: #fff;
     }
 
-    /* Hero */
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 70px 20px;
+      padding: 80px 20px;
       background: #fdf1ec;
       border-bottom: 4px solid #ff6600;
-    }
-    .hero h2, .hero p, .hero .btn-primary {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
     }
     .btn-primary {
       background: #ff6600;
       border: none;
       color: #fff;
       padding: 12px 30px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       border-radius: 8px;
       transition: 0.3s;
     }
     .btn-primary:hover { background: #800020; }
 
-    /* Features */
+    /* Features / Courses */
     .features img {
       max-width: 100%;
       height: auto;
@@ -91,11 +86,9 @@
     }
     .features h3 { color: #800020; margin-top: 15px; }
     .features p { color: #333; }
-    .feature-card {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
+
+    /* About Section */
+    .about img { max-width: 100%; border-radius: 12px; }
 
     /* Contact */
     .contact-info p { margin: 6px 0; font-weight: bold; font-size: 1.1rem; }
@@ -111,22 +104,17 @@
     footer {
       background: #222;
       color: #fff;
-      padding: 25px 20px;
+      padding: 30px 20px;
       text-align: center;
-      margin-top: 40px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
+      margin-top: 50px;
     }
 
-    /* Animation active class */
-    .show {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
+    /* Animations */
+    .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .show { opacity: 1 !important; transform: translateY(0) !important; }
 
     @media (max-width: 768px) {
-      header h1 { font-size: 2rem; }
+      header h1 { font-size: 2.2rem; }
       .hero h2 { font-size: 1.6rem; }
       nav ul { flex-direction: column; gap: 10px; }
     }
@@ -135,13 +123,13 @@
 <body>
 
   <!-- Header -->
-  <header>
-    <h1 class="animate-on-scroll">Machadka Tartiiil Online</h1>
-    <p class="animate-on-scroll">Kusoo dhowoow barashada Quraanka Kariimka iyo Culuumta Islaamka</p>
+  <header class="animate-on-scroll">
+    <h1>Machadka Tartiiil Online</h1>
+    <p>Kusoo dhowoow barashada Quraanka Kariimka iyo Culuumta Islaamka</p>
   </header>
 
   <!-- Navigation -->
-  <nav>
+  <nav class="animate-on-scroll">
     <ul>
       <li><a href="index.html" class="active">🏠 Bogga Hore</a></li>
       <li><a href="register.html">📝 Diiwaangelin</a></li>
@@ -152,44 +140,54 @@
   </nav>
 
   <!-- Hero Section -->
- </section><section class="container my-5 animate-on-scroll">
-  <h2 class="text-center mb-4" style="color:#800020;">Ku Saabsan Machadka</h2>
-  <div class="row align-items-center g-4">
-    <div class="col-md-6">
-      <img src="images/machad.webp" alt="Machadka Tartiiil Online" class="img-fluid rounded shadow">
-    </div>
-    <div class="col-md-6">
-      <p>Machadka Tartiiil Online waa machad Qur’aan iyo culuum Islaami ah oo loogu talagalay ardayda Soomaaliyeed iyo dadka ku hadla af Soomaaliga. Ujeedada machadka waa in la fududeeyo barashada Quraanka Kariimka, Xifdiga, Tajweed-ka, Muraajacada, iyo culuumta Islaamka, iyadoo la adeegsanayo hab online ah oo waqtiga iyo goobta aan xadidnayn.</p>
-      <p>Waxaan si gaar ah u dhiirrigelinaynaa ardayda in ay fahmaan, xifdiyaan, oo ay ku dhaqmaan Qur’aanka, sidoo kale in ay bartaan culuumta Islaamka sida Tafsiirka, Fiqhiga, iyo Akhlaaqda. Machadku wuxuu leeyahay casharro live ah iyo kuwa la duubay si ardaydu u helaan hab waxbarasho oo dhameystiran.</p>
-      <p><strong>Muhiimadda Machadka:</strong></p>
-      <ul>
-        <li>Barashada Qur’aanka Kariimka si sax ah iyo xifdiga.</li>
-        <li>Kor u qaadida aqoonta diinta iyo akhlaaqda wanaagsan.</li>
-        <li>Fududeynta waxbarashada online oo la jaanqaadaysa ardayda meel kasta oo ay joogaan.</li>
-        <li>Dhiirrigelinta ardayda inay noqdaan kuwo ku hogaansan diinta iyo bulshadooda.</li>
-      </ul>
-    </div>
-  </div>
-</section>
+  <section class="hero animate-on-scroll container">
+    <h2>Waxaan Bixinaa Casharo Quraan & Culuum Islaami</h2>
+    <p>Ku baro online si fudud, waqti kasta, meel kasta.</p>
+    <a href="register.html" class="btn btn-primary">Diiwaangeli Hadda</a>
+  </section>
+
   <!-- Features / Courses -->
-  <section class="container my-5 features">
-    <div class="row g-4">
-      <div class="col-md-4 text-center feature-card animate-on-scroll">
+  <section class="container my-5 features animate-on-scroll">
+    <h2 class="text-center mb-4" style="color:#800020;">Casharro & Tababaro</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-4">
         <img src="images/quran1.webp" alt="Xifdiga">
         <h3>Xifdiga</h3>
         <p>Casharo lagu xifdinayo Qur’aanka Kariimka.</p>
       </div>
-      <div class="col-md-4 text-center feature-card animate-on-scroll">
+      <div class="col-md-4">
         <img src="images/quran2.webp" alt="Tajweed">
         <h3>Tajweed</h3>
         <p>Si fiican u baro akhriska Qur’aanka adigoo saxaya Tajweed-ka.</p>
       </div>
-      <div class="col-md-4 text-center feature-card animate-on-scroll">
+      <div class="col-md-4">
         <img src="images/quran3.webp" alt="Muraajaco">
         <h3>Muraajaco</h3>
         <p>Kusoo celi oo xooji hifdigaaga Qur’aanka.</p>
       </div>
     </div>
+  </section>
+
+  <!-- About / Ku Saabsan Machadka -->
+  <section class="container my-5 about animate-on-scroll">
+    <h2 class="text-center mb-4" style="color:#800020;">Ku Saabsan Machadka</h2>
+    <div class="row align-items-center g-4">
+      <div class="col-md-6">
+        <img src="images/machad.webp" alt="Machadka Tartiiil Online" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <p>Machadka Tartiiil Online waa machad Qur’aan iyo culuum Islaami ah oo loogu talagalay ardayda Soomaaliyeed iyo dadka ku hadla af Soomaaliga. Ujeedada machadka waa in la fududeeyo barashada Quraanka Kariimka, Xifdiga, Tajweed-ka, Muraajacada, iyo culuumta Islaamka, iyadoo la adeegsanayo hab online ah oo waqtiga iyo goobta aan xadidnayn.</p>
+        <p>Waxaan si gaar ah u dhiirrigelinaynaa ardayda in ay fahmaan, xifdiyaan, oo ay ku dhaqmaan Qur’aanka, sidoo kale in ay bartaan culuumta Islaamka sida Tafsiirka, Fiqhiga, iyo Akhlaaqda. Machadku wuxuu leeyahay casharro live ah iyo kuwa la duubay si ardaydu u helaan hab waxbarasho oo dhameystiran.</p>
+        <p><strong>Muhiimadda Machadka:</strong></p>
+        <ul>
+          <li>Barashada Qur’aanka Kariimka si sax ah iyo xifdiga.</li>
+          <li>Kor u qaadida aqoonta diinta iyo akhlaaqda wanaagsan.</li>
+          <li>Fududeynta waxbarashada online oo la jaanqaadaysa ardayda meel kasta oo ay joogaan.</li>
+          <li>Dhiirrigelinta ardayda inay noqdaan kuwo ku hogaansan diinta iyo bulshadooda.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="animate-on-scroll">
