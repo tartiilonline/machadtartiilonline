@@ -19,17 +19,11 @@
     h1,h2,h3 { font-weight:700; }
     p { line-height:1.7; color:#555; }
 
-    <header class="animate-on-scroll">
-  <img src="images/loogada.jpeg" alt="Logo Machadka Tartiiil Online" 
-       style="max-width:160px; margin-bottom:20px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-  <h1>Machadka Tartiiil Online</h1>
-  <p style="color:#ffcc99;">Kusoo dhowoow barashada Quraanka Kariimka iyo Culuumta Islaamka</p>
-</header>
-
     /* Header */
     header { background:linear-gradient(135deg,#800020,#ff6600); color:#fff; padding:60px 20px; text-align:center; }
+    header img { max-width:160px; margin-bottom:20px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,0.3); }
     header h1 { font-size:3rem; margin-bottom:10px; }
-    header p { font-size:1.3rem; opacity:0.9; }
+    header p { font-size:1.3rem; color:#ffcc99; }
 
     /* Navigation */
     nav ul { display:flex; justify-content:center; gap:20px; list-style:none; background:#ff6600; padding:12px; margin:0; flex-wrap:wrap; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
@@ -54,22 +48,6 @@
     .about img { width:100%; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.15);}
     .about p { font-size:1.1rem; margin-bottom:15px; }
 
-    /* Top Students */
-    .top-students h2 { text-align:center; margin-bottom:40px; color:#800020; }
-    .student-card { padding:15px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:all 0.3s; }
-    .student-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15);}
-    .student-card img { width:100%; border-radius:12px; margin-bottom:10px; }
-
-    /* Schedule */
-    .schedule h2 { text-align:center; margin-bottom:40px; color:#800020; }
-    .schedule table { width:100%; border-collapse:collapse; }
-    .schedule th, .schedule td { padding:12px; text-align:center; border:1px solid #ddd; }
-    .schedule th { background:#ff6600; color:#fff; }
-
-    /* Testimonials */
-    .testimonials h2 { text-align:center; margin-bottom:40px; color:#800020; }
-    .testimonial-card { padding:20px; border-radius:12px; background:#fdf1ec; box-shadow:0 6px 20px rgba(0,0,0,0.1); margin-bottom:20px;}
-
     /* Social */
     .social-links a { font-size:2rem; margin:0 15px; color:#ff6600; transition:0.3s;}
     .social-links a:hover { color:#800020; transform:scale(1.2); }
@@ -85,7 +63,7 @@
       header h1 { font-size:2.2rem; }
       .hero h2 { font-size:1.6rem; }
       nav ul { flex-direction:column; gap:10px; }
-      .features .col-md-4, .top-students .col-md-3 { margin-bottom:20px; }
+      .features .col-md-4 { margin-bottom:20px; }
     }
   </style>
 </head>
@@ -93,8 +71,9 @@
 
   <!-- Header -->
   <header class="animate-on-scroll">
+    <img src="images/loogada.jpeg" alt="Logo Machadka Tartiiil Online">
     <h1>Machadka Tartiiil Online</h1>
-   <p style="color:#ffcc99;">Kusoo dhowoow barashada Quraanka Kariimka iyo Culuumta Islaamka</p>
+    <p>Kusoo dhowoow barashada Quraanka Kariimka iyo Culuumta Islaamka</p>
   </header>
 
   <!-- Navigation -->
