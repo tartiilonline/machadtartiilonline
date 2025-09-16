@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Machadka Tartiiil Online</title>
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
   <style>
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -17,27 +16,32 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Dark Mode Styles */
     body.dark-mode {
       background-color: #121212;
       color: #f1f1f1;
     }
 
     header {
-      background-color: #800000; /* Burgundy */
+      background-color: #800000; 
       color: #fff;
-      padding: 15px 0;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       transition: background-color 0.3s;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    body.dark-mode header {
-      background-color: #4d0000;
-    }
+    body.dark-mode header { background-color: #4d0000; }
 
     header img {
       height: 60px;
       opacity: 0;
       animation: fadeIn 1s forwards 0.3s;
+      transition: transform 0.3s;
     }
+    header img:hover { transform: scale(1.1) translateY(-5px); }
 
     nav a {
       color: #fff;
@@ -47,42 +51,28 @@
       opacity: 0;
       animation: navFadeIn 0.8s forwards;
     }
-
     nav a:nth-child(1) { animation-delay: 0.5s; }
     nav a:nth-child(2) { animation-delay: 0.6s; }
     nav a:nth-child(3) { animation-delay: 0.7s; }
     nav a:nth-child(4) { animation-delay: 0.8s; }
     nav a:nth-child(5) { animation-delay: 0.9s; }
     nav a:nth-child(6) { animation-delay: 1s; }
-
-    nav a:hover {
-      text-decoration: underline;
-      color: #ffcc00;
-      transition: color 0.3s;
-    }
+    nav a:hover { text-decoration: underline; color: #ffcc00; transition: color 0.3s; }
 
     .hero {
       text-align: center;
       padding: 80px 20px;
-      background-color: #ff6600; /* Orange */
+      background-color: #ff6600;
       color: white;
-      transition: background-color 0.3s, color 0.3s;
       opacity: 0;
       transform: translateY(20px);
-      animation: slideUp 1s forwards 1.2s;
+      transition: opacity 0.8s, transform 0.8s;
     }
-    body.dark-mode .hero {
-      background-color: #cc5200;
-    }
+    body.dark-mode .hero { background-color: #cc5200; }
+    .hero.visible { opacity: 1; transform: translateY(0); }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+    .hero p { font-size: 1.2rem; }
 
     footer {
       text-align: center;
@@ -92,11 +82,8 @@
       margin-top: 50px;
       transition: background-color 0.3s;
     }
-    body.dark-mode footer {
-      background-color: #4d0000;
-    }
+    body.dark-mode footer { background-color: #4d0000; }
 
-    /* Dark Mode Toggle Button */
     .dark-mode-toggle {
       cursor: pointer;
       padding: 5px 10px;
@@ -107,37 +94,39 @@
       font-weight: bold;
       transition: background-color 0.3s, color 0.3s;
     }
-    body.dark-mode .dark-mode-toggle {
-      background-color: #333;
-      color: #ff6600;
-    }
+    body.dark-mode .dark-mode-toggle { background-color: #333; color: #ff6600; }
 
-    /* Animations */
-    @keyframes fadeIn {
-      to { opacity: 1; }
+    /* Back-to-Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      background-color: #800000;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s, transform 0.3s;
     }
+    #backToTop:hover { background-color: #ff6600; transform: scale(1.1); }
+    body.dark-mode #backToTop { background-color: #4d0000; color: #fff; }
 
-    @keyframes slideUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes navFadeIn {
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes navFadeIn { to { opacity: 1; } }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header class="d-flex justify-content-between align-items-center px-4">
+  <header>
     <div>
       <img src="images/logo.jpeg" alt="Machadka Tartiiil Online Logo">
     </div>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="#hero">Home</a>
       <a href="courses.html">Casharro</a>
       <a href="jadwal.html">Jadwal</a>
       <a href="waajibaad.html">Waajibaad</a>
@@ -148,7 +137,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <h1>Ku soo dhawoow Machadka Tartiiil Online</h1>
     <p>Barashada Qur’aanka iyo culuumkiisa si fudud, meel kasta iyo waqti kasta.</p>
   </section>
@@ -158,11 +147,12 @@
     &copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqda way dhowrsan tahay.
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Back-to-Top Button -->
+  <button id="backToTop" onclick="scrollToTop()">↑</button>
 
-  <!-- Dark Mode JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Dark Mode
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       if(document.body.classList.contains('dark-mode')){
@@ -171,10 +161,33 @@
         localStorage.setItem('darkMode', 'disabled');
       }
     }
-
-    // Load preference on page load
     if(localStorage.getItem('darkMode') === 'enabled'){
       document.body.classList.add('dark-mode');
+    }
+
+    // Hero scroll animation
+    const hero = document.getElementById('hero');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(hero);
+
+    // Back-to-Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 300){
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    function scrollToTop(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
