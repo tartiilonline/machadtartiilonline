@@ -15,11 +15,7 @@
       color: #000;
       transition: background-color 0.3s, color 0.3s;
     }
-
-    body.dark-mode {
-      background-color: #121212;
-      color: #f1f1f1;
-    }
+    body.dark-mode { background-color: #121212; color: #f1f1f1; }
 
     header {
       background-color: #800000; 
@@ -28,27 +24,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background-color 0.3s;
       position: sticky;
       top: 0;
       z-index: 1000;
+      transition: background-color 0.3s;
     }
     body.dark-mode header { background-color: #4d0000; }
 
-    header img {
-      height: 60px;
-      opacity: 0;
-      animation: fadeIn 1s forwards 0.3s;
-      transition: transform 0.3s;
-    }
+    header img { height: 60px; opacity: 0; animation: fadeIn 1s forwards 0.3s; transition: transform 0.3s; }
     header img:hover { transform: scale(1.1) translateY(-5px); }
 
     nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      opacity: 0;
+      color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; opacity: 0;
       animation: navFadeIn 0.8s forwards;
     }
     nav a:nth-child(1) { animation-delay: 0.5s; }
@@ -74,42 +61,26 @@
     .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
     .hero p { font-size: 1.2rem; }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #800000;
-      color: #fff;
-      margin-top: 50px;
-      transition: background-color 0.3s;
-    }
+    .section { padding: 60px 20px; }
+    .section h2 { text-align: center; margin-bottom: 40px; }
+    .feature-card, .course-card, .testimonial-card { transition: transform 0.3s, box-shadow 0.3s; }
+    .feature-card:hover, .course-card:hover, .testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+    footer { text-align: center; padding: 20px; background-color: #800000; color: #fff; transition: background-color 0.3s; }
     body.dark-mode footer { background-color: #4d0000; }
 
     .dark-mode-toggle {
       cursor: pointer;
       padding: 5px 10px;
-      background-color: #fff;
-      color: #800000;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
+      background-color: #fff; color: #800000;
+      border: none; border-radius: 5px; font-weight: bold;
       transition: background-color 0.3s, color 0.3s;
     }
     body.dark-mode .dark-mode-toggle { background-color: #333; color: #ff6600; }
 
-    /* Back-to-Top Button */
     #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: none;
-      background-color: #800000;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50px;
-      cursor: pointer;
-      z-index: 1000;
-      transition: background-color 0.3s, transform 0.3s;
+      position: fixed; bottom: 30px; right: 30px; display: none;
+      background-color: #800000; color: #fff; border: none; padding: 10px 15px; border-radius: 50px; cursor: pointer; z-index: 1000; transition: background-color 0.3s, transform 0.3s;
     }
     #backToTop:hover { background-color: #ff6600; transform: scale(1.1); }
     body.dark-mode #backToTop { background-color: #4d0000; color: #fff; }
@@ -142,6 +113,87 @@
     <p>Barashada Qur’aanka iyo culuumkiisa si fudud, meel kasta iyo waqti kasta.</p>
   </section>
 
+  <!-- Features Section -->
+  <section class="section" id="features">
+    <h2>Maxaa Na Doortaa?</h2>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="feature-card p-4 bg-light rounded">
+            <h4>Casharro Fudud</h4>
+            <p>Barasho sahlan oo step-by-step ah oo loogu talagalay arday kasta.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card p-4 bg-light rounded">
+            <h4>Macallimiin Khibrad Leh</h4>
+            <p>Macallimiin si fiican u yaqaan Qur’aanka iyo culuumkiisa oo ku hagaya.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card p-4 bg-light rounded">
+            <h4>Flexible & Online</h4>
+            <p>Waxbarasho meel kasta iyo waqti kasta, adigoo isticmaalaya internet-ka.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section class="section bg-light" id="courses-preview">
+    <h2>Casharro</h2>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="course-card p-4 bg-white rounded">
+            <h5>Bilow</h5>
+            <p>Casharro fudud oo bilowga ah.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="course-card p-4 bg-white rounded">
+            <h5>Dhexdhexaad</h5>
+            <p>Casharro dhexdhexaad ah si xirfadahaaga loo horumariyo.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="course-card p-4 bg-white rounded">
+            <h5>Dhamaystir</h5>
+            <p>Casharro dhameystiran oo ku saabsan Qur’aanka iyo culuumkiisa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials">
+    <h2>Ardayda Guuleystay</h2>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card p-4 bg-light rounded">
+            <p>"Machadka Tartiiil Online wuxuu ii fududeeyay barashada Qur’aanka si sahlan."</p>
+            <strong>- Ayaan</strong>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card p-4 bg-light rounded">
+            <p>"Macallimiinta waa khibrad leh oo waxay iga caawiyeen inaan horumar sameeyo."</p>
+            <strong>- Ahmed</strong>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card p-4 bg-light rounded">
+            <p>"Waxaan jeclahay flexibility-ga online-ka, meel kasta iyo waqti kasta baan wax ku baran karaa."</p>
+            <strong>- Fadumo</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     &copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqda way dhowrsan tahay.
@@ -155,40 +207,21 @@
     // Dark Mode
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
-      if(document.body.classList.contains('dark-mode')){
-        localStorage.setItem('darkMode', 'enabled');
-      } else {
-        localStorage.setItem('darkMode', 'disabled');
-      }
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
     }
-    if(localStorage.getItem('darkMode') === 'enabled'){
-      document.body.classList.add('dark-mode');
-    }
+    if(localStorage.getItem('darkMode') === 'enabled'){ document.body.classList.add('dark-mode'); }
 
     // Hero scroll animation
     const hero = document.getElementById('hero');
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
     }, { threshold: 0.1 });
     observer.observe(hero);
 
     // Back-to-Top Button
     const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 300){
-        backToTopBtn.style.display = 'block';
-      } else {
-        backToTopBtn.style.display = 'none';
-      }
-    });
-
-    function scrollToTop(){
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    window.addEventListener('scroll', () => { backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+    function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
 </body>
 </html>
