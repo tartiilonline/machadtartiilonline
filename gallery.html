@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery - Machadka Tartiiil Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header/Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/logo.jpeg" alt="Logo" width="40" height="40" class="me-2 rounded-circle">
+        Machadka Tartiiil Online
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="jadwal.html">Jadwal</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="registration.html">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-5 text-center bg-light mt-5">
+    <div class="container" data-aos="fade-up">
+      <h1 class="display-5 fw-bold">Gallery</h1>
+      <p class="lead">Halkan ka daawo sawirrada, muuqaalada iyo ardayda guuleystay.</p>
+    </div>
+  </section>
+
+  <!-- Sawirrada -->
+  <section class="container py-5">
+    <h2 class="text-center mb-4" data-aos="zoom-in">Sawirrada</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <img src="images/class1.jpg" class="img-fluid rounded shadow" alt="Class 1">
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+        <img src="images/class2.jpg" class="img-fluid rounded shadow" alt="Class 2">
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <img src="images/class3.jpg" class="img-fluid rounded shadow" alt="Class 3">
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section class="container py-5">
+    <h2 class="text-center mb-4" data-aos="zoom-in">Videos</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="ratio ratio-16x9 shadow rounded">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="ratio ratio-16x9 shadow rounded">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID2" title="YouTube video" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ardayda Guuleystay -->
+  <section class="container py-5">
+    <h2 class="text-center mb-4" data-aos="zoom-in">Ardayda Guuleystay</h2>
+    <div class="row g-4">
+      <div class="col-md-3 col-sm-6" data-aos="flip-left">
+        <img src="images/student1.jpg" class="img-fluid rounded-circle shadow" alt="Arday 1">
+        <p class="text-center mt-2">Arday 1</p>
+      </div>
+      <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="150">
+        <img src="images/student2.jpg" class="img-fluid rounded-circle shadow" alt="Arday 2">
+        <p class="text-center mt-2">Arday 2</p>
+      </div>
+      <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="300">
+        <img src="images/student3.jpg" class="img-fluid rounded-circle shadow" alt="Arday 3">
+        <p class="text-center mt-2">Arday 3</p>
+      </div>
+      <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="450">
+        <img src="images/student4.jpg" class="img-fluid rounded-circle shadow" alt="Arday 4">
+        <p class="text-center mt-2">Arday 4</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <div class="mb-3">
+        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-whatsapp fa-lg"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-telegram fa-lg"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+      </div>
+      <p class="mb-0">&copy; 2025 Machadka Tartiiil Online. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn btn-primary rounded-circle shadow position-fixed bottom-0 end-0 m-4">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
