@@ -20,8 +20,6 @@
       background-color: #1a0d0d;
       color: #f1f1f1;
     }
-
-    /* Header */
     header {
       background-color: #800000; 
       color: #fff;
@@ -36,10 +34,8 @@
       transition: background-color 0.3s;
     }
     body.dark-mode header { background-color: #990000; }
-
     header img { height: 60px; opacity: 0; animation: fadeIn 1s forwards 0.3s; transition: transform 0.3s; }
     header img:hover { transform: scale(1.1) translateY(-5px); }
-
     nav a {
       color: #fff;
       text-decoration: none;
@@ -49,15 +45,11 @@
     }
     nav a:hover { color: #ffcc80; }
     body.dark-mode nav a { color: #ffe6cc; }
-
-    /* Header social icons */
     .header-social { display: flex; gap: 10px; align-items: center; margin-left: 15px; }
     .header-social .social-icon { color: #fff; font-size: 1.1rem; transition: color 0.3s, transform 0.3s; }
     .header-social .social-icon:hover { transform: translateY(-3px) scale(1.2); }
     .header-social i:hover { color: #ff6600; }
     @media(max-width: 768px){ .header-social { display: none; } }
-
-    /* Dark mode button */
     .dark-mode-toggle {
       cursor: pointer;
       padding: 8px 10px;
@@ -70,12 +62,7 @@
       transition: background-color 0.3s, color 0.3s, transform 0.3s;
     }
     .dark-mode-toggle:hover { transform: scale(1.1); }
-    body.dark-mode .dark-mode-toggle {
-      background-color: #ff6600;
-      color: #fff;
-    }
-
-    /* Hero */
+    body.dark-mode .dark-mode-toggle { background-color: #ff6600; color: #fff; }
     .hero {
       text-align: center;
       padding: 80px 20px;
@@ -87,10 +74,8 @@
     }
     body.dark-mode .hero { background-color: #cc5200; }
     .hero.visible { opacity: 1; transform: translateY(0); }
-
     .section { padding: 60px 20px; }
     .section h2 { text-align: center; margin-bottom: 40px; }
-
     .feature-card, .course-card, .testimonial-card {
       transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
       background-color: #fdfdfd;
@@ -101,12 +86,13 @@
       background-color: #2a1a1a;
       color: #f1f1f1;
     }
-
     .feature-card:hover, .course-card:hover, .testimonial-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-
+    /* Tirakoobka */
+    .counter-card { border-radius: 20px; padding: 20px; transition: transform 0.3s, background-color 0.3s; }
+    .counter-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
     footer {
       text-align: center;
       padding: 20px;
@@ -122,7 +108,6 @@
       transition: color 0.3s, transform 0.3s;
     }
     .social-icons a:hover { transform: translateY(-5px) scale(1.2); color: #ff6600; }
-
     #backToTop {
       position: fixed;
       bottom: 30px;
@@ -139,12 +124,10 @@
     }
     #backToTop:hover { background-color: #ff6600; transform: scale(1.1); }
     body.dark-mode #backToTop { background-color: #cc5200; color: #fff; }
-
     @keyframes fadeIn { to { opacity: 1; } }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div>
       <img src="images/logo.jpeg" alt="Machadka Tartiiil Online Logo">
@@ -163,61 +146,55 @@
       <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
       <a href="https://wa.me/0000000000" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <!-- Dark Mode Icon Button -->
     <button class="dark-mode-toggle" id="darkModeBtn" onclick="toggleDarkMode()">
       <i class="fas fa-moon"></i>
     </button>
   </header>
 
-  <!-- Hero -->
   <section class="hero" id="hero">
     <h1>Ku soo dhawoow Machadka Tartiiil Online</h1>
     <p>Barashada Qur’aanka iyo culuumkiisa si fudud, meel kasta iyo waqti kasta.</p>
   </section>
 
-  <!-- ======= Machadka Tartiiil Online - Xogta & Tirakoobka ======= -->
-  <section id="machadka-xog" class="py-16 bg-gray-100 dark:bg-gray-900 text-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-burgundy mb-6">Machadka Tartiiil Online</h2>
-      <p class="max-w-3xl mx-auto text-gray-700 dark:text-gray-300 leading-relaxed mb-10">
+  <!-- Machadka Xogta & Tirakoobka -->
+  <section id="machadka-xog" class="py-16 text-center" style="background-color:#f0f0f0;">
+    <div class="container">
+      <h2 class="text-3xl font-bold mb-6" style="color:#800000;">Machadka Tartiiil Online</h2>
+      <p class="mb-10" style="max-width:700px;margin:auto;color:#333;">
         Machadka Tartiiil Online waa goob cilmiga Qur’aanka lagu barto oo ku saleysan hab casri ah,
         iyadoo la adeegsanayo manhaj tayo leh, macallimiin aqoon iyo khibrad u leh diinta islaamka.
         Ujeeddada machadku waa in uu kor u qaado barashada Qur’aanka Kariimka ah, tajwiidka, iyo fahamka cilmigiisa
         dhammaan bulshada Soomaaliyeed ee ku kala nool daafaha dunida.
       </p>
-
-      <!-- Tirakoobka Diiwaangelinta -->
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-orange-600">Ardayda Guud</h3>
-          <p class="text-3xl font-bold text-gray-900 dark:text-white">1350</p>
+      <div class="row justify-content-center g-4">
+        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
+          <h5 class="text-orange-600">Ardayda Guud</h5>
+          <p class="display-5 counter" id="ArdaydaGuud">0</p>
         </div>
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-orange-600">Farbar</h3>
-          <p class="text-3xl font-bold text-gray-900 dark:text-white">250</p>
+        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
+          <h5 class="text-orange-600">Farbar</h5>
+          <p class="display-5 counter" id="Farbar">0</p>
         </div>
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-orange-600">Xifdi</h3>
-          <p class="text-3xl font-bold text-gray-900 dark:text-white">400</p>
+        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
+          <h5 class="text-orange-600">Xifdi</h5>
+          <p class="display-5 counter" id="Xifdi">0</p>
         </div>
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-orange-600">Muraajaco</h3>
-          <p class="text-3xl font-bold text-gray-900 dark:text-white">300</p>
+        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
+          <h5 class="text-orange-600">Muraajaco</h5>
+          <p class="display-5 counter" id="Muraajaco">0</p>
         </div>
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-orange-600">Ijaaso</h3>
-          <p class="text-3xl font-bold text-gray-900 dark:text-white">200</p>
+        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
+          <h5 class="text-orange-600">Ijaaso</h5>
+          <p class="display-5 counter" id="Ijaaso">0</p>
         </div>
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-orange-600">Culuumul Quraan</h3>
-          <p class="text-3xl font-bold text-gray-900 dark:text-white">200</p>
+        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
+          <h5 class="text-orange-600">Culuumul Quraan</h5>
+          <p class="display-5 counter" id="CuluumulQuraan">0</p>
         </div>
       </div>
     </div>
   </section>
-  <!-- ======= Dhamaad Xogta Machadka ======= -->
 
-  <!-- Footer -->
   <footer>
     <div class="container text-center">
       <p>&copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqda way dhowrsan tahay.</p>
@@ -235,31 +212,57 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const darkModeBtn = document.getElementById('darkModeBtn');
-
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       const enabled = document.body.classList.contains('dark-mode');
       localStorage.setItem('darkMode', enabled ? 'enabled' : 'disabled');
       darkModeBtn.innerHTML = enabled ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
-
-    // Save last mode
     if (localStorage.getItem('darkMode') === 'enabled') {
       document.body.classList.add('dark-mode');
       darkModeBtn.innerHTML = '<i class="fas fa-sun"></i>';
     }
 
-    // Hero animation
     const hero = document.getElementById('hero');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
     }, { threshold: 0.1 });
     observer.observe(hero);
 
-    // Back-to-Top
     const backToTopBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => { backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; });
     function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+    // Tirakoobka Animation
+    function animateCounter(el, end, duration) {
+      let start = 0, range = end - start, increment = end > 100 ? Math.ceil(range / 100) : 1, stepTime = Math.abs(Math.floor(duration / range));
+      const timer = setInterval(() => {
+        start += increment;
+        if(start >= end){ start = end; clearInterval(timer); }
+        el.textContent = start;
+      }, stepTime);
+    }
+    
+    const counters = document.querySelectorAll('.counter');
+    
+    // Soo qaado xog Google Sheets (JSON)
+    fetch('https://script.google.com/macros/s/XXXX/exec') // Badal XXXX URL-ka Apps Script
+      .then(response => response.json())
+      .then(data => {
+        const mapping = {
+          "ArdaydaGuud": data.ArdaydaGuud,
+          "Farbar": data.Farbar,
+          "Xifdi": data.Xifdi,
+          "Muraajaco": data.Muraajaco,
+          "Ijaaso": data.Ijaaso,
+          "CuluumulQuraan": data.CuluumulQuraan
+        };
+        counters.forEach(counter => {
+          const id = counter.id;
+          const value = mapping[id] || 0;
+          animateCounter(counter, value, 1500);
+        });
+      });
   </script>
 </body>
 </html>
