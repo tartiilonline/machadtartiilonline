@@ -2,7 +2,7 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8">
-  <title>Diiwaangelin - Machadka Tartiiil Online</title>
+  <title>Koorsooyinka - Machadka Tartiiil Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Bootstrap & Icons -->
@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- AOS Animation -->
+  <!-- AOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <style>
@@ -18,11 +18,10 @@
       font-family: 'Poppins', sans-serif;
       background-color: #f8f9fa;
       color: #000;
-      transition: background-color 0.3s, color 0.3s;
+      transition: 0.3s;
     }
     body.dark-mode { background-color: #121212; color: #f1f1f1; }
 
-    /* Header */
     header {
       background-color: #800000;
       color: #fff;
@@ -30,214 +29,163 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
     header img { height: 60px; }
-    .header-social { display: flex; gap: 15px; align-items: center; }
-    .header-social a { color: #fff; font-size: 1.2rem; transition: transform 0.3s; }
-    .header-social a:hover { transform: scale(1.2); }
-    body.dark-mode .header-social a { color: #f1f1f1; }
 
-    /* Navbar */
     nav.navbar { background-color: #fff; }
-    nav.navbar a { color: #800000; font-weight: 600; transition: color 0.3s; }
+    nav.navbar a { color: #800000; font-weight: 600; }
     nav.navbar a:hover { color: orange; }
     body.dark-mode nav.navbar { background-color: #1e1e1e; }
     body.dark-mode nav.navbar a { color: #ff6600; }
 
-    /* Main Form */
-    main {
-      max-width: 700px;
-      margin: 2rem auto;
-      background-color: #fff;
-      padding: 2rem;
+    .course-card {
+      background: #fff;
       border-radius: 12px;
+      padding: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: background-color 0.3s, transform 0.3s;
+      transition: 0.3s;
+      height: 100%;
     }
-    main:hover { transform: translateY(-3px); }
-    body.dark-mode main { background-color: #1e1e1e; }
+    .course-card:hover { transform: translateY(-5px); }
+    body.dark-mode .course-card { background-color: #1e1e1e; }
 
-    form label { margin-top: 1rem; font-weight: 600; }
-    form input, form select {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      width: 100%;
-      transition: border-color 0.3s;
+    .course-icon {
+      font-size: 40px;
+      color: #800000;
+      margin-bottom: 15px;
     }
-    form input:focus, form select:focus { border-color: #800000; outline: none; }
 
-    form button {
-      margin-top: 1.5rem;
+    .btn-course {
       background-color: #800000;
-      color: white;
-      border: none;
+      color: #fff;
       border-radius: 6px;
-      padding: 0.75rem;
-      width: 100%;
-      font-size: 1.1rem;
+      padding: 8px 15px;
+      text-decoration: none;
+      display: inline-block;
       transition: 0.3s;
     }
-    form button:hover { background-color: orange; cursor: pointer; }
+    .btn-course:hover { background-color: orange; color: #fff; }
 
-    /* Footer */
     footer {
+      background-color: #800000;
+      color: #fff;
       text-align: center;
       padding: 20px;
-      background-color: #800000;
-      color: #fff;
-      margin-top: 40px;
-      transition: background-color 0.3s;
+      margin-top: 50px;
     }
-    footer a { color: #fff; margin: 0 10px; font-size: 1.2rem; transition: transform 0.3s; }
-    footer a:hover { transform: scale(1.2); color: orange; }
     body.dark-mode footer { background-color: #4d0000; }
-
-    /* Back to Top */
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: none;
-      background-color: #800000;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50px;
-      cursor: pointer;
-      z-index: 1000;
-      transition: background 0.3s, transform 0.3s;
-    }
-    #backToTop:hover { background-color: orange; transform: scale(1.1); }
-    body.dark-mode #backToTop { background-color: #4d0000; }
   </style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header>
-    <img src="images/logo.jpeg" alt="Machadka Tartiiil Online Logo">
-    <button id="darkModeToggle" class="btn btn-light btn-sm">🌙 Dark Mode</button>
-  </header>
+<!-- Header -->
+<header>
+  <img src="images/logo.jpeg" alt="Machadka Tartiiil Online">
+  <button id="darkModeToggle" class="btn btn-light btn-sm">🌙 Dark Mode</button>
+</header>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold text-danger" href="index.html">Machadka Tartiiil</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">🏠 Bogga Hore</a></li>
-          <li class="nav-item"><a class="nav-link href" href="registration.html">📝 Diiwaangelin</a></li>
-          <li class="nav-item"><a class="nav-link" href="courses.html">📘 Koorsooyinka</a></li>
-          <li class="nav-item"><a class="nav-link" href="jadwal.html">📅 Jadwalka</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">🖼️ Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="guuleystay.html">🏅 Ardayda Guuleystay</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">☎️ La Xiriir</a></li>
-        </ul>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-danger" href="index.html">Machadka Tartiiil</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">🏠 Bogga Hore</a></li>
+        <li class="nav-item"><a class="nav-link" href="registration.html">📝 Diiwaangelin</a></li>
+        <li class="nav-item"><a class="nav-link active" href="courses.html">📘 Koorsooyinka</a></li>
+        <li class="nav-item"><a class="nav-link" href="jadwal.html">📅 Jadwalka</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">🖼️ Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="guuleystay.html">🏅 Ardayda Guuleystay</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">☎️ La Xiriir</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Courses -->
+<section class="container my-5">
+  <h1 class="text-center text-danger mb-5" data-aos="fade-down">📘 Koorsooyinka Machadka Tartiiil</h1>
+
+  <div class="row g-4">
+
+    <div class="col-md-4" data-aos="fade-up">
+      <div class="course-card text-center">
+        <div class="course-icon"><i class="fas fa-book-quran"></i></div>
+        <h5>Farbarashada Qur’aanka</h5>
+        <p>Barashada aasaaska akhriska Qur’aanka kariimka.</p>
+        <a href="pdfs/farbar.pdf" class="btn-course" download>📥 Soo Degso PDF</a>
       </div>
     </div>
-  </nav>
 
-  <!-- Registration Form -->
-  <main data-aos="fade-up">
-    <h1 class="text-center text-danger mb-4">Foomka Diiwaangelinta Ardayda</h1>
-    <form action="https://formspree.io/f/mdkzvkvk" method="POST">
-      <label>Magaca:</label>
-      <input type="text" name="magaca" required>
-
-      <label>WhatsApp Number:</label>
-      <input type="tel" name="whatsapp" required>
-
-      <label>Wadanka:</label>
-      <input type="text" name="wadanka" required>
-
-      <label>Heerka:</label>
-      <select name="heerka" required>
-        <option value="">Dooro Heerka</option>
-        <option value="Biloow">Biloow</option>
-        <option value="Dhexdhexaad">Dhexdhexaad</option>
-        <option value="Dhamaystir">Dhamaystir</option>
-      </select>
-
-      <label>Taariikhda Dhalashada:</label>
-      <input type="date" name="dhalasho" required>
-
-      <label>Qeybta:</label>
-      <select name="qeybta" required>
-        <option value="">Dooro Qeybta</option>
-        <option value="Farbar">Farbar</option>
-        <option value="Xifdi">Xifdi</option>
-        <option value="Muraajaco">Muraajaco</option>
-        <option value="Ijaaso">Ijaaso</option>
-        <option value="Culuumul Quraan">Culuumul Quraan</option>
-      </select>
-
-      <label>Waqtiga:</label>
-      <input type="time" name="waqtiga" required>
-
-      <label>Qaabka:</label>
-      <select name="qaabka" required>
-        <option value="">Dooro Qaabka</option>
-        <option value="Qof Ahaan">Qof Ahaan</option>
-        <option value="Jamac">Jamac</option>
-      </select>
-
-      <label>Taariikhda Diiwaangelinta:</label>
-      <input type="date" name="taariikh" required>
-
-      <button type="submit">✅ Diiwaangeli</button>
-    </form>
-  </main>
-
-  <!-- Back to Top -->
-  <button id="backToTop" onclick="scrollToTop()">↑</button>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqda way dhowrsan tahay.</p>
-    <div>
-      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/252611456000" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="tel:2421"><i class="fas fa-phone-alt"></i></a>
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="course-card text-center">
+        <div class="course-icon"><i class="fas fa-brain"></i></div>
+        <h5>Xifdinta Qur’aanka</h5>
+        <p>Hab casri ah oo Qur’aanka loo xifdiyo.</p>
+        <a href="pdfs/xifdi.pdf" class="btn-course" download>📥 Soo Degso PDF</a>
+      </div>
     </div>
-  </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="course-card text-center">
+        <div class="course-icon"><i class="fas fa-sync-alt"></i></div>
+        <h5>Muraajacada</h5>
+        <p>Xoojinta iyo celcelinta Qur’aanka la xifdiyey.</p>
+        <a href="pdfs/muraajaco.pdf" class="btn-course" download>📥 Soo Degso PDF</a>
+      </div>
+    </div>
 
-    // Dark Mode Toggle
-    const toggle = document.getElementById('darkModeToggle');
-    if (localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark-mode');
-      toggle.textContent = '☀️ Light Mode';
-    }
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-        toggle.textContent = '☀️ Light Mode';
-      } else {
-        localStorage.setItem('darkMode', 'disabled');
-        toggle.textContent = '🌙 Dark Mode';
-      }
-    });
+    <div class="col-md-6" data-aos="fade-up">
+      <div class="course-card text-center">
+        <div class="course-icon"><i class="fas fa-award"></i></div>
+        <h5>Ijaasada Qur’aanka</h5>
+        <p>Hel shahaado Ijaaso markaad dhamayso Qur’aanka.</p>
+        <a href="pdfs/ijaaso.pdf" class="btn-course" download>📥 Soo Degso PDF</a>
+      </div>
+    </div>
 
-    // Back to Top
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="course-card text-center">
+        <div class="course-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h5>Culuumul Qur’aanka</h5>
+        <p>Barashada culuumta Qur’aanka iyo tafsiirka.</p>
+        <a href="pdfs/culuumul-quraan.pdf" class="btn-course" download>📥 Soo Degso PDF</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Machadka Tartiiil Online. Dhamaan xuquuqda way dhowrsan tahay.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+  AOS.init({ duration: 1000, once: true });
+
+  const toggle = document.getElementById('darkModeToggle');
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    toggle.textContent = '☀️ Light Mode';
+  }
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode',
+      document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled'
+    );
+    toggle.textContent =
+      document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+  });
+</script>
 
 </body>
 </html>
