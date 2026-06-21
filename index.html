@@ -28,7 +28,6 @@ body{
   background:var(--bg);
   color:var(--text);
   transition:0.3s;
-  scroll-behavior:smooth;
 }
 
 /* NAVBAR */
@@ -48,6 +47,7 @@ header{
   padding:10px 20px;
 }
 
+/* LOGO */
 .logo{
   display:flex;
   align-items:center;
@@ -63,15 +63,17 @@ header{
 }
 
 .logo h2{
-  font-size:16px;
+  font-size:14px;
   margin:0;
 }
 
+/* MENU */
 .menu a{
   color:white;
-  margin:0 10px;
+  margin:0 6px;
   text-decoration:none;
-  font-weight:600;
+  font-weight:500;
+  font-size:13px;
 }
 
 .menu a:hover{
@@ -81,10 +83,11 @@ header{
 .btn{
   background:var(--orange);
   border:none;
-  padding:8px 12px;
+  padding:6px 10px;
   border-radius:6px;
   cursor:pointer;
   color:white;
+  font-size:12px;
 }
 
 /* HERO */
@@ -99,18 +102,10 @@ header{
   padding:20px;
 }
 
-.hero-box{
-  max-width:700px;
-}
+.hero-box{max-width:700px;}
 
-.hero h1{
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-.hero p{
-  font-size:18px;
-}
+.hero h1{font-size:40px;}
+.hero p{font-size:18px;}
 
 .hero button{
   margin:10px;
@@ -122,9 +117,7 @@ header{
 }
 
 /* SECTIONS */
-section{
-  padding:60px 20px;
-}
+section{padding:60px 20px;}
 
 .title{
   text-align:center;
@@ -145,22 +138,15 @@ section{
   border-radius:15px;
   text-align:center;
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
-  transition:0.3s;
-  backdrop-filter:blur(10px);
-}
-
-.card:hover{
-  transform:translateY(-8px);
 }
 
 /* STATS */
 .stats{
   background:linear-gradient(135deg,#800020,#FF8C00);
   color:white;
-  text-align:center;
 }
 
-.stats .grid .card{
+.stats .card{
   background:rgba(255,255,255,0.15);
   color:white;
 }
@@ -172,11 +158,6 @@ footer{
   text-align:center;
   padding:20px;
 }
-
-/* DARK BUTTON */
-.toggle{
-  margin-left:10px;
-}
 </style>
 </head>
 
@@ -185,8 +166,9 @@ footer{
 <header>
   <div class="nav">
 
+    <!-- LOGO (ADDED) -->
     <div class="logo">
-     <img src="logo.jpg" alt="logo">
+      <img src="logo.jpg" alt="logo">
       <h2>Machadka Tartiiil</h2>
     </div>
 
@@ -195,7 +177,7 @@ footer{
       <a href="#courses">Koorsooyin</a>
       <a href="#stats">Tirakoob</a>
       <a href="#contact">Contact</a>
-      <button class="btn toggle" onclick="dark()">🌙</button>
+      <button class="btn" onclick="dark()">🌙</button>
     </div>
 
   </div>
@@ -206,7 +188,6 @@ footer{
   <div class="hero-box">
     <h1>معهد ترتيل للإقراء والدراسات القرآنية</h1>
     <p>“غرسُ القيم • وصناعةُ المستقبل”</p>
-    <p>Barashada Qur'aanka, Tajwiidka & Xifdiga Online</p>
 
     <button style="background:white;color:#800020;">Isdiiwaangeli</button>
     <button style="background:#111;color:white;">Koorsooyin</button>
@@ -216,7 +197,6 @@ footer{
 <!-- COURSES -->
 <section id="courses">
   <div class="title">Koorsooyinka</div>
-
   <div class="grid">
     <div class="card">📖 Farbarashada Qur'aanka</div>
     <div class="card">🕌 Xifdiga Qur'aanka</div>
@@ -229,7 +209,6 @@ footer{
 <!-- STATS -->
 <section class="stats" id="stats">
   <div class="title">Tirakoob</div>
-
   <div class="grid">
     <div class="card">500+ Arday</div>
     <div class="card">20+ Macallin</div>
@@ -241,7 +220,6 @@ footer{
 <!-- CONTACT -->
 <section id="contact">
   <div class="title">Nala Soo Xiriir</div>
-
   <div class="grid">
     <div class="card">📞 WhatsApp</div>
     <div class="card">📧 Email</div>
@@ -250,7 +228,7 @@ footer{
 </section>
 
 <footer>
-© 2026 Machadka Tartiiil Online | All Rights Reserved
+© 2026 Machadka Tartiiil Online
 </footer>
 
 <script>
