@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Machadka Tartiiil Online</title>
 
-<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -14,48 +13,41 @@
   --orange:#FF8C00;
   --bg:#ffffff;
   --text:#111;
-  --card:#f5f5f5;
+  --card:rgba(255,255,255,0.7);
 }
 
 body.dark{
-  --bg:#121212;
-  --text:#ffffff;
-  --card:#1e1e1e;
+  --bg:#0f0f0f;
+  --text:#fff;
+  --card:rgba(255,255,255,0.08);
 }
 
 body{
   margin:0;
-  font-family:'Cairo', sans-serif;
+  font-family:'Cairo',sans-serif;
   background:var(--bg);
   color:var(--text);
   transition:0.3s;
+  scroll-behavior:smooth;
 }
 
-/* CONTAINER */
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
-}
-
-/* HEADER */
+/* NAVBAR */
 header{
-  background:var(--primary);
-  color:white;
-  padding:12px 0;
   position:sticky;
   top:0;
   z-index:1000;
+  backdrop-filter:blur(10px);
+  background:rgba(128,0,32,0.9);
+  color:white;
 }
 
-.header-inner{
+.nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:15px;
+  padding:10px 20px;
 }
 
-/* LOGO */
 .logo{
   display:flex;
   align-items:center;
@@ -66,84 +58,82 @@ header{
   width:45px;
   height:45px;
   border-radius:50%;
-  background:white;
-  padding:3px;
+  object-fit:cover;
+  border:2px solid white;
 }
 
 .logo h2{
-  font-size:18px;
+  font-size:16px;
   margin:0;
 }
 
-/* NAV */
-nav a{
+.menu a{
   color:white;
   margin:0 10px;
   text-decoration:none;
   font-weight:600;
-  transition:0.3s;
 }
 
-nav a:hover{
+.menu a:hover{
   color:var(--orange);
 }
 
-/* BUTTON */
-.toggle-btn{
+.btn{
   background:var(--orange);
   border:none;
   padding:8px 12px;
-  cursor:pointer;
   border-radius:6px;
-  font-weight:bold;
+  cursor:pointer;
+  color:white;
 }
 
 /* HERO */
 .hero{
+  height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(135deg,var(--primary),var(--orange));
+  background:linear-gradient(135deg,#800020,#FF8C00);
   color:white;
+  padding:20px;
+}
+
+.hero-box{
+  max-width:700px;
 }
 
 .hero h1{
-  font-size:34px;
+  font-size:40px;
   margin-bottom:10px;
 }
 
 .hero p{
-  margin:5px 0;
   font-size:18px;
 }
 
-.btn{
-  background:white;
-  color:var(--primary);
+.hero button{
+  margin:10px;
   padding:10px 18px;
   border:none;
-  margin:10px;
+  border-radius:8px;
   cursor:pointer;
-  border-radius:6px;
   font-weight:bold;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
 }
 
 /* SECTIONS */
 section{
-  padding:50px 0;
+  padding:60px 20px;
 }
 
-h2{
+.title{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:30px;
+  font-size:26px;
 }
 
 /* CARDS */
-.cards{
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
@@ -152,22 +142,40 @@ h2{
 .card{
   background:var(--card);
   padding:20px;
-  border-radius:12px;
+  border-radius:15px;
   text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
   transition:0.3s;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  backdrop-filter:blur(10px);
 }
 
 .card:hover{
   transform:translateY(-8px);
 }
 
+/* STATS */
+.stats{
+  background:linear-gradient(135deg,#800020,#FF8C00);
+  color:white;
+  text-align:center;
+}
+
+.stats .grid .card{
+  background:rgba(255,255,255,0.15);
+  color:white;
+}
+
 /* FOOTER */
 footer{
-  background:var(--primary);
+  background:#800020;
   color:white;
   text-align:center;
   padding:20px;
+}
+
+/* DARK BUTTON */
+.toggle{
+  margin-left:10px;
 }
 </style>
 </head>
@@ -175,43 +183,41 @@ footer{
 <body>
 
 <header>
-  <div class="container header-inner">
+  <div class="nav">
 
-    <!-- LOGO -->
     <div class="logo">
       <img src="/mnt/data/WhatsApp Image 2026-06-21 at 6.55.35 PM.jpeg" alt="logo">
-      <h2>Machadka Tartiiil Online</h2>
+      <h2>Machadka Tartiiil</h2>
     </div>
 
-    <!-- NAV -->
-    <nav>
+    <div class="menu">
       <a href="#">Home</a>
-      <a href="#">Koorsooyin</a>
-      <a href="#">Jadwal</a>
-      <a href="#">Diiwaangelin</a>
-    </nav>
-
-    <button class="toggle-btn" onclick="toggleDark()">🌙</button>
+      <a href="#courses">Koorsooyin</a>
+      <a href="#stats">Tirakoob</a>
+      <a href="#contact">Contact</a>
+      <button class="btn toggle" onclick="dark()">🌙</button>
+    </div>
 
   </div>
 </header>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>معهد ترتيل للإقراء والدراسات القرآنية</h1>
-  <p>“غرسُ القيم • وصناعةُ المستقبل”</p>
-  <p>Barashada Qur'aanka, Tajwiidka & Xifdiga Online</p>
+  <div class="hero-box">
+    <h1>معهد ترتيل للإقراء والدراسات القرآنية</h1>
+    <p>“غرسُ القيم • وصناعةُ المستقبل”</p>
+    <p>Barashada Qur'aanka, Tajwiidka & Xifdiga Online</p>
 
-  <button class="btn">Isdiiwaangeli</button>
-  <button class="btn">Daawo Koorsooyinka</button>
+    <button style="background:white;color:#800020;">Isdiiwaangeli</button>
+    <button style="background:#111;color:white;">Koorsooyin</button>
+  </div>
 </div>
 
-<div class="container">
-
 <!-- COURSES -->
-<section>
-  <h2>Koorsooyinka</h2>
-  <div class="cards">
+<section id="courses">
+  <div class="title">Koorsooyinka</div>
+
+  <div class="grid">
     <div class="card">📖 Farbarashada Qur'aanka</div>
     <div class="card">🕌 Xifdiga Qur'aanka</div>
     <div class="card">🔁 Muraajaco</div>
@@ -220,21 +226,11 @@ footer{
   </div>
 </section>
 
-<!-- WHY -->
-<section>
-  <h2>Maxaa Nagu Doortaa?</h2>
-  <div class="cards">
-    <div class="card">👨‍🏫 Macallimiin Khibrad Leh</div>
-    <div class="card">⏰ 24/7 Fasallo</div>
-    <div class="card">🌍 Adduunka Oo Dhan</div>
-    <div class="card">📜 Shahaadooyin</div>
-  </div>
-</section>
-
 <!-- STATS -->
-<section>
-  <h2>Tirakoob</h2>
-  <div class="cards">
+<section class="stats" id="stats">
+  <div class="title">Tirakoob</div>
+
+  <div class="grid">
     <div class="card">500+ Arday</div>
     <div class="card">20+ Macallin</div>
     <div class="card">15+ Dal</div>
@@ -242,14 +238,23 @@ footer{
   </div>
 </section>
 
-</div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="title">Nala Soo Xiriir</div>
+
+  <div class="grid">
+    <div class="card">📞 WhatsApp</div>
+    <div class="card">📧 Email</div>
+    <div class="card">📍 Mogadishu</div>
+  </div>
+</section>
 
 <footer>
-© 2026 Machadka Tartiiil Online | Dhammaan xuquuqdu way dhowran tahay
+© 2026 Machadka Tartiiil Online | All Rights Reserved
 </footer>
 
 <script>
-function toggleDark(){
+function dark(){
   document.body.classList.toggle("dark");
 }
 </script>
