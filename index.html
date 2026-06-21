@@ -1,265 +1,189 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Machadka Tartiiil Online</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa;
-      color: #000;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    body.dark-mode {
-      background-color: #1a0d0d;
-      color: #f1f1f1;
-    }
-    header {
-      background-color: #800000; 
-      color: #fff;
-      padding: 20px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      flex-wrap: wrap;
-      transition: background-color 0.3s;
-    }
-    body.dark-mode header { background-color: #990000; }
-    header img { height: 60px; opacity: 0; animation: fadeIn 1s forwards 0.3s; transition: transform 0.3s; }
-    header img:hover { transform: scale(1.1) translateY(-5px); }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ffcc80; }
-    body.dark-mode nav a { color: #ffe6cc; }
-    .header-social { display: flex; gap: 10px; align-items: center; margin-left: 15px; }
-    .header-social .social-icon { color: #fff; font-size: 1.1rem; transition: color 0.3s, transform 0.3s; }
-    .header-social .social-icon:hover { transform: translateY(-3px) scale(1.2); }
-    .header-social i:hover { color: #ff6600; }
-    @media(max-width: 768px){ .header-social { display: none; } }
-    .dark-mode-toggle {
-      cursor: pointer;
-      padding: 8px 10px;
-      background-color: #fff;
-      color: #800000;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1.2rem;
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
-    }
-    .dark-mode-toggle:hover { transform: scale(1.1); }
-    body.dark-mode .dark-mode-toggle { background-color: #ff6600; color: #fff; }
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background-color: #ff6600;
-      color: white;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s, transform 0.8s, background-color 0.3s;
-    }
-    body.dark-mode .hero { background-color: #cc5200; }
-    .hero.visible { opacity: 1; transform: translateY(0); }
-    .section { padding: 60px 20px; }
-    .section h2 { text-align: center; margin-bottom: 40px; }
-    .feature-card, .course-card, .testimonial-card {
-      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-      background-color: #fdfdfd;
-    }
-    body.dark-mode .feature-card,
-    body.dark-mode .course-card,
-    body.dark-mode .testimonial-card {
-      background-color: #2a1a1a;
-      color: #f1f1f1;
-    }
-    .feature-card:hover, .course-card:hover, .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    /* Tirakoobka */
-    .counter-card { border-radius: 20px; padding: 20px; transition: transform 0.3s, background-color 0.3s; }
-    .counter-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #800000;
-      color: #fff;
-      transition: background-color 0.3s;
-    }
-    body.dark-mode footer { background-color: #990000; }
-    .social-icons a {
-      margin: 0 10px;
-      color: #fff;
-      display: inline-block;
-      transition: color 0.3s, transform 0.3s;
-    }
-    .social-icons a:hover { transform: translateY(-5px) scale(1.2); color: #ff6600; }
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: none;
-      background-color: #800000;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50px;
-      cursor: pointer;
-      z-index: 1000;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-    #backToTop:hover { background-color: #ff6600; transform: scale(1.1); }
-    body.dark-mode #backToTop { background-color: #cc5200; color: #fff; }
-    @keyframes fadeIn { to { opacity: 1; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machadka Tartiiil Online</title>
+
+<style>
+:root{
+  --primary:#800020;
+  --orange:#FF8C00;
+  --bg:#ffffff;
+  --text:#111;
+  --card:#f5f5f5;
+}
+
+body.dark{
+  --bg:#121212;
+  --text:#ffffff;
+  --card:#1e1e1e;
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s;
+}
+
+/* HEADER */
+header{
+  background:var(--primary);
+  color:white;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+}
+
+nav a{
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.toggle-btn{
+  background:var(--orange);
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px 20px;
+  background:linear-gradient(135deg,var(--primary),var(--orange));
+  color:white;
+}
+
+.hero h1{
+  font-size:32px;
+}
+
+.btn{
+  background:white;
+  color:var(--primary);
+  padding:10px 20px;
+  border:none;
+  margin:10px;
+  cursor:pointer;
+  border-radius:5px;
+  font-weight:bold;
+}
+
+/* SECTIONS */
+section{
+  padding:40px 20px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* FOOTER */
+footer{
+  background:var(--primary);
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin-top:20px;
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div>
-      <img src="images/logo.jpeg" alt="Machadka Tartiiil Online Logo">
-    </div>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="courses.html">Casharro</a>
-      <a href="jadwal.html">Jadwal</a>
-      <a href="waajibaad.html">Waajibaad</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="registration.html">Register</a>
-    </nav>
-    <div class="header-social">
-      <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/0000000000" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <button class="dark-mode-toggle" id="darkModeBtn" onclick="toggleDarkMode()">
-      <i class="fas fa-moon"></i>
-    </button>
-  </header>
 
-  <section class="hero" id="hero">
-    <h1>Ku soo dhawoow Machadka Tartiiil Online</h1>
-    <p>Barashada Qur’aanka iyo culuumkiisa si fudud, meel kasta iyo waqti kasta.</p>
-  </section>
+<header>
+  <h2>📘 Tartiiil Online</h2>
 
-  <!-- Machadka Xogta & Tirakoobka -->
-  <section id="machadka-xog" class="py-16 text-center" style="background-color:#f0f0f0;">
-    <div class="container">
-      <h2 class="text-3xl font-bold mb-6" style="color:#800000;">Machadka Tartiiil Online</h2>
-      <p class="mb-10" style="max-width:700px;margin:auto;color:#333;">
-        Machadka Tartiiil Online waa goob cilmiga 
-      </p>
-      <div class="row justify-content-center g-4">
-        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
-          <h5 class="text-orange-600">Ardayda Guud</h5>
-          <p class="display-5 counter" id="ArdaydaGuud">0</p>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
-          <h5 class="text-orange-600">Farbar</h5>
-          <p class="display-5 counter" id="Farbar">0</p>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
-          <h5 class="text-orange-600">Xifdi</h5>
-          <p class="display-5 counter" id="Xifdi">0</p>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
-          <h5 class="text-orange-600">Muraajaco</h5>
-          <p class="display-5 counter" id="Muraajaco">0</p>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
-          <h5 class="text-orange-600">Ijaaso</h5>
-          <p class="display-5 counter" id="Ijaaso">0</p>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2 counter-card bg-white dark:bg-gray-800 shadow-md">
-          <h5 class="text-orange-600">Culuumul Quraan</h5>
-          <p class="display-5 counter" id="CuluumulQuraan">0</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Koorsooyin</a>
+    <a href="#">Jadwal</a>
+    <a href="#">Diiwaangelin</a>
+  </nav>
 
-  <footer>
-    <div class="container text-center">
-      <p>&copy; 2025 Machadka Tartiiil Online. Dhamaan Xuquuqda way dhowrsan tahay.</p>
-      <div class="social-icons mt-2">
-        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
-        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
-        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
-        <a href="https://wa.me/0000000000" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
-      </div>
-    </div>
-  </footer>
+  <button class="toggle-btn" onclick="toggleDark()">🌙</button>
+</header>
 
-  <button id="backToTop" onclick="scrollToTop()">↑</button>
+<!-- HERO -->
+<div class="hero">
+  <h1>معهد ترتيل للإقراء والدراسات القرآنية</h1>
+  <p>“غرسُ القيم • وصناعةُ المستقبل”</p>
+  <p>Barashada Qur'aanka, Tajwiidka & Xifdiga Online</p>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const darkModeBtn = document.getElementById('darkModeBtn');
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const enabled = document.body.classList.contains('dark-mode');
-      localStorage.setItem('darkMode', enabled ? 'enabled' : 'disabled');
-      darkModeBtn.innerHTML = enabled ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    }
-    if (localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark-mode');
-      darkModeBtn.innerHTML = '<i class="fas fa-sun"></i>';
-    }
+  <button class="btn">Isdiiwaangeli</button>
+  <button class="btn">Daawo Koorsooyinka</button>
+</div>
 
-    const hero = document.getElementById('hero');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-    observer.observe(hero);
+<!-- COURSES -->
+<section>
+  <h2 style="text-align:center;">Koorsooyinka</h2>
 
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => { backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; });
-    function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  <div class="cards">
+    <div class="card">📖 Farbarashada Qur'aanka</div>
+    <div class="card">🕌 Xifdiga Qur'aanka</div>
+    <div class="card">🔁 Muraajaco</div>
+    <div class="card">🎓 Ijaaso</div>
+    <div class="card">📚 Culuumul Qur'aan</div>
+  </div>
+</section>
 
-    // Tirakoobka Animation
-    function animateCounter(el, end, duration) {
-      let start = 0, range = end - start, increment = end > 100 ? Math.ceil(range / 100) : 1, stepTime = Math.abs(Math.floor(duration / range));
-      const timer = setInterval(() => {
-        start += increment;
-        if(start >= end){ start = end; clearInterval(timer); }
-        el.textContent = start;
-      }, stepTime);
-    }
-    
-    const counters = document.querySelectorAll('.counter');
-    
-    // Soo qaado xog Google Sheets (JSON)
-    fetch('https://script.google.com/macros/s/AKfycbwInH4Xht_VMCrgcmD8Oh9wwjpUzuFktMMKia7DIci40IlCBjraKfDhiHa0_nD9BYKD/exec')
-      .then(response => response.json())
-      .then(data => {
-        const mapping = {
-          "ArdaydaGuud": data.ArdaydaGuud,
-          "Farbar": data.Farbar,
-          "Xifdi": data.Xifdi,
-          "Muraajaco": data.Muraajaco,
-          "Ijaaso": data.Ijaaso,
-          "CuluumulQuraan": data.CuluumulQuraan
-        };
-        counters.forEach(counter => {
-          const id = counter.id;
-          const value = mapping[id] || 0;
-          animateCounter(counter, value, 1500);
-        });
-      });
-  </script>
+<!-- WHY US -->
+<section>
+  <h2 style="text-align:center;">Maxaa Nagu Doortaa?</h2>
+
+  <div class="cards">
+    <div class="card">👨‍🏫 Macallimiin Khibrad Leh</div>
+    <div class="card">⏰ 24/7 Fasallo</div>
+    <div class="card">🌍 Online Adduunka Oo Dhan</div>
+    <div class="card">📜 Shahaadooyin</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section>
+  <h2 style="text-align:center;">Tirakoob</h2>
+
+  <div class="cards">
+    <div class="card">500+ Arday</div>
+    <div class="card">20+ Macallin</div>
+    <div class="card">15+ Dal</div>
+    <div class="card">50+ Koorso</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Machadka Tartiiil Online | Dhammaan xuquuqdu way dhowran tahay
+</footer>
+
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+</script>
+
 </body>
 </html>
